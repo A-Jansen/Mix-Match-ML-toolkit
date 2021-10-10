@@ -1,0 +1,40 @@
+* {
+  /* margin: 0px;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  color: rgb(30, 30, 30);
+}
+
+header #welcome {
+  margin-top: 50px;
+}
+
+#welcome {
+  text-align: center;
+  font-family: Lato;
+  font-weight: lighter;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.centerBlock {
+  width: 600px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.centerText {
+  text-align: center;
+}
+
+#continue{
+  visibility: hidden;
+}
+
+#connected{
+  visibility: hidden;
+}
