@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<combinations  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <combi>
+    <name>Image recogntion</name>
+    <datatype>Images</datatype>
+    <ability>Recognize/ Identify</ability>
+    <datatoken>2</datatoken>
+    <abilitytoken>140</abilitytoken>
+    <description>Recognize what is visible in images. This can be a person, an object, handwritten numbers and more. Some models can recognize only one object in each image and others can detect multiple, as well as their location.</description>
+    <capabilities>Can recognize all kind of visual input, it can learn things humans are not capable of recognizing</capabilities>
+    <limitations>Requires labeled data, only recognize on what it is trained</limitations>
+    <techterm>Image classification</techterm>
+    <examples>
+      <ex >
+        <exname>Google Lens</exname>
+        <exdescription>Identify objects in your image, translate text from photos , explore similar looking items.</exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://techengage.com/google-lens-now-detects-billion-items/">Link to example</exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://www.tensorflow.org/tutorials/images/classification">Link to DIY</diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Image generation</name>
+    <datatype>Images</datatype>
+    <ability>Generate</ability>
+    <datatoken>02</datatoken>
+    <abilitytoken>24</abilitytoken>
+    <description>Generate new images based on examples</description>
+    <capabilities>
+    </capabilities>
+    <limitations>
+    </limitations>
+    <techterm>Generative adversarial network, image generation</techterm>
+    <examples>
+      <ex>
+        <exname>Dall-e</exname>
+        <exdescription>Create images from text captions.</exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://openai.com/blog/dall-e/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/image-generation-in-10-minutes-with-generative-adversarial-networks-c2afc56bfa3b"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Text understanding</name>
+    <datatype>Text</datatype>
+    <ability>Understand/ Identify</ability>
+    <datatoken>242</datatoken>
+    <abilitytoken>
+    </abilitytoken>
+    <description>Can recognize text from e.g. sheets of papers, credit cards, receipts and convert it to digital text</description>
+    <capabilities>Can recognize text in real-time</capabilities>
+    <limitations>The scan/image should be of good enough quality</limitations>
+    <techterm>Optical character recognition</techterm>
+    <examples>
+      <ex>
+        <exname>OneNote</exname>
+        <exdescription>Copy text from a picture into your notes</exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://support.microsoft.com/en-us/office/copy-text-from-pictures-and-file-printouts-using-ocr-in-onenote-93a70a2f-ebcd-42dc-9f0b-19b09fd775b4">Link to example</exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://developers.google.com/ml-kit/vision/text-recognition">Link to diy site</diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Text generation</name>
+    <datatype>Text</datatype>
+    <ability>Generate</ability>
+    <datatoken>242</datatoken>
+    <abilitytoken>24</abilitytoken>
+    <description>Generate new texts from scratch, often based on a few words or a style (e.g. Shakespearean texts)</description>
+    <capabilities>
+    </capabilities>
+    <limitations>
+    </limitations>
+    <techterm>Text generation, generative adversarial network</techterm>
+    <examples>
+      <ex>
+        <exname>Plot generator</exname>
+        <exdescription>Based on a few parameters you can generate movie scripts, short stories, opening lines and more.</exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.plot-generator.org.uk/">"</exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/the-making-of-an-ai-storyteller-c3b8d5a983f5"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Text recognition</name>
+    <datatype>Text</datatype>
+    <ability>Recognition</ability>
+    <datatoken>242</datatoken>
+    <abilitytoken>140</abilitytoken>
+    <description>Place texts in certain predefined categories</description>
+    <capabilities>
+    </capabilities>
+    <limitations>Categories should be predefined, does not understand the text</limitations>
+    <techterm>Text classification</techterm>
+    <examples>
+      <ex>
+        <exname>Sentiment analysis</exname>
+        <exdescription>Analyse the text and show if it has a postive or a negative sentiment.</exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://monkeylearn.com/sentiment-analysis-online/">Link to example</exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://www.tensorflow.org/text/tutorials/text_classification_rnn">Link to DIY</diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>
+    </name>
+    <datatype>
+    </datatype>
+    <ability>
+    </ability>
+    <datatoken>
+    </datatoken>
+    <abilitytoken>
+    </abilitytoken>
+    <description>
+    </description>
+    <capabilities>
+    </capabilities>
+    <limitations>
+    </limitations>
+    <techterm>
+    </techterm>
+    <examples>
+      <ex>
+        <exname>
+        </exname>
+        <exdescription>
+        </exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="">
+        </exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="">
+        </diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>
+    </name>
+    <datatype>
+    </datatype>
+    <ability>
+    </ability>
+    <datatoken>
+    </datatoken>
+    <abilitytoken>
+    </abilitytoken>
+    <description>
+    </description>
+    <capabilities>
+    </capabilities>
+    <limitations>
+    </limitations>
+    <techterm>
+    </techterm>
+    <examples>
+      <ex>
+        <exname>
+        </exname>
+        <exdescription>
+        </exdescription>
+        <eximage>
+        </eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="">
+        </exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="">
+        </diylink>
+      </ex>
+    </examples>
+  </combi>
+</combinations>

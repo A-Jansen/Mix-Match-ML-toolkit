@@ -1,4 +1,4 @@
-<?php Header("Cache-Control: max-age=300, must-revalidate"); ?>
+<?html Header("Cache-Control: max-age=300, must-revalidate"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -56,7 +56,7 @@
 var IDnumber; //for logging each session to oocsi so it can be identified for analyses
 let ready=false; //use to not skip the setup page by pressing key or placing tokens
 
-//When you click continue, the body will be replaced with the page from infopage.php, but you stay at the same page so the BLE connection does not get broken
+//When you click continue, the body will be replaced with the page from infopage.html, but you stay at the same page so the BLE connection does not get broken
 function openInfo() {
 	if (!ready){
 		ready=true;
@@ -69,9 +69,9 @@ function openInfo() {
       document.getElementById("replace").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "infopage.php", true);
+  xhttp.open("GET", "infopage.html", true);
   xhttp.send();
-}
+};
 
 //Control the pages for now with keys, replace once tokens work
 var key = function(e) {
@@ -82,12 +82,20 @@ var key = function(e) {
 		switch (k) {
 			case 68: //68=d=data
 				console.log('data page');
-				openDataPage();
+			//send the .xml, .xsl and datatoken to the transform function and open the data page
+			openDataPage(transform('datatypes.xml', 'datatokens.xsl', 2)); //02=text
 				break;
 			case 65: //65=a=abilityPage
 				console.log('model ability page');
-				openAbilityPage();
+				//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+				openAbilityPage(transform('abilities.xml', 'abilities.xsl', 140)); //140= recogntion
 				break;
+		case 67: //67=c=combinationPage
+			console.log('combination page');
+			//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
+			openCombinationPage(transform2('combies.xml', 'combies.xsl', 2, 140)); //image recognition
+			break;
+			//in case of any other key, go back to the infopage (equal to removing the token)
 			default:
 			console.log('back to infopage');
 			openInfo();
@@ -104,9 +112,11 @@ function openDataPage() {
       document.getElementById("replace").innerHTML = this.responseText;
     }
   };
-  xhttpData.open("GET", "dataPage.php", true);
+  xhttpData.open("GET", "dataPage.html", true);
   xhttpData.send();
-}
+
+};
+
 
 //open the ML ability page when 'a' is pressed or when a ML ability token is placed
 function openAbilityPage() {
@@ -116,9 +126,91 @@ function openAbilityPage() {
       document.getElementById("replace").innerHTML = this.responseText;
     }
   };
-  xhttpAbility.open("GET", "abilityPage.php", true);
+  xhttpAbility.open("GET", "abilityPage.html", true);
   xhttpAbility.send();
+};
+
+
+function openCombinationPage() {
+	var xhttpCombi = new XMLHttpRequest();
+  xhttpCombi.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("replace").innerHTML = this.responseText;
+    }
+  };
+  xhttpCombi.open("GET", "combinationPage.html", true);
+  xhttpCombi.send();
+};
+
+//Load and style the information for the data or ability pages
+//https://stackoverflow.com/questions/31459664/uncaught-typeerror-failed-to-execute-importstylesheet-on-xsltprocessor-par
+function load(url, callback) {
+	var req = new XMLHttpRequest();
+	req.open('GET', "/assets/xml/"+url);
+	// to allow us doing XSLT in IE
+	try {
+		req.responseType = "msxml-document"
+	} catch (ex) {}
+	req.onload = function() {
+		callback(req.responseXML);
+	};
+	req.send();
 }
+
+//Transform the xml and xsl with one input variable for displaying the data or ability pages
+function transform(xml, xsl, type) {
+	load(
+		xml,
+		function(inputXml) {
+			load(
+				xsl,
+				function(xsltSheet) {
+					displayResult(inputXml, xsltSheet, type);
+				}
+			);
+		}
+	);
+}
+
+function displayResult(xmlInput, xsltSheet, type) {
+	if (typeof XSLTProcessor !== 'undefined') {
+		var proc = new XSLTProcessor();
+		proc.importStylesheet(xsltSheet);
+		proc.setParameter(null, "tokenselected", type);
+		document.getElementById('replace').appendChild(proc.transformToFragment(xmlInput, document));
+	} else if (typeof xmlInput.transformNode !== 'undefined') {
+		document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
+	}
+}
+
+
+//Transform the xml and xsl with two input variables for displaying the combination pages
+function transform2(xml, xsl, type1, type2) {
+	load(
+		xml,
+		function(inputXml) {
+			load(
+				xsl,
+				function(xsltSheet) {
+					display2Results(inputXml, xsltSheet, type1, type2);
+				}
+			);
+		}
+	);
+}
+
+function display2Results(xmlInput, xsltSheet, type1, type2) {
+	if (typeof XSLTProcessor !== 'undefined') {
+		var proc2 = new XSLTProcessor();
+		proc2.importStylesheet(xsltSheet);
+		proc2.setParameter(null, "tokenselected1", type1);
+		proc2.setParameter(null, "tokenselected2", type2);
+		document.getElementById('replace').appendChild(proc2.transformToFragment(xmlInput, document));
+	} else if (typeof xmlInput.transformNode !== 'undefined') {
+		document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
+	}
+}
+//-------------------------------------------------------------------------------------------
 
 </script>
 

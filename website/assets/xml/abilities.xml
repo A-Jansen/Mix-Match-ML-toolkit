@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abilities>
+  <abilitytoken>
+    <ability>Forsee</ability>
+    <token></token>
+    <description>Anticipate something based on certain past events/characteristics</description>
+    <type>Supervised learning</type>
+      <techterm>Classification, regression</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Recommend</ability>
+    <token></token>
+    <description>Provide suggestions/contents/guidance based on past events</description>
+    <type>Unsupervised learning</type>
+      <techterm>Recommender systems (collaborative filtering/ content based)</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Distinguish</ability>
+    <token></token>
+    <description>Differentiate something from a group/average/... (finding outliers, pick something)</description>
+    <type>Supervised learning</type>
+      <techterm>Anomaly detection</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Categorize/Cluster</ability>
+    <token></token>
+    <description>Find similarities among groups of things/people/etc. Grouping things/people/...based on their similarities</description>
+    <type>Unsupervised learning</type>
+      <techterm>Clustering</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Recognize/ Identify</ability>
+    <token>140</token>
+    <description>Recognize or identify something/someone who has specific characteristics (matching?)</description>
+    <type>Supervised learning</type>
+      <techterm>Classification</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Understand/ Interpret</ability>
+    <token></token>
+    <description>Comprehend topics/themes or find meaning in a pile of things</description>
+    <type>Unsupervised learning</type>
+      <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Communicate</ability>
+    <token></token>
+    <description>Convey messages/content to someone</description>
+    <type>Unsupervised learning</type>
+      <techterm>Text to speech synthesis/ analysis</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Transform/ Translate</ability>
+    <token></token>
+    <description>Transform contents from one domain to another</description>
+    <type>Unsupervised learning</type>
+      <techterm>Neural Machine Translation, neural style transfer </techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Generate</ability>
+    <token>24</token>
+    <description>Create content from scratch</description>
+    <type>Unsupervised learning</type>
+      <techterm>Generative Adversarial Networks (GAN), speech synthesis, deep fakes</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Improve/ Optimize</ability>
+    <token></token>
+    <description>Optimize or perfect a certain task/route/process</description>
+    <type>Reinforcement learning</type>
+      <techterm>Optimization algorithms, reinforcement learning</techterm>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Navigate</ability>
+    <token></token>
+    <description>Steer through an environment</description>
+    <type>Reinforcement learning</type>
+      <techterm>Navigation algorithms, reinforcement learning</techterm>
+  </abilitytoken>
+</abilities>

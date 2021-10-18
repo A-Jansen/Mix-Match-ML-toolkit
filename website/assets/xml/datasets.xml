@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns:xlink="http://www.w3.org/1999/xlink">
-  <datatoken>
-    <datatype>Images</datatype>
-    <token>2</token>
-    <structure>Unstructured</structure>
-    <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    <format>jpg, png</format>
-    <collection>Camera</collection>
-  </datatoken>
-  <datatoken>
-    <datatype>Text</datatype>
-    <token>242</token>
-    <structure>Unstructured</structure>
-    <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    <format>word, pdf,txt</format>
-    <collection>Reviews, books, social media</collection>
-  </datatoken>
-  <datatoken>
-    <datatype>Audio</datatype>
-    <token></token>
-    <structure>Unstructured</structure>
-    <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    <format>mp3</format>
-    <collection>Microphone</collection>
-  </datatoken>
-  <datatoken>
-    <datatype>Timeseries</datatype>
-    <token></token>
-    <structure>Structured</structure>
-    <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    <format>json, csv</format>
-    <collection>Accelerometer</collection>
-  </datatoken>
-  <datatoken>
-    <datatype>Tabular data</datatype>
-    <token></token>
-    <structure>Structured</structure>
-    <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    <format>csv, excel, json</format>
-    <collection>Excel</collection>
-  </datatoken>
-<!-- *********************************************************************** -->
-<records>
+<data  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <records>
     <record index="1">
       <dataset>MINST</dataset>
       <datatype>Images</datatype>
@@ -420,7 +379,5 @@
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://research.google.com/youtube8m/"></url>
     </record>
-</records>
-
-
+  </records>
 </data>

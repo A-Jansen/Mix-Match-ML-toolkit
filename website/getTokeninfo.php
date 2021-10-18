@@ -1,28 +1,19 @@
 <?php
-$q=$_GET["q"];
+//https://github.com/RJP43/CitySlaveGirls/issues/59
+// $xmlParam = $_GET["xml"];
+// $xslParam = $_GET["xsl"];
 
-$xmlDoc = new DOMDocument();
-$xmlDoc->load("assets/xml/datatypes.xml");
+$xml = new DOMDocument;
+$xml->load('datatypes.xml');
 
-$x=$xmlDoc->getElementsByTagName('ARTIST');
+$xsl = new DOMDocument;
+$xsl->load('datatokens.xsl');
 
-for ($i=0; $i<=$x->length-1; $i++) {
-  //Process only element nodes
-  if ($x->item($i)->nodeType==1) {
-    if ($x->item($i)->childNodes->item(0)->nodeValue == $q) {
-      $y=($x->item($i)->parentNode);
-    }
-  }
-}
+$proc = new XSLTProcessor;
+$proc->importStylesheet($xsl);
 
-$cd=($y->childNodes);
+$proc->transformToURI($xml, 'file:///var/www/html/out.html');
 
-for ($i=0;$i<$cd->length;$i++) {
-  //Process only element nodes
-  if ($cd->item($i)->nodeType==1) {
-    echo("<b>" . $cd->item($i)->nodeName . ":</b> ");
-    echo($cd->item($i)->childNodes->item(0)->nodeValue);
-    echo("<br>");
-  }
-}
+echo file_get_contents('out.html');
+
 ?>
