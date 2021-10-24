@@ -16,12 +16,18 @@
 	<!--<script src="sketch.js"></script>-->
 	<script type="text/javascript" src="libraries/jquery.min.js"></script>
 	<script type="text/javascript" src="libraries/oocsi-web.js"></script>
-  <script type="text/javascript" scr="script.js"></script>
+	<script type="text/javascript" scr="script.js"></script>
 	<script src="BLEconnect.js"></script>
 	<link href="/assets/css/fonts.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/homepage.css" type="text/css" rel="stylesheet">
+	<link href="/assets/css/table.css" type="text/css" rel="stylesheet">
+	<link href="/assets/css/combipage.css" type="text/css" rel="stylesheet">
 
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 	<!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
@@ -29,190 +35,208 @@
 
 
 <!--The whole body will be replaced by the XMLHttpRequest to go to the information page-->
+
 <body id='replace'>
-			<header>
-				<h1 id='welcome'>Welcome</h1>
-			</header>
+
+	<header>
+		<h1 id='welcome'>Get started!</h1>
+	</header>
 	<div class=centerBlock>
 		<div>
 			<p>Before you can start, you need to enter your participant/group information
 				and connect your laptop to the sensor board. Follow the next steps to get ready. </p>
-				<h3>Enter your group/ participant number:	</h3>
-					<input type="number" name="IDnumber" id='ID'><br>
-				<div>
-					<h3>Connect to board</h3>
-					<a id=connectBLE href="#">Connect </a><span id='connected'>Succesfully connected to board</span>
-				</div>
+			<h3>Enter your group/ participant number: </h3>
+			<input type="number" name="IDnumber" id='ID'><br>
+			<div>
+				<h3>Connect to board</h3>
+				<a id=connectBLE href="#">Connect </a><span id='connected'>Succesfully connected to board</span>
+			</div>
 		</div>
 		<div>
-		<!-- Will only be shown once connected (change in.continue in css to hidden) -->
-		<a href="#" id='continue' onClick="openInfo()">Continue</a>
+			<!-- Will only be shown once connected (change in.continue in css to hidden) -->
+			<a href="#" id='continue' onClick="openInfo()">Continue</a>
 		</div>
 		<p id='demo'></p>
 	</div>
 
 
-<script>
-var IDnumber; //for logging each session to oocsi so it can be identified for analyses
-let ready=false; //use to not skip the setup page by pressing key or placing tokens
+	<script>
+		OOCSI.connect('wss://oocsi.id.tue.nl/ws');
+		console.log("Connected to oocsi");
 
-//When you click continue, the body will be replaced with the page from infopage.html, but you stay at the same page so the BLE connection does not get broken
-function openInfo() {
-	if (!ready){
-		ready=true;
-		IDnumber= document.getElementById('ID').value;
-		console.log("ID number: "+ IDnumber);
-	}
-	var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("replace").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "infopage.html", true);
-  xhttp.send();
-};
+		function sendOOCSI(action, tag) {
 
-//Control the pages for now with keys, replace once tokens work
-var key = function(e) {
-		e = e || window.event;
-	var k = e.keyCode || e.which;
-	// console.log(k);
-	if(ready){
-		switch (k) {
-			case 68: //68=d=data
-				console.log('data page');
-			//send the .xml, .xsl and datatoken to the transform function and open the data page
-			openDataPage(transform('datatypes.xml', 'datatokens.xsl', 2)); //02=text
-				break;
-			case 65: //65=a=abilityPage
-				console.log('model ability page');
-				//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
-				openAbilityPage(transform('abilities.xml', 'abilities.xsl', 140)); //140= recogntion
-				break;
-		case 67: //67=c=combinationPage
-			console.log('combination page');
-			//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
-			openCombinationPage(transform2('combies.xml', 'combies.xsl', 2, 140)); //image recognition
-			break;
-			//in case of any other key, go back to the infopage (equal to removing the token)
-			default:
-			console.log('back to infopage');
-			openInfo();
+			let output = {
+				'timestamp': Date.now(),
+				'id': IDnumber,
+				'action': action,
+				'tagID': tag
+			}
+			console.log(output);
+			OOCSI.send("M21_Anniek", output);
 		}
-	}
-};
-document.onkeydown = key;
 
-//open the datapage when pressed on 'd or when a data token is placed
-function openDataPage() {
-	var xhttpData = new XMLHttpRequest();
-  xhttpData.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("replace").innerHTML = this.responseText;
-    }
-  };
-  xhttpData.open("GET", "dataPage.html", true);
-  xhttpData.send();
+		var IDnumber; //for logging each session to oocsi so it can be identified for analyses
+		let ready = false; //use to not skip the setup page by pressing key or placing tokens
 
-};
+		//When you click continue, the body will be replaced with the page from infopage.html, but you stay at the same page so the BLE connection does not get broken
+		function openInfo() {
+			if (!ready) {
+				ready = true;
+				IDnumber = document.getElementById('ID').value;
+				console.log("ID number: " + IDnumber);
+			}
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("replace").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "infopage.html", true);
+			xhttp.send();
+		};
+
+		//Control the pages for now with keys, replace once tokens work
+		var key = function(e) {
+			e = e || window.event;
+			var k = e.keyCode || e.which;
+			// console.log(k);
+			if (ready) {
+				switch (k) {
+					case 68: //68=d=data
+						console.log('data page');
+						//send the .xml, .xsl and datatoken to the transform function and open the data page
+						openDataPage(transform('datatypes.xml', 'datatokens.xsl', 242)); //02=text
+						sendOOCSI('datapage', 242);
+						break;
+					case 65: //65=a=abilityPage
+						console.log('model ability page');
+						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+						openAbilityPage(transform('abilities.xml', 'abilities.xsl', 140)); //140= recogntion
+						sendOOCSI('abilitypage', 140);
+						break;
+					case 67: //67=c=combinationPage
+						console.log('combination page');
+						//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
+						openCombinationPage(transform2('combies.xml', 'combies.xsl', 2, 140)); //image recognition
+						break;
+						//in case of any other key, go back to the infopage (equal to removing the token)
+					default:
+						console.log('back to infopage');
+						openInfo();
+				}
+			}
+		};
+		document.onkeydown = key;
+
+		//open the datapage when pressed on 'd or when a data token is placed
+		function openDataPage() {
+			var xhttpData = new XMLHttpRequest();
+			xhttpData.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("replace").innerHTML = this.responseText;
+				}
+			};
+			xhttpData.open("GET", "dataPage.html", true);
+			xhttpData.send();
+
+		};
 
 
-//open the ML ability page when 'a' is pressed or when a ML ability token is placed
-function openAbilityPage() {
-	var xhttpAbility = new XMLHttpRequest();
-  xhttpAbility.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("replace").innerHTML = this.responseText;
-    }
-  };
-  xhttpAbility.open("GET", "abilityPage.html", true);
-  xhttpAbility.send();
-};
+		//open the ML ability page when 'a' is pressed or when a ML ability token is placed
+		function openAbilityPage() {
+			var xhttpAbility = new XMLHttpRequest();
+			xhttpAbility.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("replace").innerHTML = this.responseText;
+				}
+			};
+			xhttpAbility.open("GET", "abilityPage.html", true);
+			xhttpAbility.send();
+		};
 
 
-function openCombinationPage() {
-	var xhttpCombi = new XMLHttpRequest();
-  xhttpCombi.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("replace").innerHTML = this.responseText;
-    }
-  };
-  xhttpCombi.open("GET", "combinationPage.html", true);
-  xhttpCombi.send();
-};
+		function openCombinationPage() {
+			var xhttpCombi = new XMLHttpRequest();
+			xhttpCombi.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("replace").innerHTML = this.responseText;
+				}
+			};
+			xhttpCombi.open("GET", "combinationPage.html", true);
+			xhttpCombi.send();
+		};
 
-//Load and style the information for the data or ability pages
-//https://stackoverflow.com/questions/31459664/uncaught-typeerror-failed-to-execute-importstylesheet-on-xsltprocessor-par
-function load(url, callback) {
-	var req = new XMLHttpRequest();
-	req.open('GET', "/assets/xml/"+url);
-	// to allow us doing XSLT in IE
-	try {
-		req.responseType = "msxml-document"
-	} catch (ex) {}
-	req.onload = function() {
-		callback(req.responseXML);
-	};
-	req.send();
-}
+		//Load and style the information for the data or ability pages
+		//https://stackoverflow.com/questions/31459664/uncaught-typeerror-failed-to-execute-importstylesheet-on-xsltprocessor-par
+		function load(url, callback) {
+			var req = new XMLHttpRequest();
+			req.open('GET', "/assets/xml/" + url);
+			// to allow us doing XSLT in IE
+			try {
+				req.responseType = "msxml-document"
+			} catch (ex) {}
+			req.onload = function() {
+				callback(req.responseXML);
+			};
+			req.send();
+		}
 
-//Transform the xml and xsl with one input variable for displaying the data or ability pages
-function transform(xml, xsl, type) {
-	load(
-		xml,
-		function(inputXml) {
+		//Transform the xml and xsl with one input variable for displaying the data or ability pages
+		function transform(xml, xsl, type) {
 			load(
-				xsl,
-				function(xsltSheet) {
-					displayResult(inputXml, xsltSheet, type);
+				xml,
+				function(inputXml) {
+					load(
+						xsl,
+						function(xsltSheet) {
+							displayResult(inputXml, xsltSheet, type);
+						}
+					);
 				}
 			);
 		}
-	);
-}
 
-function displayResult(xmlInput, xsltSheet, type) {
-	if (typeof XSLTProcessor !== 'undefined') {
-		var proc = new XSLTProcessor();
-		proc.importStylesheet(xsltSheet);
-		proc.setParameter(null, "tokenselected", type);
-		document.getElementById('replace').appendChild(proc.transformToFragment(xmlInput, document));
-	} else if (typeof xmlInput.transformNode !== 'undefined') {
-		document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
-	}
-}
+		function displayResult(xmlInput, xsltSheet, type) {
+			if (typeof XSLTProcessor !== 'undefined') {
+				var proc = new XSLTProcessor();
+				proc.importStylesheet(xsltSheet);
+				proc.setParameter(null, "tokenselected", type);
+				document.getElementById('replace').appendChild(proc.transformToFragment(xmlInput, document));
+			} else if (typeof xmlInput.transformNode !== 'undefined') {
+				document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
+			}
+		}
 
 
-//Transform the xml and xsl with two input variables for displaying the combination pages
-function transform2(xml, xsl, type1, type2) {
-	load(
-		xml,
-		function(inputXml) {
+		//Transform the xml and xsl with two input variables for displaying the combination pages
+		function transform2(xml, xsl, type1, type2) {
 			load(
-				xsl,
-				function(xsltSheet) {
-					display2Results(inputXml, xsltSheet, type1, type2);
+				xml,
+				function(inputXml) {
+					load(
+						xsl,
+						function(xsltSheet) {
+							display2Results(inputXml, xsltSheet, type1, type2);
+						}
+					);
 				}
 			);
 		}
-	);
-}
 
-function display2Results(xmlInput, xsltSheet, type1, type2) {
-	if (typeof XSLTProcessor !== 'undefined') {
-		var proc2 = new XSLTProcessor();
-		proc2.importStylesheet(xsltSheet);
-		proc2.setParameter(null, "tokenselected1", type1);
-		proc2.setParameter(null, "tokenselected2", type2);
-		document.getElementById('replace').appendChild(proc2.transformToFragment(xmlInput, document));
-	} else if (typeof xmlInput.transformNode !== 'undefined') {
-		document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
-	}
-}
-//-------------------------------------------------------------------------------------------
-
-</script>
+		function display2Results(xmlInput, xsltSheet, type1, type2) {
+			if (typeof XSLTProcessor !== 'undefined') {
+				var proc2 = new XSLTProcessor();
+				proc2.importStylesheet(xsltSheet);
+				proc2.setParameter(null, "tokenselected1", type1);
+				proc2.setParameter(null, "tokenselected2", type2);
+				document.getElementById('replace').appendChild(proc2.transformToFragment(xmlInput, document));
+			} else if (typeof xmlInput.transformNode !== 'undefined') {
+				document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);
+			}
+		}
+		//-------------------------------------------------------------------------------------------
+	</script>
 
 </body>
 

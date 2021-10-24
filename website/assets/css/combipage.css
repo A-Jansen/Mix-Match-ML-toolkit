@@ -1,0 +1,26 @@
+.example{
+  background-color: #e3ddcc;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 740px;
+  margin: auto;
+  height:410px;
+}
+
+.exImg{
+    width: 250px;
+    float:left;
+}
+.exText{
+  width: 450px;
+  /* display: block; */
+float: right;
+}
+
+.exampleHeader{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #1E475E;
+  font-size: 18px;
+  text-transform: uppercase;
+}

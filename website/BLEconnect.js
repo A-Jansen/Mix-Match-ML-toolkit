@@ -30,7 +30,6 @@ function setup() {
   connectButton = select('#connectBLE');
   connectButton.mousePressed(connectToBle);
 
-
 }
 
 function connectToBle() {
@@ -172,9 +171,11 @@ function open1Page(tagID) {
     labelPresent = false;
     //  openDataPage(transform('datatypes.xml', 'datatokens.xsl', 'Text'));
     openDataPage(transform('datatypes.xml', 'datatokens.xsl', tagID));
+    sendOOCSI('datapage', tagID);
   } else if (abilityTokens.includes(tagID)) {
     labelPresent = false;
     openAbilityPage(transform('abilities.xml', 'abilities.xsl', tagID));
+    sendOOCSI('abilitypage', tagID);
   } else if (labelTokens.includes(tagID)) {
     labelPresent = true;
     openInfo();

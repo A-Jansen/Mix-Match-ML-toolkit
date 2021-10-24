@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <combinations  xmlns:xlink="http://www.w3.org/1999/xlink">
   <combi>
-    <name>Image recogntion</name>
+    <name>Image recognition</name>
     <datatype>Images</datatype>
     <ability>Recognize/ Identify</ability>
     <datatoken>2</datatoken>
@@ -14,8 +14,7 @@
       <ex >
         <exname>Google Lens</exname>
         <exdescription>Identify objects in your image, translate text from photos , explore similar looking items.</exdescription>
-        <eximage>
-        </eximage>
+        <eximage>assets/photos/googlelens.jpg</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://techengage.com/google-lens-now-detects-billion-items/">Link to example</exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://www.tensorflow.org/tutorials/images/classification">Link to DIY</diylink>
       </ex>

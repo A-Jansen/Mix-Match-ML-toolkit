@@ -39,27 +39,41 @@
             <p>
               <span class='bold'>Technical term:
               </span><xsl:value-of select="techterm"/></p>
-            <div class='example'>
+          </div>
+          <div class='example'>
+            <xsl:for-each select="examples/ex">
+                <h3 class='exampleHeader'><xsl:value-of select="exname"/></h3>
+              <div class='exImg'>
 
-              <xsl:for-each select="examples/ex">
-                <p>
-                  <span class='bold'>Example:
-                  </span><xsl:value-of select="exname"/></p>
-                <p>
-                  <span class='bold'>Description:
-                  </span><xsl:value-of select="exdescription"/></p>
-                <p>
-                  <a href="{exlink/@xlink:href}" target="_blank"><xsl:value-of select="exlink"/></a>
-                </p>
-                <p>
+                <img>
+                  <xsl:attribute name="src">
+                    <xsl:value-of select="eximage"/>
+                  </xsl:attribute>
+                  <xsl:attribute name="width">220px  </xsl:attribute>
+                </img>
+                <!-- <img src="{<xsl:value-of select="eximage"/>}"> -->
+                <!-- <img src="{eximage}" width=200px/> -->
+              </div>
+              <div class='exText'>
+
+              <p>
+                <span class='bold'>Description:
+                </span><xsl:value-of select="exdescription"/></p>
+              <p>
+                <a href="{exlink/@xlink:href}" target="_blank"><xsl:value-of select="exlink"/></a>
+              </p>
+              <p>
                 <a href="{diylink/@xlink:href}" target="_blank"><xsl:value-of select="diylink"/></a>
               </p>
-              </xsl:for-each>
             </div>
+            </xsl:for-each>
           </div>
+
         </xsl:for-each>
 
       </body>
+      <footer>
+      </footer>
     </html>
   </xsl:template>
 
