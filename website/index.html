@@ -22,7 +22,7 @@
 	<link href="/assets/css/homepage.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/table.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/combipage.css" type="text/css" rel="stylesheet">
-
+	<link href="/assets/css/data.css" type="text/css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,8 +110,9 @@
 					case 68: //68=d=data
 						console.log('data page');
 						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 224));
+						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 59));
 						break;
+
 					case 65: //65=a=abilityPage
 						console.log('model ability page');
 						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page

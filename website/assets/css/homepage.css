@@ -36,6 +36,7 @@ header  {
   width: 700px;
   margin: auto;
   padding-top: 10px;
+  z-index: 1;
 }
 
 
@@ -61,38 +62,8 @@ header  {
   background-color:#7DAED6;
 }
 
-.bold{
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  color: #1E475E;
-}
 
 footer {
   height: 80px;
   clear: both;
-}
-
-.labelimage{
-  z-index: 10;
-  width: 130px;
-  padding: 10px;
-  /* display: inline-block;
-  padding: 10px; */
-/* float: right; */
-}
-
-.headerData{
-  margin: auto;
-  width: 45%
-}
-
-.centerHeader{
-  width:400px;
-  margin: auto;
-}
-
-.labels{
-  width: 180px;
-  float: right;
-  /* margin-top: -10px; */
 }

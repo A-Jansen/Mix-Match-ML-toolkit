@@ -38,7 +38,7 @@
         <div>
 
           <table>
-            <tr >
+            <tr style="background-color: #3CA8B4;" >
               <th>Dataset</th>
               <th>Description</th>
               <th>Labeled</th>

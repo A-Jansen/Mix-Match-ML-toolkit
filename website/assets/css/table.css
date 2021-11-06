@@ -3,6 +3,7 @@ table {
   border-collapse: collapse;
   width: 700px;
   margin: auto;
+
   padding-top: 10px;
 }
 
@@ -12,7 +13,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #2B5F6E;
+  /* background-color: #2B5F6E; */
   color: white;
 }
 
