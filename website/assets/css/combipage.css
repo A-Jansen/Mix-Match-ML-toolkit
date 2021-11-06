@@ -4,7 +4,9 @@
   border-radius: 10px;
   width: 740px;
   margin: auto;
-  height:410px;
+  height:inherit;
+  overflow: auto;
+
 }
 
 .exImg{

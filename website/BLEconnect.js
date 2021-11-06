@@ -10,18 +10,19 @@ var tags = [255, 255, 255];
 var loc = [0, 0, 0];
 var tagsPresent = 0;
 
-var dataTokens = [242, 02];
-var abilityTokens = [140, 24];
-var supTokens = [140];
-var unsupTokens = [24];
-var reinTokens = [];
-var labelTokens = [224];
+var labeledDataTokens = [236, 138, 224, 94, 59, 98]; //images, video, text, audio, time series, tabular
+var unlabeledDataTokens = [227, 12, 242, 20, 10, 67]; //images, video, text, audio, time series, tabular
+var abilityTokens = [22,140, 124, 24, 60, 17];
+var supTokens = [22, 140]; //foresee, categorize
+var unsupTokens = [124, 24, 17]; //cluster, generate, recommend
+var reinTokens = [60];
+
 
 var tag1;
 var tag2;
 var tag3;
 var tagRemoved = false;
-var labelPresent = false;
+
 
 function setup() {
   // Create a p5ble class
@@ -42,15 +43,20 @@ function disconnectToBle() {
   myBLE.disconnect();
   // Check if myBLE is connected
   isConnected = myBLE.isConnected();
+
 }
 
 function onDisconnected() {
   console.log('Device got disconnected.');
+  alert("Sensor board got disconnected");
+  location.reload();
   isConnected = false;
 }
 
 // A function that will be called once got characteristics
 function gotCharacteristics(error, characteristics) {
+  // Add a event handler when the device is disconnected
+  myBLE.onDisconnected(onDisconnected)
   if (error) console.log('error: ', error);
   console.log('characteristics: ', characteristics);
   myCharacteristic = characteristics[0];
@@ -67,8 +73,7 @@ function gotCharacteristics(error, characteristics) {
     document.getElementById("continue").style.visibility = "visible";
     document.getElementById("connected").style.visibility = "visible";
   }
-  // Add a event handler when the device is disconnected
-  myBLE.onDisconnected(onDisconnected)
+
 }
 
 // A function that will be called once got characteristics
@@ -76,7 +81,9 @@ function handleNotifications(data) {
   myValue = data;
   if (myValue == 0 | myValue == 1 | myValue == 2) {
     identifier = myValue;
-  } else {
+  } else if(myValue==254) {
+    disconnectToBle();
+  }  else {
     incomingValues[identifier] = myValue;
   }
   //console.log(identifier, incomingValues[identifier]);
@@ -86,7 +93,7 @@ function handleNotifications(data) {
 
 function readValues() {
   //check if there is at least one token available
-  console.log(incomingValues);
+ console.log(incomingValues);
   if (arrayEquals(incomingValues, emptyArray)) {
     open1Page(0);
   }
@@ -148,17 +155,9 @@ function numPages(tagID) {
       // if supervised and no label --> alert place label
       // if supervised and label --> show ability page
       console.log("2 tags present");
-      tag1 = tags.find(findTag);
-      tag2 = tags.slice().reverse().find(findTag);
-      tag3 = 0;
-      openCombiPage(tag1, tag2, tag3);
-      break;
-    case 3: //3 tags present, should be data+label+supervised --> show combination page
-      console.log("3 tags present");
       tag1 = tags[0];
       tag2 = tags[1];
-      tag3 = tags[2];
-      openCombiPage(tag1, tag2, tag3);
+      openCombiPage(tag1, tag2);
       break;
     default: //0 tags
   }
@@ -167,19 +166,16 @@ function numPages(tagID) {
 function open1Page(tagID) {
   if (tagID == 0) {
     openInfo();
-  } else if (dataTokens.includes(tagID)) {
-    labelPresent = false;
+  } else if (labeledDataTokens.includes(tagID)) {
     //  openDataPage(transform('datatypes.xml', 'datatokens.xsl', 'Text'));
-    openDataPage(transform('datatypes.xml', 'datatokens.xsl', tagID));
-    sendOOCSI('datapage', tagID);
+    openDataPage(transform('datatypes.xml', 'labeleddata.xsl', tagID));
+    sendOOCSI('labeleddatapage', tagID);
+  } else if (unlabeledDataTokens.includes(tagID)) {
+    openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', tagID));
+    sendOOCSI('unlabeleddatapage', tagID);
   } else if (abilityTokens.includes(tagID)) {
-    labelPresent = false;
     openAbilityPage(transform('abilities.xml', 'abilities.xsl', tagID));
     sendOOCSI('abilitypage', tagID);
-  } else if (labelTokens.includes(tagID)) {
-    labelPresent = true;
-    openInfo();
-    console.log("label present");
   } else {
     openInfo();
     alert('Token not recognized');
@@ -187,31 +183,21 @@ function open1Page(tagID) {
 }
 
 
-function openCombiPage(tag1, tag2, tag3) {
-  if (tag3 == 0) { //case of two tokens present
-    if (dataTokens.includes(tag1) && abilityTokens.includes(tag2)) {
-      labelPresent = false;
-      if (unsupTokens.includes(tag2)) {
-        console.log("Unsupervised");
-        openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
-      } else if (supTokens.includes(tag2)) {
-        alert("This combination requires the presence of labels, please place this token");
-      }
-    } else if (dataTokens.includes(tag1) && labelTokens.includes(tag2)) {
-      labelPresent = true;
-      openDataPage(transform('datatypes.xml', 'datatokens.xsl', tag1));
-    } else if (labelTokens.includes(tag1) && abilityTokens.includes(tag2)) {
-      labelPresent = true;
-      openAbilityPage(transform('abilities.xml', 'abilities.xsl', tag2)); //with tag2
-    } else {
-      openInfo();
-      labelPresent = false;
-      alert('This is not a correct/possible combination ');
-    }
-  } else { //case of 3 tokens
-    labelPresent = true;
-    openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag3));
+function openCombiPage(tag1, tag2) {
+  console.log(tag1);
+  if (labeledDataTokens.includes(tag1) && (supTokens.includes(tag2) || unsupTokens.includes(tag2))) {
+    openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
+    // sendOOCSI('labeleddata', tagID);
+  } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
+    console.log(tag1);
+    let i =unlabeledDataTokens.indexOf(tag1);
+    openCombinationPage(transform2('combies.xml', 'combies.xsl', labeledDataTokens[i], tag2));
+  } else {
+    openInfo();
+
+    alert('This is not a correct/possible combination ');
   }
+
 }
 
 //source: https://masteringjs.io/tutorials/fundamentals/compare-arrays

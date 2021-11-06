@@ -1,96 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <abilities xmlns:xlink="http://www.w3.org/1999/xlink">
   <abilitytoken>
-    <ability>Forsee</ability>
-    <token>
-    </token>
-    <description>Anticipate something based on certain past events/characteristics</description>
+    <ability>Foresee</ability>
+    <token>22</token>
+    <description>Predict an action, event, state, behavior, intention, etc.</description>
     <type>Supervised learning</type>
     <techterm>Classification, regression</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="Requires labeled data"></l1>
+      <!-- <l2 value=""></l2>
+      <l3 value=""></l3> -->
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Recommend</ability>
     <token>
     </token>
-    <description>Provide suggestions/contents/guidance based on past events</description>
+    <description>Provide suggestions or guidance; propose contents, activities, etc.</description>
     <type>Unsupervised learning</type>
     <techterm>Recommender systems (collaborative filtering/ content based)</techterm>
+    <capabilities>
+      <c1 value="Can recommend items based on the content of the item"></c1>
+      <c2 value="Can recommend items that similar persons liked"></c2>
+      <c3 value="Can recommend items that are similar"></c3>
+      <c4 value="Can both be unsupervised and supervised"></c4>
+    </capabilities>
+    <limitations>
+      <l1 value="Cold start: you don't have enough information from a new person/item to make good recommendations"></l1>
+      <l2 value="Risk of creating a filter bubble, only recommending one perspective/ vision/ opinion"></l2>
+      <l3 value="People update their preferences, can be unpredicted or someone else might use their account"></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Distinguish</ability>
     <token>
     </token>
-    <description>Differentiate something from a group/average/... (finding outliers, pick something)</description>
-    <type>Supervised learning</type>
+    <description>Differentiate certain items from a group or average (find outliers, anomalies, etc.)</description>
+    <type>Unsupervised learning</type>
     <techterm>Anomaly detection</techterm>
+    <capabilities>
+      <c1 value="Can automatically monitor data and alert if their is something suspicious"></c1>
+      <c2 value="It is not necessary to identify how something is different, but the model will look at the average and see if it is different"></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="Outliers and anomalies are rare and therefore more difficult to find"></l1>
+      <l2 value="Noise could also be seen as different"></l2>
+      <l3 value="It does not always informs you how it is different"></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Categorize</ability>
-    <token>
-    </token>
-    <description>Find similarities among groups of things/people/etc. Grouping things/people/...based on their similarities</description>
+    <token>140</token>
+    <description>Match an item with a category</description>
     <type>Unsupervised learning</type>
-    <techterm>Clustering</techterm>
+    <techterm>Classificaton</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+    </capabilities>
+    <limitations>
+      <l1 value="Requires labeled data"></l1>
+      <l2 value="Only recognizes on what it is trained"></l2>
+      <l3 value="It might learn to recognize certain categories based on irrelevant data"></l3>
+      <l3></l3>
+      </limitations>
   </abilitytoken>
   <abilitytoken>
-    <ability>Recognize</ability>
-    <token>140</token>
-    <description>Recognize or identify something/someone who has specific characteristics (matching?)</description>
+    <ability>Identify</ability>
+    <token></token>
+    <description>Categorize the identity of a specific individual/item from a trait</description>
     <type>Supervised learning</type>
     <techterm>Classification</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value="Can also identify outliers and anomalies but now it needs to be trained with labeled data for this"></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="Requires labeled data"></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Understand</ability>
     <token>
     </token>
-    <description>Comprehend topics/themes or find meaning in a pile of things</description>
+    <description>Comprehend topics, themes, or sentiments; interpret language</description>
     <type>Unsupervised learning</type>
     <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
+    <capabilities>
+      <c1 value="Can recognize/analyze human language "></c1>
+      <c2 value="Can automatically create captions/ text transcriptions"></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="Human language is ambiguous"></l1>
+      <l2 value="Irony and sarcasm are hard to detect and can change the meaning"></l2>
+      <l3 value="Homonyms (words that are pronounced the same) are hard for speech to text models"></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Communicate</ability>
     <token>
     </token>
-    <description>Convey messages/content to someone</description>
+    <description>Convey messages/content in understandable languages</description>
     <type>Unsupervised learning</type>
     <techterm>Text to speech synthesis/ analysis</techterm>
+    <capabilities>
+      <c1 value="Can create texts/ answers in understandable languages"></c1>
+      <c2 value="Communicate to users using speech"></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="Creating different voices"></l1>
+      <l2 value="Having the correct emotions and pronunciations is difficult"></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
-    <ability>Transform</ability>
+    <ability>Translate</ability>
     <token>
     </token>
     <description>Transform contents from one domain to another</description>
     <type>Unsupervised learning</type>
-    <techterm>Neural Machine Translation, neural style transfer
-        </techterm>
+    <techterm>Neural Machine Translation, neural style transfer </techterm>
+    <capabilities>
+      <c1 value="Translate texts"></c1>
+      <c2 value="Transform images from one style to another style"></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value="The meaning of words depend on their context"></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Generate</ability>
     <token>24</token>
-    <description>Create content from scratch</description>
+    <description>Create content (e.g. videos, images, music, text) from scratch</description>
     <type>Unsupervised learning</type>
     <techterm>Generative Adversarial Networks (GAN), speech synthesis, deep fakes</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
-    <ability>Improve</ability>
-    <token>
-    </token>
-    <description>Optimize or perfect a certain task/route/process</description>
+    <ability>Optimize</ability>
+    <token>60</token>
+    <description>Improve or perfect a certain task/route/process</description>
     <type>Reinforcement learning</type>
     <techterm>Optimization algorithms, reinforcement learning</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Navigate</ability>
     <token>
     </token>
-    <description>Steer through an environment</description>
+    <description>Steer autonomously through a physical or virtual environment</description>
     <type>Reinforcement learning</type>
     <techterm>Navigation algorithms, reinforcement learning</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+  </abilitytoken>
+  <abilitytoken>
+    <ability>Cluster</ability>
+    <token>124</token>
+    <description>Group items based on their similarities</description>
+    <type>Unsupervised learning</type>
+    <techterm>Clustering</techterm>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
   </abilitytoken>
   <!-- ****************************************** -->
   <records>
     <record index="1">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Classify images with labels from the ImageNet database</description>
       <mlmodel>MobileNet</mlmodel>
@@ -99,7 +223,7 @@
     </url>
   </record>
   <record index="2">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Video</data>
     <description>Real-time hand pose detection in the browser using TensorFlow.js</description>
     <mlmodel>HandPose</mlmodel>
@@ -108,7 +232,7 @@
     </url>
   </record>
   <record index="3">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>An API for real-time human pose detection in the browser</description>
     <mlmodel>Pose</mlmodel>
@@ -117,7 +241,7 @@
     </url>
   </record>
   <record index="4">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
     <mlmodel>PoseNet</mlmodel>
@@ -126,7 +250,7 @@
     </url>
   </record>
   <record index="5">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
     <mlmodel>Coco SSD</mlmodel>
@@ -135,7 +259,7 @@
     </url>
   </record>
   <record index="6">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
     <mlmodel>BodyPix</mlmodel>
@@ -144,7 +268,7 @@
     </url>
   </record>
   <record index="7">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>Real-time rapid face detection in the browser using TensorFlow.js</description>
     <mlmodel>BlazeFace</mlmodel>
@@ -153,7 +277,7 @@
     </url>
   </record>
   <record index="8">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>Semantic segmentation</description>
     <mlmodel>DeepLab v3</mlmodel>
@@ -162,7 +286,7 @@
     </url>
   </record>
   <record index="9">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Image</data>
     <description>Real-time 3D facial landmarks detection to infer the approximate surface geometry of a human face</description>
     <mlmodel>Face Landmark Detection</mlmodel>
@@ -171,7 +295,7 @@
     </url>
   </record>
   <record index="10">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Audio</data>
     <description>Classify 1 second audio snippets from the speech commands dataset.</description>
     <mlmodel>Speech Commands</mlmodel>
@@ -189,7 +313,7 @@
     </url>
   </record>
   <record index="12">
-    <ability>Recognize</ability>
+    <ability>Categorize</ability>
     <data>Text</data>
     <description>Score the perceived impact a comment might have on a conversation, from &quot;Very toxic&quot; to &quot;Very healthy&quot;.</description>
     <mlmodel>Text Toxicity</mlmodel>
@@ -217,7 +341,7 @@
       </url>
     </record>
     <record index="15">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Audio</data>
       <description>YAMNet is a pretrained deep net that predicts 521 audio event classes based on the AudioSet-YouTube corpus, and employing the Mobilenet_v1 depthwise-separable convolution architecture</description>
       <mlmodel>YAMNet</mlmodel>
@@ -226,7 +350,7 @@
       </url>
     </record>
     <record index="16">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>A basic model to classify digits from the MNIST dataset</description>
       <mlmodel>MNIST</mlmodel>
@@ -235,7 +359,7 @@
       </url>
     </record>
     <record index="17">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Deep Residual Learning for Image Recognition</description>
       <mlmodel>ResNet</mlmodel>
@@ -244,7 +368,7 @@
       </url>
     </record>
     <record index="18">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Revisiting ResNets: Improved Training and Scaling Strategies</description>
       <mlmodel>ResNet-RS</mlmodel>
@@ -253,7 +377,7 @@
       </url>
     </record>
     <record index="19">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks</description>
       <mlmodel>EfficientNet</mlmodel>
@@ -262,7 +386,7 @@
       </url>
     </record>
     <record index="20">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Object Detection and Segmentation</description>
       <mlmodel>RetinaNet</mlmodel>
@@ -271,7 +395,7 @@
       </url>
     </record>
     <record index="21">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Object Detection and Segmentation</description>
       <mlmodel>Mask R-CNN</mlmodel>
@@ -280,7 +404,7 @@
       </url>
     </record>
     <record index="22">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Object Detection and Segmentation</description>
       <mlmodel>ShapeMask</mlmodel>
@@ -289,7 +413,7 @@
       </url>
     </record>
     <record index="23">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Object Detection and Segmentation</description>
       <mlmodel>SpineNet</mlmodel>
@@ -298,7 +422,7 @@
       </url>
     </record>
     <record index="24">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Image</data>
       <description>Object Detection and Segmentation</description>
       <mlmodel>Cascade RCNN-RS and RetinaNet-Rs</mlmodel>
@@ -361,7 +485,7 @@
       </url>
     </record>
     <record index="31">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Video</data>
       <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
       <mlmodel>PoseNet</mlmodel>
@@ -370,7 +494,7 @@
       </url>
     </record>
     <record index="32">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Video</data>
       <description>Classify images with labels from the ImageNet database</description>
       <mlmodel>MobileNet</mlmodel>
@@ -379,7 +503,7 @@
       </url>
     </record>
     <record index="33">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Video</data>
       <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
       <mlmodel>Coco SSD</mlmodel>
@@ -388,7 +512,7 @@
       </url>
     </record>
     <record index="34">
-      <ability>Recognize</ability>
+      <ability>Categorize</ability>
       <data>Video</data>
       <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
       <mlmodel>BodyPix</mlmodel>

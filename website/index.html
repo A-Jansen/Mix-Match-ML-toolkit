@@ -40,20 +40,24 @@
 
 	<header>
 		<h1 id='welcome'>Get started!</h1>
+
 	</header>
 	<div class=centerBlock>
 		<div>
 			<p>Before you can start, you need to enter your participant/group information
 				and connect your laptop to the sensor board. Follow the next steps to get ready. </p>
-			<h3>Enter your group/ participant number: </h3>
+			<p class='bold'>Enter your group/ participant number: </p>
 			<input type="number" name="IDnumber" id='ID'><br>
 			<div>
-				<h3>Connect to board</h3>
-				<a id=connectBLE href="#">Connect </a><span id='connected'>Succesfully connected to board</span>
+				<!-- <h3>Connect to board</h3> -->
+				<br>
+				<br>
+				<a id=connectBLE href="#">Connect to sensor board</a><span id='connected'>Succesfully connected to board</span>
 			</div>
 		</div>
 		<div>
 			<!-- Will only be shown once connected (change in.continue in css to hidden) -->
+			<br>
 			<a href="#" id='continue' onClick="openInfo()">Continue</a>
 		</div>
 		<p id='demo'></p>
@@ -72,7 +76,7 @@
 				'action': action,
 				'tagID': tag
 			}
-			console.log(output);
+			//console.log(output);
 			OOCSI.send("M21_Anniek", output);
 		}
 
@@ -106,8 +110,7 @@
 					case 68: //68=d=data
 						console.log('data page');
 						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'datatokens.xsl', 242)); //02=text
-						sendOOCSI('datapage', 242);
+						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 224));
 						break;
 					case 65: //65=a=abilityPage
 						console.log('model ability page');
@@ -118,7 +121,8 @@
 					case 67: //67=c=combinationPage
 						console.log('combination page');
 						//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
-						openCombinationPage(transform2('combies.xml', 'combies.xsl', 2, 140)); //image recognition
+
+						openCombinationPage(transform2('combies.xml', 'combies.xsl', 236, 140)); //image recognition
 						break;
 						//in case of any other key, go back to the infopage (equal to removing the token)
 					default:

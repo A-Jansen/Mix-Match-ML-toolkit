@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns:xlink="http://www.w3.org/1999/xlink">
+  <labelimage>assets/photos/label.png</labelimage>
   <datatoken>
-    <datatype>Image</datatype>
-    <token>2</token>
+    <datatype>Images</datatype>
+    <ltoken>236</ltoken>
+    <ultoken>227</ultoken>
     <structure>Unstructured</structure>
-    <description>Images are unstructured forms of data that can be photos of objects around us, scans of characters, medical scans and more.</description>
-    <format>jpg, png</format>
+    <description>Images are unstructured forms of data. These could be photos of people, objects, the environment, medical scans and more. For good results, the photos should be taken with much variety, e.g. different backgrounds, lighting and angles, and often resized to a smaller format.  </description>
+    <format>.jpg, .png, .tiff</format>
     <collection>Camera</collection>
   </datatoken>
   <datatoken>
     <datatype>Video</datatype>
-    <token>
-    </token>
+    <ltoken>138</ltoken>
+    <ultoken>12</ultoken>
     <structure>Unstructured</structure>
-    <description>Videos are unstructured forms of data that can be seen as sequential (timeseries) images with audio.</description>
-    <format>mp4, mov</format>
+    <description>Videos are unstructured forms of data that can be seen as time series of images with audio. This makes it sometimes possible to apply models for images on video data as well, as it will look at each frame as an individual image. </description>
+    <format>.mp4, .mov, .avi, .mpeg</format>
     <collection>Video camera</collection>
   </datatoken>
   <datatoken>
-    <datatype>Text</datatype>
-    <token>242</token>
+    <datatype>Textual</datatype>
+    <ltoken>224</ltoken>
+    <ultoken>242</ultoken>
     <structure>Unstructured</structure>
-    <description>Text data are unstructured data and can be viewed from different levels, on word level; sentence level; paragraph level etc. </description>
-    <format>word, pdf,txt</format>
+    <description>Text data are unstructured data. Text data will be preprocessed before being used in an ML model, for example, sentences will be split into words, stop words are removed and words are reduced to their root (e.g. words to word and writing to write).</description>
+    <format>.doc, .pdf, .txt</format>
     <collection>Reviews, books, social media</collection>
   </datatoken>
   <datatoken>
     <datatype>Audio</datatype>
-    <token>
-    </token>
+    <ltoken>94</ltoken>
+    <ultoken>20</ultoken>
     <structure>Unstructured</structure>
-    <description>Audio data are unstructured data and can be voice recordings, environmental sounds, animal sounds, sounds of machinery and more.</description>
-    <format>mp3</format>
+    <description>Audio data are unstructured data and are a special kind of time series data as they are audio waves (the amplitude) measured over time. Audio data can be voice recordings, music, animal sounds, sounds of machinery and more. Audio data requires preprocessing and several methods exist, a well-known method is using Fourier Transform to get the frequencies.</description>
+    <format>.mp3, .wav, .m4a</format>
     <collection>Microphone</collection>
   </datatoken>
   <datatoken>
-    <datatype>Timeseries</datatype>
-    <token>
-    </token>
+    <datatype>Time series</datatype>
+    <ltoken>59</ltoken>
+    <ultoken>10</ultoken>
     <structure>Unstructured</structure>
-    <description>Timeseries are unstructured data that contain repeated observations from e.g. a sensor or prices over time.</description>
-    <format>json, csv</format>
+    <description>Time series are unstructured data that contain repeated observations from e.g. a sensor or prices over time. Audio is a special subset of time series. Time series often need to be preprocessed, for example standardizing the data. </description>
+    <format>.csv, .tsd, .arff</format>
     <collection>Accelerometer</collection>
   </datatoken>
   <datatoken>
-    <datatype>Tabular data</datatype>
-    <token>
-    </token>
+    <datatype>Tabular</datatype>
+    <ltoken>98</ltoken>
+    <ultoken>67</ultoken>
     <structure>Structured</structure>
-    <description>Tabular data is structured data and is organised in rows and columns and can be directly used in machine learning models. </description>
-    <format>csv, excel, json</format>
+    <description>Tabular data is structured data and are organised in rows and columns where each row (or column) represent one item. Tabular data can be directly used in ML models.</description>
+    <format>.csv, .xls, .json</format>
     <collection>Excel</collection>
   </datatoken>
   <!-- *********************************************************************** -->
@@ -88,7 +91,7 @@
     </record>
     <record index="5">
       <dataset>The Boston Housing Dataset</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>This dataset contains information collected by the U.S Census Service concerning housing in the area of Boston Mass</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">
@@ -104,7 +107,7 @@
     </record>
     <record index="7">
       <dataset>Mall customers</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Information about people visiting the mall in a particular city</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.kaggle.com/shwetabh123/mall-customers">
@@ -112,7 +115,7 @@
     </record>
     <record index="8">
       <dataset>IRIS dataset</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Information about the flower petal and sepal width</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://archive.ics.uci.edu/ml/datasets/Iris">
@@ -120,7 +123,7 @@
     </record>
     <record index="9">
       <dataset>Wine Quality Dataset</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Chemical information about wines</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://archive.ics.uci.edu/ml/datasets/wine+quality">
@@ -128,7 +131,7 @@
     </record>
     <record index="10">
       <dataset>SOCR data</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Height and weight of 25000 different humans (18+)</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">
@@ -136,7 +139,7 @@
     </record>
     <record index="11">
       <dataset>Titanic dataset</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Information about the passengers and whether they survived</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html">
@@ -144,7 +147,7 @@
     </record>
     <record index="12">
       <dataset>Credit card fraud detection</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Anonymized credit card transactions labeled as fraudulent or genuine</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.kaggle.com/mlg-ulb/creditcardfraud">
@@ -200,7 +203,7 @@
     </record>
     <record index="19">
       <dataset>MovieLens</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Rating data sets from the MovieLens website</description>
       <labeled>0</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://grouplens.org/datasets/movielens/">
@@ -208,7 +211,7 @@
     </record>
     <record index="20">
       <dataset>Jester</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Continuous ratings of jokes</description>
       <labeled>0</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="http://www.ieor.berkeley.edu/~goldberg/jester-data/">
@@ -216,7 +219,7 @@
     </record>
     <record index="21">
       <dataset>Lexicoder sentiment dictionary</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Dictionary with &quot;negative&quot; sentiment words and &quot;postive&quot; sentiment words</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="http://www.lexicoder.com/">
@@ -224,7 +227,7 @@
     </record>
     <record index="22">
       <dataset>IMDB reviews</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Movie reviews</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews">
@@ -232,7 +235,7 @@
     </record>
     <record index="23">
       <dataset>Stanford Sentiment Treebank</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Standard sentiment dataset with sentiment annotations.</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://nlp.stanford.edu/sentiment/code.html">
@@ -240,7 +243,7 @@
     </record>
     <record index="24">
       <dataset>Twitter US Airline sentiment</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Twitter data on US airlines from February 2015, classified as positive, negative, and neutral tweets</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.kaggle.com/crowdflower/twitter-airline-sentiment">
@@ -248,7 +251,7 @@
     </record>
     <record index="25">
       <dataset>The Big Bad NLP Database</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Datasets for various natural language processing tasks</description>
       <labeled>0</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://index.quantumstat.com/">
@@ -256,7 +259,7 @@
     </record>
     <record index="26">
       <dataset>HotspotQA dataset</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>A question answering dataset featuring natural, multi-hop questions, with strong supervision for supporting facts to enable more explainable question answering system</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://hotpotqa.github.io/">
@@ -264,7 +267,7 @@
     </record>
     <record index="27">
       <dataset>Amazon reviews</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Amazon reviews</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://snap.stanford.edu/data/web-Amazon.html">
@@ -272,7 +275,7 @@
     </record>
     <record index="28">
       <dataset>Rotten Tomatoes reviews</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Archive of critic reviews</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://drive.google.com/file/d/1w1TsJB-gmIkZ28d1j7sf1sqcPmHXw352/view">
@@ -280,7 +283,7 @@
     </record>
     <record index="29">
       <dataset>SMS Spam Collection in English</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>English SMS spam message</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">
@@ -288,7 +291,7 @@
     </record>
     <record index="30">
       <dataset>Enron Email dataset</dataset>
-      <datatype>Text</datatype>
+      <datatype>Textual</datatype>
       <description>Emails from 150 users</description>
       <labeled>0</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://www.cs.cmu.edu/~enron/">
@@ -296,7 +299,7 @@
     </record>
     <record index="31">
       <dataset>Recommender systems dataset</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Various datsets from popular websites like Goodreads book reviews, Amazon product reviews, bartending data, data from social media, and others</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://cseweb.ucsd.edu/~jmcauley/datasets.html">
@@ -328,7 +331,7 @@
     </record>
     <record index="35">
       <dataset>Comma.ai</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>Details such as a car's speed, acceleration, steering angle, and GPS coordinates</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://archive.org/details/comma-dataset">
@@ -344,7 +347,7 @@
     </record>
     <record index="37">
       <dataset>MIMIC-III</dataset>
-      <datatype>Tabular data</datatype>
+      <datatype>Tabular</datatype>
       <description>De-identified health data associated with ~40,000 critical care patients. It includes demographics, vital signs, laboratory tests, medications, and more.</description>
       <labeled>1</labeled>
       <url xlink:type="simple" xlink:show="new" xlink:href="">
