@@ -19,14 +19,10 @@
                 <xsl:attribute name="src"><xsl:value-of select="abilities/unsupervised"/>
                 </xsl:attribute>
               </img>
-              <p class='overlaptextBig' style="transform: translate(-40%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
-              <p class='overlaptextability' style="transform: translate(-40%);">Unsupervised learning</p>
+              <p class='overlaptextBig'><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
+              <p class='overlaptextability'>Unsupervised learning</p>
 
-              <p>
-                <span class='bold unsupervised'>Technical terms:
-                </span>
-                <span><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/techterm"/></span>
-              </p>
+
             </div>
 
             <div class='rightheader'>
@@ -35,7 +31,11 @@
                 <h3 class='type unsupervised' ><xsl:value-of select="ability"/></h3>
                 <p class='descriptionAbility'>
                   <xsl:value-of select="description"/></p>
-
+                  <p>
+                    <span class='bold unsupervised'>Technical terms:
+                    </span>
+                    <span><xsl:value-of select="techterm"/></span>
+                  </p>
                 <div class='leftdiv'>
                 <p>
                   <span class='bold unsupervised'>Abilities:
@@ -84,7 +84,7 @@
         <div>
 
           <table>
-            <tr style="background-color: #8CA61D;">
+            <tr style="background-color: #82BE14;">
               <th>Trained model</th>
               <th>Description</th>
               <th>Data type</th>

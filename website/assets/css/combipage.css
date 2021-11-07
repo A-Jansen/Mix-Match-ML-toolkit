@@ -1,25 +1,25 @@
-.example{
+.example {
   background-color: #e3ddcc;
   padding: 10px 20px;
   border-radius: 10px;
-  width: 740px;
+  width:50%;
   margin: auto;
-  height:inherit;
+  height: inherit;
   overflow: auto;
-
 }
 
-.exImg{
-    width: 250px;
-    float:left;
+.exImg {
+  width: 250px;
+  float: left;
 }
-.exText{
+
+.exText {
   width: 450px;
   /* display: block; */
-float: right;
+  float: right;
 }
 
-.exampleHeader{
+.exampleHeader {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   color: #1E475E;
@@ -27,6 +27,46 @@ float: right;
   text-transform: uppercase;
 }
 
-.combi{
-  color:#1E475E;
+.combi {
+  color: #1E475E;
+}
+
+.datatoken {}
+
+.abilitytoken {
+  transform: translate(20%) !important;
+}
+
+.token {
+  color: white;
+  z-index: 3;
+  position: absolute;
+  transform: translate(-10%);
+  height: inherit;
+  top: 33%;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.datacombiimage {
+  z-index: 1;
+  height: 190px;
+  width: auto;
+  left: -100px;
+  padding: 10px;
+  position: relative;
+  top: 0;
+}
+
+.abilitycombiimage {
+  z-index: 2;
+  height: 190px;
+  width: auto;
+  left: -55px;
+  padding: 10px;
+  position: relative;
+  top: 0;
 }

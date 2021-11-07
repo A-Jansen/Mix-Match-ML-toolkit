@@ -4,7 +4,7 @@
 
   <xsl:param name="tokenselected"></xsl:param>
 
-  <xsl:param name="dataselected" select="data/datatoken[ltoken=$tokenselected]/datatype"></xsl:param>
+  <xsl:param name="dataselected" select="data/datatoken[ltoken=$tokenselected]/dataname"></xsl:param>
 
   <xsl:template match="/">
     <html>
@@ -35,7 +35,8 @@
 
             <div class='rightheader'>
               <xsl:for-each select="data/datatoken[ltoken=$tokenselected]">
-                <h3 class='type labeled' ><xsl:value-of select="datatype"/> data</h3>
+                <h3 class='type labeled' ><xsl:value-of select="dataname"/> data</h3>
+                <h4 class=''><xsl:value-of select="structure"/> data</h4>
                 <p class='description'>
                 <xsl:value-of select="description"/></p>
                 <p>
@@ -54,7 +55,7 @@
         <div class='centerBlock'>
           <p class="bold labeled">Selection of datasets:</p>
           <table>
-            <tr style="background-color: #0F5A89;">
+            <tr style="background-color: #0F75B8;">
               <th >Dataset</th>
               <th>Description</th>
               <th>Labeled</th>

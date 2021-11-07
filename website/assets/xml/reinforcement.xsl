@@ -20,13 +20,9 @@
                 </xsl:attribute>
               </img>
               <p class='overlaptextBig' style="top: 50px;   transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
-              <p class='overlaptextability' style="top: 130px;   transform: translate(-30%);">Reinforcement learning</p>
+              <p class='overlaptextability' style="top: 130px;   transform: translate(-45%);">Reinforcement learning</p>
 
-              <p>
-                <span class='bold reinforcement'>Technical terms:
-                </span>
-                <span><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/techterm"/></span>
-              </p>
+
             </div>
 
             <div class='rightheader'>
@@ -35,7 +31,11 @@
                 <h3 class='type reinforcement' ><xsl:value-of select="ability"/></h3>
                 <p class='descriptionAbility'>
                   <xsl:value-of select="description"/></p>
-
+                  <p>
+                    <span class='bold reinforcement'>Technical terms:
+                    </span>
+                    <span><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/techterm"/></span>
+                  </p>
                 <div class='leftdiv'>
                 <p>
                   <span class='bold reinforcement'>Abilities:
@@ -84,7 +84,7 @@
         <div>
 
           <table>
-            <tr style="background-color:#A0C8A5">
+            <tr style="background-color:#78C8A5">
               <th>Trained model</th>
               <th>Description</th>
               <th>Data type</th>

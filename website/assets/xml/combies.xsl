@@ -29,18 +29,43 @@
 
           <xsl:otherwise>
             <header>
-
               <div class="headerData">
-                <div class='leftheader'>
-                  <!-- <img> <xsl:attribute name="class">reinforcementimage </xsl:attribute> <xsl:attribute name="src"><xsl:value-of select="abilities/reinforcement"/> </xsl:attribute> </img> -->
-                  <!-- <p class='overlaptextBig' style="top: 50px; transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p> <p class='overlaptextability' style="top: 130px; transform:
-                  translate(-30%);">Reinforcement learning</p> -->
 
-                </div>
+                <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]">
+                  <div class='leftheader'>
+                    <div class='leftdiv'>
 
-                <div class='rightheader'>
+                      <img>
 
-                  <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]">
+                        <xsl:attribute name="class">datacombiimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value=$label]"/>
+                        </xsl:attribute>
+                      </img>
+                      <h3 class='datatoken token'><xsl:value-of select="datatype"/></h3>
+                      <!-- <p> <xsl:value-of select = "$label" /></p> <p> <xsl:value-of select = "../images/im[@value=$label]" /></p> -->
+                    </div>
+                    <div class='rightdiv'>
+
+                      <img>
+
+                        <xsl:attribute name="class">abilitycombiimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value=$learning]"/>
+                        </xsl:attribute>
+                      </img>
+                      <h3 class='abilitytoken token'><xsl:value-of select="ability"/></h3>
+                      <!-- <p> <xsl:value-of select = "$learning" /></p> <p> <xsl:value-of select = "../images/im[@value=$learning]" /></p> -->
+                    </div>
+
+                    <!-- <p class='overlaptextBig' style="top: 50px; transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p> <p class='overlaptextability' style="top: 130px; transform:
+                    translate(-30%);">Reinforcement learning</p> -->
+
+                  </div>
+
+                  <div class='rightheader'>
                     <h3 class='type combi'><xsl:value-of select="name"/></h3>
                     <p class='description'>
                       <xsl:value-of select="description"/></p>
@@ -49,8 +74,9 @@
                       </span>
                       <span><xsl:value-of select="techterm"/></span>
                     </p>
-                  </xsl:for-each>
-                </div>
+
+                  </div>
+                </xsl:for-each>
               </div>
             </header>
 

@@ -5,6 +5,7 @@
   <unlabeledimage>assets/photos/ud.png</unlabeledimage>
   <datatoken>
     <datatype>Image</datatype>
+    <dataname>Image</dataname>
     <ltoken>236</ltoken>
     <ultoken>227</ultoken>
     <structure>Unstructured</structure>
@@ -15,6 +16,7 @@
   </datatoken>
   <datatoken>
     <datatype>Video</datatype>
+    <dataname>Video</dataname>
     <ltoken>138</ltoken>
     <ultoken>12</ultoken>
     <structure>Unstructured</structure>
@@ -24,7 +26,8 @@
     <collection>Video camera</collection>
   </datatoken>
   <datatoken>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
+    <dataname>Textual</dataname>
     <ltoken>224</ltoken>
     <ultoken>242</ultoken>
     <structure>Unstructured</structure>
@@ -35,6 +38,7 @@
   </datatoken>
   <datatoken>
     <datatype>Audio</datatype>
+    <dataname>Audio</dataname>
     <ltoken>94</ltoken>
     <ultoken>20</ultoken>
     <structure>Unstructured</structure>
@@ -45,6 +49,7 @@
   </datatoken>
   <datatoken>
     <datatype>Time series</datatype>
+    <dataname>Time series</dataname>
     <ltoken>59</ltoken>
     <ultoken>10</ultoken>
     <structure>Unstructured</structure>
@@ -54,7 +59,8 @@
     <collection>Accelerometer</collection>
   </datatoken>
   <datatoken>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
+    <dataname>Tabular</dataname>
     <ltoken>98</ltoken>
     <ultoken>67</ultoken>
     <structure>Structured</structure>

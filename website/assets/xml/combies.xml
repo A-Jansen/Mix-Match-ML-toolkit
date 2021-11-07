@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <combinations xmlns:xlink="http://www.w3.org/1999/xlink">
+  <images>
+  <im value='labeled'>assets/photos/ld.png</im>
+  <im value='unlabeled'>assets/photos/ud.png</im>
+  <im value='supervised'>assets/photos/sl.png</im>
+  <im value='unsupervised'>assets/photos/us.png</im>
+</images>
   <combi>
     <name>Predictions based on images</name>
-    <datatype>Images</datatype>
+    <datatype>Image</datatype>
     <ability>Foresee</ability>
     <datatoken>236</datatoken>
     <abilitytoken>22</abilitytoken>
@@ -31,7 +37,7 @@
   </combi>
   <combi>
     <name>Image recognition</name>
-    <datatype>Images</datatype>
+    <datatype>Image</datatype>
     <ability>Categorize</ability>
     <datatoken>236</datatoken>
     <abilitytoken>140</abilitytoken>
@@ -58,7 +64,7 @@
   </combi>
   <combi>
     <name>Image clustering</name>
-    <datatype>Images</datatype>
+    <datatype>Image</datatype>
     <ability>Cluster</ability>
     <datatoken>236</datatoken>
     <abilitytoken>124</abilitytoken>
@@ -86,7 +92,7 @@
   </combi>
   <combi>
     <name>Image to text/speech</name>
-    <datatype>Images</datatype>
+    <datatype>Image</datatype>
     <ability>Communicate</ability>
     <datatoken>236</datatoken>
     <abilitytoken></abilitytoken>
@@ -114,7 +120,7 @@
   </combi>
   <combi>
     <name>Image generation</name>
-    <datatype>Images</datatype>
+    <datatype>Image</datatype>
     <ability>Generate</ability>
     <datatoken>236</datatoken>
     <abilitytoken>24</abilitytoken>
@@ -142,7 +148,7 @@
   </combi>
   <combi>
     <name>Text prediction</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Foresee</ability>
     <datatoken>224</datatoken>
     <abilitytoken>22</abilitytoken>
@@ -170,11 +176,11 @@
   </combi>
   <combi>
     <name>Text recognition</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Categorize</ability>
     <datatoken>224</datatoken>
     <abilitytoken>140</abilitytoken>
-    <description>Place texts in certain predefined categories, this could be certain sentiments, categories of mail, etc.</description>
+    <description>Matches texts with certain predefined categories, these could be certain sentiments, categories of mail, etc.</description>
     <capabilities>
       <c1 value=""></c1>
       <c2 value=""></c2>
@@ -197,7 +203,7 @@
   </combi>
   <combi>
     <name>Text clustering</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Cluster</ability>
     <datatoken>224</datatoken>
     <abilitytoken>124</abilitytoken>
@@ -225,7 +231,7 @@
   </combi>
   <combi>
     <name>Text understanding</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Understand</ability>
     <datatoken>242</datatoken>
     <abilitytoken></abilitytoken>
@@ -245,7 +251,7 @@
   </combi>
   <combi>
     <name>Written communication</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Communicate</ability>
     <datatoken>224</datatoken>
     <abilitytoken></abilitytoken>
@@ -273,7 +279,7 @@
   </combi>
   <combi>
     <name>Text generation</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Generate</ability>
     <datatoken>224</datatoken>
     <abilitytoken>24</abilitytoken>
@@ -525,7 +531,8 @@
     </examples>
   </combi>
   <combi>
-    <name>Spoken word/speech communication </name>
+    <name>Spoken word/speech communication
+    </name>
     <datatype>Audio</datatype>
     <ability>Communicate</ability>
     <datatoken>94</datatoken>
@@ -657,7 +664,7 @@
     <examples>
       <ex>
         <exname>Customer clustering</exname>
-        <exdescription>Group customers together who  are similar and use e.g. target marketing techniques for all groups</exdescription>
+        <exdescription>Group customers together who are similar and use e.g. target marketing techniques for all groups</exdescription>
         <eximage>assets/photos/customersegment.png</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.segmentify.com/blog/customer-consumer-user-segmentation-examples"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/codex/customer-segmentation-with-k-means-in-python-18336fb915be"></diylink>
@@ -741,7 +748,8 @@
     <examples>
       <ex>
         <exname>Self driving cars</exname>
-        <exdescription>Predict where other vehicles or people will go </exdescription>
+        <exdescription>Predict where other vehicles or people will go
+        </exdescription>
         <eximage>assets/photos/selfdrivingcars.jpg</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.youtube.com/watch?v=yEtH23rKY8Q"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/deeppicar-part-1-102e03c83f2c"></diylink>
@@ -919,7 +927,7 @@
   </combi>
   <combi>
     <name>Text recommendation</name>
-    <datatype>Textual</datatype>
+    <datatype>Text</datatype>
     <ability>Recommend</ability>
     <datatoken>224</datatoken>
     <abilitytoken>17</abilitytoken>

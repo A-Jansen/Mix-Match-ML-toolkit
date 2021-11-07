@@ -65,6 +65,14 @@
 
 
 	<script>
+		var labeledDataTokens = [236, 138, 224, 94, 59, 98]; //images, video, text, audio, time series, tabular
+		var unlabeledDataTokens = [227, 12, 242, 20, 10, 67]; //images, video, text, audio, time series, tabular
+		var abilityTokens = [22, 140, 124, 24, 60, 17];
+		var supTokens = [22, 140]; //foresee, categorize
+		var unsupTokens = [124, 24, 17]; //cluster, generate, recommend
+		var reinTokens = [60];
+
+
 		OOCSI.connect('wss://oocsi.id.tue.nl/ws');
 		console.log("Connected to oocsi");
 
@@ -115,7 +123,7 @@
 					case 69: //69=e=unlabeleddata
 						console.log('data page');
 						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', 242));
+						openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', 227));
 						break;
 					case 83: //83=s=supervised
 						console.log('model ability page');
@@ -139,7 +147,7 @@
 						console.log('combination page');
 						//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
 
-						openCombinationPage(transform2('combies.xml', 'combies.xsl', 236, 140)); //image recognition
+						openCombinationPage(transform2('combies.xml', 'combies.xsl', 224,140)); //236, 140image recognition
 						break;
 						//in case of any other key, go back to the infopage (equal to removing the token)
 					default:
@@ -246,16 +254,29 @@
 		}
 
 		function display2Results(xmlInput, xsltSheet, type1, type2) {
+			let datatoken;
 			if (typeof XSLTProcessor !== 'undefined') {
 				var proc2 = new XSLTProcessor();
 				proc2.importStylesheet(xsltSheet);
-				proc2.setParameter(null, "tokenselected1", type1);
+				if (labeledDataTokens.includes(type1)) {
+					proc2.setParameter(null, "label", 'labeled');
+					datatoken = type1;
+				} else {
+					proc2.setParameter(null, "label", 'unlabeled');
+					let i = unlabeledDataTokens.indexOf(type1);
+					datatoken = labeledDataTokens[i];
+				}
+				if (supTokens.includes(type2)) {
+					proc2.setParameter(null, "learning", 'supervised');
+				} else{
+					proc2.setParameter(null, "learning", 'unsupervised');
+				}
+
+				proc2.setParameter(null, "tokenselected1", datatoken);
 				proc2.setParameter(null, "tokenselected2", type2);
-				// if(type1){
-				// 		proc2.setParameter(null, "label", labeled);
-				// } else{
-				// 		proc2.setParameter(null, "label", unlabeled);
-				// }
+
+
+
 				document.getElementById('replace').appendChild(proc2.transformToFragment(xmlInput, document));
 			} else if (typeof xmlInput.transformNode !== 'undefined') {
 				document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);

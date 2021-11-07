@@ -1,11 +1,11 @@
 .labelimage {
   z-index: 1;
   width: auto;
-  height: 240px;
+  height: 220px;
   padding: 10px;
   position: relative;
   top: 0;
-  left: 0;
+  left: 30px;
   /* display: inline-block;
   padding: 10px; */
   /* float: right; */
@@ -18,7 +18,7 @@
   padding: 10px;
   position: relative;
   top: 0;
-  left: -80px;
+  left: -100px;
   /* display: inline-block;
   padding: 10px; */
   /* float: right; */
@@ -26,13 +26,14 @@
 
 .dataimage {
   z-index: 2;
-  width: 170px;
+  width: auto;
+  height: 50%;
   /* padding: 10px; */
   position: absolute;
   /* padding-left: 150px; */
-  top: 10px;
-  left: 50%;
-  transform: translate(-10%);
+  top: 30px;
+  left: 53%;
+  transform: translate(-0%);
   /* display: inline-block;
   padding: 10px; */
   /* float: right; */
@@ -42,15 +43,15 @@
   color: white;
   z-index: 2;
   position: absolute;
-  width: 170px;
+  width: inherit;
   top: 130px;
   /* left: 125px; */
   left: 50%;
   text-align: center;
-  transform: translate(-10%);
+  /* transform: translate(-10%); */
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 28px;
+  font-weight: 400;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
@@ -58,12 +59,13 @@
   color: white;
   z-index: 2;
   position: absolute;
-  width: 170px;
-  top: 80px;
+  width: inherit;
+  height: inherit;
+  top: 32%;
   /* left: 125px; */
-  left: 50%;
-  text-align: center;
-  transform: translate(-10%);
+  left: 48%;
+  text-align: left;
+  /* transform: translate(-10%); */
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 28px;
@@ -74,11 +76,11 @@
   color: white;
   z-index: 2;
   position: absolute;
-  top: 175px;
-  width: 185px;
-  text-align: center;
+  top: 170px;
+  width: inherit+10px;
+  text-align: left;
   left: 50%;
-  transform: translate(-10%);
+  /* transform: translate(-10%); */
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 12px;
@@ -90,7 +92,7 @@
   z-index: 2;
   position: absolute;
   top: 155px;
-  width: 185px;
+  width: inherit+10px;
   text-align: center;
   left: 50%;
   transform: translate(-18%);
@@ -133,27 +135,28 @@
 }
 
 .labeled {
-  color: #0F5A89 !important;
+  color: #0F75B8 !important;
 }
 
 .unlabeled {
-  color: #3CA8B4 !important;
+  color: #3CC8C8 !important;
 }
 
 .supervised {
-  color: #026224 !important;
+  color: #008D24 !important;
 }
 
 .unsupervised {
-  color: #8CA61D !important;
+  color: #82BE14 !important;
 }
 
 .reinforcement {
-  color: #A0C8A5 !important;
+  color: #78C8A5 !important;
 }
 
 .description {
   font-size: 16px;
+  width: 80%;
 }
 
 .descriptionAbility {
@@ -166,4 +169,13 @@
   font-weight: 400;
   font-size: 32px;
   /* text-transform: uppercase; */
+}
+
+h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: -15px;
+    color: #1A1A1A;
+    text-transform: lowercase;
 }

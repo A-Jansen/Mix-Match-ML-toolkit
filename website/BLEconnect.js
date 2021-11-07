@@ -10,12 +10,6 @@ var tags = [255, 255, 255];
 var loc = [0, 0, 0];
 var tagsPresent = 0;
 
-var labeledDataTokens = [236, 138, 224, 94, 59, 98]; //images, video, text, audio, time series, tabular
-var unlabeledDataTokens = [227, 12, 242, 20, 10, 67]; //images, video, text, audio, time series, tabular
-var abilityTokens = [22, 140, 124, 24, 60, 17];
-var supTokens = [22, 140]; //foresee, categorize
-var unsupTokens = [124, 24, 17]; //cluster, generate, recommend
-var reinTokens = [60];
 
 
 var tag1;
@@ -194,10 +188,11 @@ function openCombiPage(tag1, tag2) {
   if (labeledDataTokens.includes(tag1) && (supTokens.includes(tag2) || unsupTokens.includes(tag2))) {
     openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
     // sendOOCSI('labeleddata', tagID);
-  } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
-    console.log(tag1);
-    let i = unlabeledDataTokens.indexOf(tag1);
-    openCombinationPage(transform2('combies.xml', 'combies.xsl', labeledDataTokens[i], tag2));
+  }
+  else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
+    // console.log(tag1);
+    // let i = unlabeledDataTokens.indexOf(tag1);
+    openCombinationPage(transform2('combies.xml', 'combies.xsl',tag1, tag2));
   } else {
     openInfo();
 
