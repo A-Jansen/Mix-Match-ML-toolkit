@@ -22,12 +22,12 @@
 	<link href="/assets/css/homepage.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/table.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/combipage.css" type="text/css" rel="stylesheet">
-	<link href="/assets/css/data.css" type="text/css" rel="stylesheet">
+	<link href="/assets/css/data_ability_pages.css" type="text/css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 	<!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
@@ -110,13 +110,29 @@
 					case 68: //68=d=data
 						console.log('data page');
 						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 59));
+						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 224));
 						break;
-
-					case 65: //65=a=abilityPage
+					case 69: //69=e=unlabeleddata
+						console.log('data page');
+						//send the .xml, .xsl and datatoken to the transform function and open the data page
+						openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', 242));
+						break;
+					case 83: //83=s=supervised
 						console.log('model ability page');
 						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
-						openAbilityPage(transform('abilities.xml', 'abilities.xsl', 140)); //140= recogntion
+						openAbilityPage(transform('abilities.xml', 'supervised.xsl', 140)); //140= categorize
+						sendOOCSI('abilitypage', 140);
+						break;
+					case 85: //85=u=unsupervised
+						console.log('model ability page');
+						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+						openAbilityPage(transform('abilities.xml', 'unsupervised.xsl', 124)); //124= cluster
+						sendOOCSI('abilitypage', 140);
+						break;
+					case 82: //82=r=reinforcement
+						console.log('model ability page');
+						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+						openAbilityPage(transform('abilities.xml', 'reinforcement.xsl', 60)); //60=optimize
 						sendOOCSI('abilitypage', 140);
 						break;
 					case 67: //67=c=combinationPage
@@ -235,6 +251,11 @@
 				proc2.importStylesheet(xsltSheet);
 				proc2.setParameter(null, "tokenselected1", type1);
 				proc2.setParameter(null, "tokenselected2", type2);
+				// if(type1){
+				// 		proc2.setParameter(null, "label", labeled);
+				// } else{
+				// 		proc2.setParameter(null, "label", unlabeled);
+				// }
 				document.getElementById('replace').appendChild(proc2.transformToFragment(xmlInput, document));
 			} else if (typeof xmlInput.transformNode !== 'undefined') {
 				document.getElementById("replace").innerHTML = xmlInput.transformNode(xsltSheet);

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <abilities xmlns:xlink="http://www.w3.org/1999/xlink">
+  <supervised>assets/photos/sl.png</supervised>
+  <unsupervised>assets/photos/us.png</unsupervised>
+  <reinforcement>assets/photos/rl.png</reinforcement>
   <abilitytoken>
     <ability>Foresee</ability>
     <token>22</token>
@@ -7,20 +10,18 @@
     <type>Supervised learning</type>
     <techterm>Classification, regression</techterm>
     <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
+      <c1 value="Predict what the next steps are likely to be and already make preselections or skip steps to reduce the workload of the user (e.g. adaptive interfaces)"></c1>
+      <c2 value="Can predict a continuous range of numbers if the output is numerical (using regression to predict the value)"></c2>
+      <!-- <c3 value=""></c3> -->
     </capabilities>
     <limitations>
       <l1 value="Requires labeled data"></l1>
-      <!-- <l2 value=""></l2>
-      <l3 value=""></l3> -->
+      <l2 value="If the output is categorical (multi-class) or binary data (2 classes), it can only predict on what is has been trained."></l2>
     </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Recommend</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Provide suggestions or guidance; propose contents, activities, etc.</description>
     <type>Unsupervised learning</type>
     <techterm>Recommender systems (collaborative filtering/ content based)</techterm>
@@ -38,8 +39,7 @@
   </abilitytoken>
   <abilitytoken>
     <ability>Distinguish</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Differentiate certain items from a group or average (find outliers, anomalies, etc.)</description>
     <type>Unsupervised learning</type>
     <techterm>Anomaly detection</techterm>
@@ -61,15 +61,16 @@
     <type>Unsupervised learning</type>
     <techterm>Classificaton</techterm>
     <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
+      <c1 value="Can recognize objects by finding patterns in the data, including abstract data that is not easily interpretable for humans (large spreadsheets with sensor values)"></c1>
+      <c2 value="Can recognize generic classes (e.g. flower or dog) as well as very specific classes (e.g. all the different types of Irises or all the dog breeds)"></c2>
+      <c3 value="Can differentiate between more than two classes/ categories (two classes: binary, 3 or more classes: multi-class)"></c3>
     </capabilities>
     <limitations>
       <l1 value="Requires labeled data"></l1>
       <l2 value="Only recognizes on what it is trained"></l2>
-      <l3 value="It might learn to recognize certain categories based on irrelevant data"></l3>
+      <l3 value="It might learn to recognize certain categories based on irrelevant data (e.g. the background color of an image or background noise of audio)"></l3>
       <l3></l3>
-      </limitations>
+    </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Identify</ability>
@@ -90,8 +91,7 @@
   </abilitytoken>
   <abilitytoken>
     <ability>Understand</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Comprehend topics, themes, or sentiments; interpret language</description>
     <type>Unsupervised learning</type>
     <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
@@ -108,8 +108,7 @@
   </abilitytoken>
   <abilitytoken>
     <ability>Communicate</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Convey messages/content in understandable languages</description>
     <type>Unsupervised learning</type>
     <techterm>Text to speech synthesis/ analysis</techterm>
@@ -126,11 +125,11 @@
   </abilitytoken>
   <abilitytoken>
     <ability>Translate</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Transform contents from one domain to another</description>
     <type>Unsupervised learning</type>
-    <techterm>Neural Machine Translation, neural style transfer </techterm>
+    <techterm>Neural Machine Translation, neural style transfer
+    </techterm>
     <capabilities>
       <c1 value="Translate texts"></c1>
       <c2 value="Transform images from one style to another style"></c2>
@@ -149,14 +148,15 @@
     <type>Unsupervised learning</type>
     <techterm>Generative Adversarial Networks (GAN), speech synthesis, deep fakes</techterm>
     <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
+      <c1 value="Can help ideating by creating a lot of various outputs as inspiration ( e.g. images of different designs)"></c1>
+      <c2 value="Can augment your dataset so you have more data to train with (synthetic data)"></c2>
+      <c3 value="Can generate slightly adjusted copies of the original data, e.g. deep fakes"></c3>
+        <c4 value="Can generate completely new data based on some settings (e.g. classical or rock music)"></c4>
     </capabilities>
     <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
+      <l1 value="The model might only create one small subset of the data and fails to generalize"></l1>
+      <l2 value="It is not always possible to steer the model in the right direction"></l2>
+      <!-- <l3 value=""></l3> -->
     </limitations>
   </abilitytoken>
   <abilitytoken>
@@ -166,20 +166,19 @@
     <type>Reinforcement learning</type>
     <techterm>Optimization algorithms, reinforcement learning</techterm>
     <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
+      <c1 value="Can learn from each new prediction and the model will improve over time"></c1>
+      <c2 value="Can learn things that are very hard to program or capture in data (e.g. how to walk)"></c2>
+      <!-- <c3 value=""></c3> -->
     </capabilities>
     <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
+      <l1 value="The model requires feedback (from the user) in order to learn"></l1>
+      <l2 value="It will start untrained and randomly guesses"></l2>
+      <l3 value="It is not possible to train and evaluate it beforehand"></l3>
     </limitations>
   </abilitytoken>
   <abilitytoken>
     <ability>Navigate</ability>
-    <token>
-    </token>
+    <token></token>
     <description>Steer autonomously through a physical or virtual environment</description>
     <type>Reinforcement learning</type>
     <techterm>Navigation algorithms, reinforcement learning</techterm>
@@ -201,14 +200,14 @@
     <type>Unsupervised learning</type>
     <techterm>Clustering</techterm>
     <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
+      <c1 value="Find groups in large datasets without the need of labelling data"></c1>
+      <c2 value="Can be a step before categorizing"></c2>
+      <c3 value="Finding clusters can also highlight anomalies (identify) since they do not belong to one of the clusters"></c3>
     </capabilities>
     <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
+      <l1 value="It will not know what the groups are, only that they contain similar items. For the labeling you will need supervised learning"></l1>
+      <l2 value="Groups can overlap"></l2>
+      <l3 value="Often you need to specify the number of clusters you want to find"></l3>
     </limitations>
   </abilitytoken>
   <!-- ****************************************** -->
@@ -220,125 +219,112 @@
       <mlmodel>MobileNet</mlmodel>
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet">">
-    </url>
-  </record>
-  <record index="2">
-    <ability>Categorize</ability>
-    <data>Video</data>
-    <description>Real-time hand pose detection in the browser using TensorFlow.js</description>
-    <mlmodel>HandPose</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/handpose">
-    </url>
-  </record>
-  <record index="3">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>An API for real-time human pose detection in the browser</description>
-    <mlmodel>Pose</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection">
-    </url>
-  </record>
-  <record index="4">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
-    <mlmodel>PoseNet</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet">
-    </url>
-  </record>
-  <record index="5">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
-    <mlmodel>Coco SSD</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd">
-    </url>
-  </record>
-  <record index="6">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
-    <mlmodel>BodyPix</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix">
-    </url>
-  </record>
-  <record index="7">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>Real-time rapid face detection in the browser using TensorFlow.js</description>
-    <mlmodel>BlazeFace</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/blazeface">
-    </url>
-  </record>
-  <record index="8">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>Semantic segmentation</description>
-    <mlmodel>DeepLab v3</mlmodel>
-    <supervised>0</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/deeplab">
-    </url>
-  </record>
-  <record index="9">
-    <ability>Categorize</ability>
-    <data>Image</data>
-    <description>Real-time 3D facial landmarks detection to infer the approximate surface geometry of a human face</description>
-    <mlmodel>Face Landmark Detection</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/face-landmarks-detection">
-    </url>
-  </record>
-  <record index="10">
-    <ability>Categorize</ability>
-    <data>Audio</data>
-    <description>Classify 1 second audio snippets from the speech commands dataset.</description>
-    <mlmodel>Speech Commands</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/speech-commands">
-    </url>
-  </record>
-  <record index="11">
-    <ability>Communicate</ability>
-    <data>Text</data>
-    <description>Encode text into a 512-dimensional embedding to be used as inputs to natural language processing tasks such as sentiment classification and textual similarity.</description>
-    <mlmodel>Universal Sentence Encoder</mlmodel>
-    <supervised>0</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/universal-sentence-encoder">
-    </url>
-  </record>
-  <record index="12">
-    <ability>Categorize</ability>
-    <data>Text</data>
-    <description>Score the perceived impact a comment might have on a conversation, from &quot;Very toxic&quot; to &quot;Very healthy&quot;.</description>
-    <mlmodel>Text Toxicity</mlmodel>
-    <supervised>1</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/toxicity">
-    </url>
-  </record>
-  <record index="13">
-    <ability>Communicate</ability>
-    <data>Audio</data>
-    <description>Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages</description>
-    <mlmodel>silero-stt</mlmodel>
-    <supervised>0</supervised>
-    <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/silero/collections/silero-stt/1">
-    </url>
-  </record>
-  <record index="14">
-    <ability>Communicate</ability>
-    <data>Audio</data>
-    <description>
-              Pre-trained speech model (without any head) from Facebook for Automatic Speech Recognition</description>
+      </url>
+    </record>
+    <record index="2">
+      <ability>Categorize</ability>
+      <data>Video</data>
+      <description>Real-time hand pose detection in the browser using TensorFlow.js</description>
+      <mlmodel>HandPose</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/handpose"></url>
+    </record>
+    <record index="3">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>An API for real-time human pose detection in the browser</description>
+      <mlmodel>Pose</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection"></url>
+    </record>
+    <record index="4">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
+      <mlmodel>PoseNet</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"></url>
+    </record>
+    <record index="5">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
+      <mlmodel>Coco SSD</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd"></url>
+    </record>
+    <record index="6">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
+      <mlmodel>BodyPix</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix"></url>
+    </record>
+    <record index="7">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>Real-time rapid face detection in the browser using TensorFlow.js</description>
+      <mlmodel>BlazeFace</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/blazeface"></url>
+    </record>
+    <record index="8">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>Semantic segmentation</description>
+      <mlmodel>DeepLab v3</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/deeplab"></url>
+    </record>
+    <record index="9">
+      <ability>Categorize</ability>
+      <data>Image</data>
+      <description>Real-time 3D facial landmarks detection to infer the approximate surface geometry of a human face</description>
+      <mlmodel>Face Landmark Detection</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/face-landmarks-detection"></url>
+    </record>
+    <record index="10">
+      <ability>Categorize</ability>
+      <data>Audio</data>
+      <description>Classify 1 second audio snippets from the speech commands dataset.</description>
+      <mlmodel>Speech Commands</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/speech-commands"></url>
+    </record>
+    <record index="11">
+      <ability>Communicate</ability>
+      <data>Text</data>
+      <description>Encode text into a 512-dimensional embedding to be used as inputs to natural language processing tasks such as sentiment classification and textual similarity.</description>
+      <mlmodel>Universal Sentence Encoder</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/universal-sentence-encoder"></url>
+    </record>
+    <record index="12">
+      <ability>Categorize</ability>
+      <data>Text</data>
+      <description>Score the perceived impact a comment might have on a conversation, from &quot;Very toxic&quot; to &quot;Very healthy&quot;.</description>
+      <mlmodel>Text Toxicity</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/toxicity"></url>
+    </record>
+    <record index="13">
+      <ability>Communicate</ability>
+      <data>Audio</data>
+      <description>Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages</description>
+      <mlmodel>silero-stt</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/silero/collections/silero-stt/1"></url>
+    </record>
+    <record index="14">
+      <ability>Communicate</ability>
+      <data>Audio</data>
+      <description>
+        Pre-trained speech model (without any head) from Facebook for Automatic Speech Recognition</description>
       <mlmodel>wav2vec2</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/vasudevgupta7/wav2vec2/1">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/vasudevgupta7/wav2vec2/1"></url>
     </record>
     <record index="15">
       <ability>Categorize</ability>
@@ -346,8 +332,7 @@
       <description>YAMNet is a pretrained deep net that predicts 521 audio event classes based on the AudioSet-YouTube corpus, and employing the Mobilenet_v1 depthwise-separable convolution architecture</description>
       <mlmodel>YAMNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/research/audioset/yamnet">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/research/audioset/yamnet"></url>
     </record>
     <record index="16">
       <ability>Categorize</ability>
@@ -355,8 +340,7 @@
       <description>A basic model to classify digits from the MNIST dataset</description>
       <mlmodel>MNIST</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/vision/image_classification">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/vision/image_classification"></url>
     </record>
     <record index="17">
       <ability>Categorize</ability>
@@ -364,8 +348,7 @@
       <description>Deep Residual Learning for Image Recognition</description>
       <mlmodel>ResNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="18">
       <ability>Categorize</ability>
@@ -373,8 +356,7 @@
       <description>Revisiting ResNets: Improved Training and Scaling Strategies</description>
       <mlmodel>ResNet-RS</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="19">
       <ability>Categorize</ability>
@@ -382,8 +364,7 @@
       <description>EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks</description>
       <mlmodel>EfficientNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="20">
       <ability>Categorize</ability>
@@ -391,8 +372,7 @@
       <description>Object Detection and Segmentation</description>
       <mlmodel>RetinaNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="21">
       <ability>Categorize</ability>
@@ -400,8 +380,7 @@
       <description>Object Detection and Segmentation</description>
       <mlmodel>Mask R-CNN</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="22">
       <ability>Categorize</ability>
@@ -409,8 +388,7 @@
       <description>Object Detection and Segmentation</description>
       <mlmodel>ShapeMask</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/detection">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/detection"></url>
     </record>
     <record index="23">
       <ability>Categorize</ability>
@@ -418,8 +396,7 @@
       <description>Object Detection and Segmentation</description>
       <mlmodel>SpineNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="24">
       <ability>Categorize</ability>
@@ -427,8 +404,7 @@
       <description>Object Detection and Segmentation</description>
       <mlmodel>Cascade RCNN-RS and RetinaNet-Rs</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="25">
       <ability>Recommend</ability>
@@ -436,8 +412,7 @@
       <description>Deep Learning Recommendation Model for Personalization and Recommendation Systems</description>
       <mlmodel>DLRM</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
     </record>
     <record index="26">
       <ability>Recommend</ability>
@@ -445,8 +420,7 @@
       <description>Improved Deep &amp; Cross Network and Practical Lessons for Web-scale Learning to Rank Systems</description>
       <mlmodel>DCN v2</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
     </record>
     <record index="27">
       <ability>Recommend</ability>
@@ -454,8 +428,7 @@
       <description>Neural Collaborative Filtering</description>
       <mlmodel>NCF</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation"></url>
     </record>
     <record index="28">
       <ability>Communicate</ability>
@@ -463,8 +436,7 @@
       <description>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</description>
       <mlmodel>AlBERT (A Lite BERT)</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
     </record>
     <record index="29">
       <ability>Communicate</ability>
@@ -472,8 +444,7 @@
       <description>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</description>
       <mlmodel>BERT</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
     </record>
     <record index="30">
       <ability>Generate</ability>
@@ -481,8 +452,7 @@
       <description>Generating Representative Headlines for News Stories</description>
       <mlmodel>NHHNet</mlmodel>
       <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/nhnet">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/nhnet"></url>
     </record>
     <record index="31">
       <ability>Categorize</ability>
@@ -490,8 +460,7 @@
       <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
       <mlmodel>PoseNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"></url>
     </record>
     <record index="32">
       <ability>Categorize</ability>
@@ -499,8 +468,7 @@
       <description>Classify images with labels from the ImageNet database</description>
       <mlmodel>MobileNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet"></url>
     </record>
     <record index="33">
       <ability>Categorize</ability>
@@ -508,8 +476,7 @@
       <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
       <mlmodel>Coco SSD</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd"></url>
     </record>
     <record index="34">
       <ability>Categorize</ability>
@@ -517,8 +484,7 @@
       <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
       <mlmodel>BodyPix</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix"></url>
     </record>
   </records>
 </abilities>

@@ -1,0 +1,169 @@
+.labelimage {
+  z-index: 1;
+  width: auto;
+  height: 240px;
+  padding: 10px;
+  position: relative;
+  top: 0;
+  left: 0;
+  /* display: inline-block;
+  padding: 10px; */
+  /* float: right; */
+}
+
+.reinforcementimage{
+  z-index: 1;
+  width: auto;
+  height: 190px;
+  padding: 10px;
+  position: relative;
+  top: 0;
+  left: -80px;
+  /* display: inline-block;
+  padding: 10px; */
+  /* float: right; */
+}
+
+.dataimage {
+  z-index: 2;
+  width: 170px;
+  /* padding: 10px; */
+  position: absolute;
+  /* padding-left: 150px; */
+  top: 10px;
+  left: 50%;
+  transform: translate(-10%);
+  /* display: inline-block;
+  padding: 10px; */
+  /* float: right; */
+}
+
+.overlaptext {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  width: 170px;
+  top: 130px;
+  /* left: 125px; */
+  left: 50%;
+  text-align: center;
+  transform: translate(-10%);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.overlaptextBig {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  width: 170px;
+  top: 80px;
+  /* left: 125px; */
+  left: 50%;
+  text-align: center;
+  transform: translate(-10%);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.overlaptext2 {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  top: 175px;
+  width: 185px;
+  text-align: center;
+  left: 50%;
+  transform: translate(-10%);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.overlaptextability {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  top: 155px;
+  width: 185px;
+  text-align: center;
+  left: 50%;
+  transform: translate(-18%);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.headerData {
+  margin: auto;
+  width: 80%;
+  height: inherit;
+  padding-bottom: 30px;
+  overflow: auto;
+}
+
+.leftheader {
+  width: 35%;
+  float: left;
+  position: relative;
+  padding-left: 100px;
+}
+
+.rightheader {
+  width: 60%;
+  float: right;
+}
+
+.leftdiv {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+}
+
+.rightdiv {
+  width: 50%;
+  float: right;
+  padding-right: 10px;
+}
+
+.labeled {
+  color: #0F5A89 !important;
+}
+
+.unlabeled {
+  color: #3CA8B4 !important;
+}
+
+.supervised {
+  color: #026224 !important;
+}
+
+.unsupervised {
+  color: #8CA61D !important;
+}
+
+.reinforcement {
+  color: #A0C8A5 !important;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.descriptionAbility {
+  font-size: 20px;
+  margin-top: -5px;
+}
+
+.type {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  /* text-transform: uppercase; */
+}

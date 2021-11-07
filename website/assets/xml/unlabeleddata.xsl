@@ -9,37 +9,53 @@
   <xsl:template match="/">
     <html>
       <body id='replace'>
+        <header>
 
-        <xsl:for-each select="data/datatoken[ultoken=$tokenselected]">
-          <header>
-            <h2><xsl:value-of select="datatype"/> data</h2>
-            <p class='centerText'><xsl:value-of select="structure"/> dataset + unlabeled</p>
-          </header>
-          <div class="centerBlock">
-            <p>
-              <span class='bold'>Description:
-              </span><xsl:value-of select="description"/></p>
+          <div class="headerData">
+            <div class='leftheader'>
+              <img>
 
-            <p>
-              <span class='bold'>Possible formats:
-              </span>
-              <span><xsl:value-of select="format"/></span>
-            </p>
-            <!-- <p>
-              <span class='bold'>Collection methods:
-              </span>
-              <span>
-                <xsl:value-of select="collection"/></span>
-            </p> -->
+                <xsl:attribute name="class">labelimage
+                </xsl:attribute>
 
-            <p class="bold">Selection of datasets (labels can be discarded in case they are not necessary):</p>
+                <xsl:attribute name="src"><xsl:value-of select="data/unlabeledimage"/>
+                </xsl:attribute>
+              </img>
+              <img>
+
+                <xsl:attribute name="class">dataimage
+                </xsl:attribute>
+
+                <xsl:attribute name="src"><xsl:value-of select="data/datatoken[ultoken=$tokenselected]/image"/>
+                </xsl:attribute>
+              </img>
+              <p class='overlaptext'><xsl:value-of select="data/datatoken[ultoken=$tokenselected]/datatype"/></p>
+              <p class='overlaptext2'>Unlabeled training dataset</p>
+            </div>
+
+            <div class='rightheader'>
+              <xsl:for-each select="data/datatoken[ultoken=$tokenselected]">
+                <h3 class='type unlabeled' ><xsl:value-of select="datatype"/> data</h3>
+                <p class='description'>
+                <xsl:value-of select="description"/></p>
+                <p>
+                  <span class='bold unlabeled'>Possible formats:
+                  </span>
+                  <span><xsl:value-of select="format"/></span>
+                </p>
+
+              </xsl:for-each>
+            </div>
+
           </div>
-        </xsl:for-each>
-        <div>
 
+        </header>
+
+        <div class='centerBlock'>
+          <p class="bold unlabeled">Selection of datasets:</p>
           <table>
-            <tr style="background-color: #3CA8B4;" >
-              <th>Dataset</th>
+            <tr style="background-color: #3CA8B4;">
+              <th >Dataset</th>
               <th>Description</th>
               <th>Labeled</th>
               <!-- <th>Link</th> -->
@@ -61,8 +77,7 @@
         </div>
 
       </body>
-      <footer>
-      </footer>
+      <footer></footer>
     </html>
   </xsl:template>
 

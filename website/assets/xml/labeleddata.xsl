@@ -35,28 +35,24 @@
 
             <div class='rightheader'>
               <xsl:for-each select="data/datatoken[ltoken=$tokenselected]">
-                <h3 class='datatype'><xsl:value-of select="datatype"/> data</h3>
+                <h3 class='type labeled' ><xsl:value-of select="datatype"/> data</h3>
                 <p class='description'>
                 <xsl:value-of select="description"/></p>
                 <p>
-                  <span class='bold'>Possible formats:
+                  <span class='bold labeled'>Possible formats:
                   </span>
                   <span><xsl:value-of select="format"/></span>
                 </p>
 
               </xsl:for-each>
             </div>
-            <!-- <div class='labels'> </div> <div class='centerHeader'> <h2> <xsl:value-of select="data/datatoken[ltoken=$tokenselected]/datatype"/> data </h2> <p class='centerText'><xsl:value-of select="data/datatoken[ltoken=$tokenselected]/structure"/>
-            training dataset </p> </div> -->
+
           </div>
 
-          <!-- <img src="assets/photos/label.png" width="80"> -->
         </header>
-        <!-- <div class="centerBlock"> </div> -->
-
 
         <div class='centerBlock'>
-          <p class="bold">Selection of datasets:</p>
+          <p class="bold labeled">Selection of datasets:</p>
           <table>
             <tr style="background-color: #0F5A89;">
               <th >Dataset</th>

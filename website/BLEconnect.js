@@ -12,7 +12,7 @@ var tagsPresent = 0;
 
 var labeledDataTokens = [236, 138, 224, 94, 59, 98]; //images, video, text, audio, time series, tabular
 var unlabeledDataTokens = [227, 12, 242, 20, 10, 67]; //images, video, text, audio, time series, tabular
-var abilityTokens = [22,140, 124, 24, 60, 17];
+var abilityTokens = [22, 140, 124, 24, 60, 17];
 var supTokens = [22, 140]; //foresee, categorize
 var unsupTokens = [124, 24, 17]; //cluster, generate, recommend
 var reinTokens = [60];
@@ -81,9 +81,9 @@ function handleNotifications(data) {
   myValue = data;
   if (myValue == 0 | myValue == 1 | myValue == 2) {
     identifier = myValue;
-  } else if(myValue==254) {
+  } else if (myValue == 254) {
     disconnectToBle();
-  }  else {
+  } else {
     incomingValues[identifier] = myValue;
   }
   //console.log(identifier, incomingValues[identifier]);
@@ -93,7 +93,7 @@ function handleNotifications(data) {
 
 function readValues() {
   //check if there is at least one token available
- console.log(incomingValues);
+  console.log(incomingValues);
   if (arrayEquals(incomingValues, emptyArray)) {
     open1Page(0);
   }
@@ -173,9 +173,15 @@ function open1Page(tagID) {
   } else if (unlabeledDataTokens.includes(tagID)) {
     openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', tagID));
     sendOOCSI('unlabeleddatapage', tagID);
-  } else if (abilityTokens.includes(tagID)) {
-    openAbilityPage(transform('abilities.xml', 'abilities.xsl', tagID));
-    sendOOCSI('abilitypage', tagID);
+  } else if (supTokens.includes(tagID)) {
+    openAbilityPage(transform('abilities.xml', 'supervised.xsl', tagID));
+    sendOOCSI('supervised', tagID);
+  } else if (unsupTokens.includes(tagID)) {
+    openAbilityPage(transform('abilities.xml', 'unsupervised.xsl', tagID));
+    sendOOCSI('unsupervised', tagID);
+  } else if (reinTokens.includes(tagID)) {
+    openAbilityPage(transform('abilities.xml', 'reinforcement.xsl', tagID));
+    sendOOCSI('reinforcement', tagID);
   } else {
     openInfo();
     alert('Token not recognized');
@@ -190,7 +196,7 @@ function openCombiPage(tag1, tag2) {
     // sendOOCSI('labeleddata', tagID);
   } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
     console.log(tag1);
-    let i =unlabeledDataTokens.indexOf(tag1);
+    let i = unlabeledDataTokens.indexOf(tag1);
     openCombinationPage(transform2('combies.xml', 'combies.xsl', labeledDataTokens[i], tag2));
   } else {
     openInfo();
