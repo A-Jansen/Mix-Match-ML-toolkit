@@ -160,6 +160,7 @@
 
 		//open the datapage when pressed on 'd or when a data token is placed
 		function openDataPage() {
+			console.log("open data page");
 			var xhttpData = new XMLHttpRequest();
 			xhttpData.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -174,6 +175,7 @@
 
 		//open the ML ability page when 'a' is pressed or when a ML ability token is placed
 		function openAbilityPage() {
+			console.log("open ability page");
 			var xhttpAbility = new XMLHttpRequest();
 			xhttpAbility.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -186,10 +188,12 @@
 
 
 		function openCombinationPage() {
+			console.log("open combination page");
 			var xhttpCombi = new XMLHttpRequest();
 			xhttpCombi.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					document.getElementById("replace").innerHTML = this.responseText;
+					// console.log(this.responseText);
 				}
 			};
 			xhttpCombi.open("GET", "combinationPage.html", true);

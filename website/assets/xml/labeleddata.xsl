@@ -8,7 +8,7 @@
 
   <xsl:template match="/">
     <html>
-      <body id='replace'>
+      <body >
         <header>
 
           <div class="headerData">
@@ -62,7 +62,7 @@
               <!-- <th>Link</th> -->
             </tr>
 
-            <xsl:for-each select="data/records/record[datatype=$dataselected  and labeled=1]">
+            <xsl:for-each select="data/records/record[datatype=$dataselected and labeled='yes']">
               <tr>
                 <td>
                   <a href="{url/@xlink:href}" target="_blank"><xsl:value-of select="dataset"/></a>

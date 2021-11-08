@@ -4,11 +4,11 @@
 
   <xsl:param name="tokenselected"></xsl:param>
 
-  <xsl:param name="dataselected" select="data/datatoken[ultoken=$tokenselected]/datatype"></xsl:param>
+  <xsl:param name="dataselected" select="data/datatoken[ultoken=$tokenselected]/dataname"></xsl:param>
 
   <xsl:template match="/">
     <html>
-      <body id='replace'>
+      <body>
         <header>
 
           <div class="headerData">

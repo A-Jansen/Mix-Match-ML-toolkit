@@ -4,10 +4,10 @@ var connectButton;
 var disconnectButton;
 var identifier;
 
-var incomingValues = [255, 255, 255];
-var emptyArray = [255, 255, 255];
-var tags = [255, 255, 255];
-var loc = [0, 0, 0];
+var incomingValues = [255, 255];
+var emptyArray = [255, 255];
+var tags = [255, 255];
+var loc = [0, 0];
 var tagsPresent = 0;
 
 
@@ -87,7 +87,7 @@ function handleNotifications(data) {
 
 function readValues() {
   //check if there is at least one token available
-  console.log(incomingValues);
+  // console.log(incomingValues);
   if (arrayEquals(incomingValues, emptyArray)) {
     open1Page(0);
   }
@@ -115,10 +115,8 @@ function removeTags() {
 
 function updateTags() {
   if (!arrayEquals(incomingValues, emptyArray)) {
-    //console.log("At least one tag present!");
     //loop over the incomingValues to detect how many tags are present, their location and their ID.
     for (let i = 0; i < incomingValues.length; i++) {
-      //console.log(i, incomingValues[i]);
       //check if != 255 --> token present
       if (incomingValues[i] != 255) {
         //console.log("Tag present");
@@ -126,10 +124,12 @@ function updateTags() {
           tagsPresent++; //add 1 to number of tagsPresent
           tags[i] = incomingValues[i]; //save the tag number for identification later
           loc[i] = 1; // 1: tag is present, 0: no tag present
-          numPages(tags[i]);
+
+          // console.log(i +", "+ tags[i] +", "+ tagsPresent);
+          numPages(tags[i], tagsPresent);
         } else if (tagRemoved) { //if a tag is removed, the if-loop above will not rerun since the remaining token is the same, so in that case run this elseif
           tags[i] = incomingValues[i];
-          numPages(tags[i]);
+          numPages(tags[i], tagsPresent);
           tagRemoved = false;
         }
       } //if
@@ -137,17 +137,15 @@ function updateTags() {
   }
 }
 
-function numPages(tagID) {
-  switch (tagsPresent) {
+function numPages(tagID, numTags) {
+   // console.log("tagspresent: "+ numTags);
+  switch (numTags) {
     case 1: //1 tag present if loc[0]: data, loc[1]: label, loc[2]: ability
       //show data or ability page depending on token
       console.log("1 tag present");
       open1Page(tagID);
       break;
     case 2: //2 tags present
-      // check if unsupervised: if yes show combination page of data + ability, loc[1] should be empty
-      // if supervised and no label --> alert place label
-      // if supervised and label --> show ability page
       console.log("2 tags present");
       tag1 = tags[0];
       tag2 = tags[1];
