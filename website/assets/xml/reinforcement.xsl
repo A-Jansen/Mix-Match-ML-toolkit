@@ -85,9 +85,8 @@
 
           <table>
             <tr style="background-color:#78C8A5">
-              <th>Trained model</th>
+              <th>Example</th>
               <th>Description</th>
-              <th>Data type</th>
               <!-- <th>Link</th> -->
             </tr>
 
@@ -100,7 +99,7 @@
                     <xsl:value-of select="mlmodel"/></a>
                 </td>
                 <td><xsl:value-of select="description"/></td>
-                <td><xsl:value-of select="data"/></td>
+              
 
               </tr>
 

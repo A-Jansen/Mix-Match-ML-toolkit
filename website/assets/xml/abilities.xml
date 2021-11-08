@@ -21,7 +21,7 @@
   </abilitytoken>
   <abilitytoken>
     <ability>Recommend</ability>
-    <token></token>
+    <token>17</token>
     <description>Provide suggestions or guidance; propose contents, activities, etc.</description>
     <type>Unsupervised learning</type>
     <techterm>Recommender systems (collaborative filtering/ content based)</techterm>
@@ -213,15 +213,38 @@
   <!-- ****************************************** -->
   <records>
     <record index="1">
+      <ability>?</ability>
+      <data>Tabular</data>
+      <description>Identify if a tumor is malignant or benign based on features extracted from a digitized image of a fine needle aspirate (FNA) of a breast mass.</description>
+      <mlmodel>Breast cancer detection</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/breast-cancer-detection-app/"></url>
+    </record>
+    <record index="2">
+      <ability>???</ability>
+      <data>Text</data>
+      <description>An Open-source Neural Sequence Labeling Toolkit</description>
+      <mlmodel>NCRF++</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/jiesutd/NCRFpp"></url>
+    </record>
+    <record index="3">
+      <ability>??? Translate</ability>
+      <data>Video</data>
+      <description>Unsupervised Learning of Depth and Ego-Motion from Monocular Video Using 3D Geometric Constrain</description>
+      <mlmodel>vid2depth</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/research/vid2depth"></url>
+    </record>
+    <record index="4">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Classify images with labels from the ImageNet database</description>
       <mlmodel>MobileNet</mlmodel>
       <supervised>1</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet">">
-      </url>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet"></url>
     </record>
-    <record index="2">
+    <record index="5">
       <ability>Categorize</ability>
       <data>Video</data>
       <description>Real-time hand pose detection in the browser using TensorFlow.js</description>
@@ -229,7 +252,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/handpose"></url>
     </record>
-    <record index="3">
+    <record index="6">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>An API for real-time human pose detection in the browser</description>
@@ -237,7 +260,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection"></url>
     </record>
-    <record index="4">
+    <record index="7">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
@@ -245,7 +268,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"></url>
     </record>
-    <record index="5">
+    <record index="8">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
@@ -253,7 +276,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd"></url>
     </record>
-    <record index="6">
+    <record index="9">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
@@ -261,7 +284,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix"></url>
     </record>
-    <record index="7">
+    <record index="10">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Real-time rapid face detection in the browser using TensorFlow.js</description>
@@ -269,7 +292,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/blazeface"></url>
     </record>
-    <record index="8">
+    <record index="11">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Semantic segmentation</description>
@@ -277,7 +300,7 @@
       <supervised>0</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/deeplab"></url>
     </record>
-    <record index="9">
+    <record index="12">
       <ability>Categorize</ability>
       <data>Image</data>
       <description>Real-time 3D facial landmarks detection to infer the approximate surface geometry of a human face</description>
@@ -285,7 +308,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/face-landmarks-detection"></url>
     </record>
-    <record index="10">
+    <record index="13">
       <ability>Categorize</ability>
       <data>Audio</data>
       <description>Classify 1 second audio snippets from the speech commands dataset.</description>
@@ -293,38 +316,13 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/speech-commands"></url>
     </record>
-    <record index="11">
-      <ability>Communicate</ability>
-      <data>Text</data>
-      <description>Encode text into a 512-dimensional embedding to be used as inputs to natural language processing tasks such as sentiment classification and textual similarity.</description>
-      <mlmodel>Universal Sentence Encoder</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/universal-sentence-encoder"></url>
-    </record>
-    <record index="12">
+    <record index="14">
       <ability>Categorize</ability>
       <data>Text</data>
       <description>Score the perceived impact a comment might have on a conversation, from &quot;Very toxic&quot; to &quot;Very healthy&quot;.</description>
       <mlmodel>Text Toxicity</mlmodel>
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/toxicity"></url>
-    </record>
-    <record index="13">
-      <ability>Communicate</ability>
-      <data>Audio</data>
-      <description>Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages</description>
-      <mlmodel>silero-stt</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/silero/collections/silero-stt/1"></url>
-    </record>
-    <record index="14">
-      <ability>Communicate</ability>
-      <data>Audio</data>
-      <description>
-        Pre-trained speech model (without any head) from Facebook for Automatic Speech Recognition</description>
-      <mlmodel>wav2vec2</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/vasudevgupta7/wav2vec2/1"></url>
     </record>
     <record index="15">
       <ability>Categorize</ability>
@@ -407,54 +405,6 @@
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/blob/master/official/vision/beta/MODEL_GARDEN.md"></url>
     </record>
     <record index="25">
-      <ability>Recommend</ability>
-      <data>Tabular</data>
-      <description>Deep Learning Recommendation Model for Personalization and Recommendation Systems</description>
-      <mlmodel>DLRM</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
-    </record>
-    <record index="26">
-      <ability>Recommend</ability>
-      <data>Tabular</data>
-      <description>Improved Deep &amp; Cross Network and Practical Lessons for Web-scale Learning to Rank Systems</description>
-      <mlmodel>DCN v2</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
-    </record>
-    <record index="27">
-      <ability>Recommend</ability>
-      <data>Tabular</data>
-      <description>Neural Collaborative Filtering</description>
-      <mlmodel>NCF</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation"></url>
-    </record>
-    <record index="28">
-      <ability>Communicate</ability>
-      <data>Text</data>
-      <description>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</description>
-      <mlmodel>AlBERT (A Lite BERT)</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
-    </record>
-    <record index="29">
-      <ability>Communicate</ability>
-      <data>Text</data>
-      <description>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</description>
-      <mlmodel>BERT</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
-    </record>
-    <record index="30">
-      <ability>Generate</ability>
-      <data>Text</data>
-      <description>Generating Representative Headlines for News Stories</description>
-      <mlmodel>NHHNet</mlmodel>
-      <supervised>0</supervised>
-      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/nhnet"></url>
-    </record>
-    <record index="31">
       <ability>Categorize</ability>
       <data>Video</data>
       <description>A machine learning model which allows for real-time human pose estimation in the browser.</description>
@@ -462,7 +412,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"></url>
     </record>
-    <record index="32">
+    <record index="26">
       <ability>Categorize</ability>
       <data>Video</data>
       <description>Classify images with labels from the ImageNet database</description>
@@ -470,7 +420,7 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet"></url>
     </record>
-    <record index="33">
+    <record index="27">
       <ability>Categorize</ability>
       <data>Video</data>
       <description>Object detection model that aims to localize and identify multiple objects in a single image.</description>
@@ -478,13 +428,365 @@
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd"></url>
     </record>
-    <record index="34">
+    <record index="28">
       <ability>Categorize</ability>
       <data>Video</data>
       <description>Real-time person and body part segmentation in the browser using TensorFlow.js</description>
       <mlmodel>BodyPix</mlmodel>
       <supervised>1</supervised>
       <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/blob/master/body-pix"></url>
+    </record>
+    <record index="29">
+      <ability>Categorize</ability>
+      <data>Text</data>
+      <description>Unsupervised Language Modeling at scale for robust sentiment classification</description>
+      <mlmodel>Sentiment discovery</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/NVIDIA/sentiment-discovery"></url>
+    </record>
+    <record index="30">
+      <ability>Cluster</ability>
+      <data>Text</data>
+      <description>Multilingual Unsupervised and Supervised Embeddings</description>
+      <mlmodel>MUSE</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/facebookresearch/MUSE"></url>
+    </record>
+    <record index="31">
+      <ability>Cluster</ability>
+      <data>All</data>
+      <description>Cluster any kind of data in k clusters</description>
+      <mlmodel>Kmeans clustering</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://learn.ml5js.org/#/reference/kmeans"></url>
+    </record>
+    <record index="32">
+      <ability>Communicate</ability>
+      <data>Text</data>
+      <description>Encode text into a 512-dimensional embedding to be used as inputs to natural language processing tasks such as sentiment classification and textual similarity.</description>
+      <mlmodel>Universal Sentence Encoder</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/tfjs-models/tree/master/universal-sentence-encoder"></url>
+    </record>
+    <record index="33">
+      <ability>Communicate</ability>
+      <data>Text</data>
+      <description>A neural conversational model (aka a chatbot)</description>
+      <mlmodel>DeepQA</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/Conchylicultor/DeepQA"></url>
+    </record>
+    <record index="34">
+      <ability>Communicate</ability>
+      <data>Text</data>
+      <description>End-to-end speech processing toolkit</description>
+      <mlmodel>ESPnet</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/espnet/espnet"></url>
+    </record>
+    <record index="35">
+      <ability>Communicate</ability>
+      <data>Images</data>
+      <description>An attention based model that describes the content of images</description>
+      <mlmodel>Show, Attend and Tell</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/yunjey/show-attend-and-tell"></url>
+    </record>
+    <record index="36">
+      <ability>Foresee</ability>
+      <data>Text</data>
+      <description>BERT for next sentence prediction: evaluate how likely two sentences are to occur in series</description>
+      <mlmodel>BERT NSP</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/jbrew/BERT-NSP"></url>
+    </record>
+    <record index="37">
+      <ability>Foresee</ability>
+      <data>Time series</data>
+      <description>Wind Speed Prediction using LSTMs in PyTorch</description>
+      <mlmodel>Deep forecast pytorch</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/Wizaron/deep-forecast-pytorch"></url>
+    </record>
+    <record index="38">
+      <ability>Foresee</ability>
+      <data>Tabular</data>
+      <description>Predict the popularity of a song</description>
+      <mlmodel>Hit song prediction</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/hit-song-prediction-app/"></url>
+    </record>
+    <record index="39">
+      <ability>Foresee</ability>
+      <data>Tabular</data>
+      <description>Detect credit card fraud using deep learning</description>
+      <mlmodel>Credit card fraud detection</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/credit-card-fraud-detection-app/"></url>
+    </record>
+    <record index="40">
+      <ability>Foresee</ability>
+      <data>Tabular</data>
+      <description>Predict if it is going to rain tomorrow</description>
+      <mlmodel>Next day rain prediction</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/next-day-rain-prediction-app/"></url>
+    </record>
+    <record index="41">
+      <ability>Foresee</ability>
+      <data>Time series</data>
+      <description>Predict whether a water pump will fail in a future time window or not</description>
+      <mlmodel>Pump failure detection</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/pump-failure-detection-app/"></url>
+    </record>
+    <record index="42">
+      <ability>Foresee</ability>
+      <data>Time series</data>
+      <description>Predict the remaining useful life of aircraft engines</description>
+      <mlmodel>Predictive maintenance</mlmodel>
+      <supervised>1</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://cainvas.ai-tech.systems/use-cases/predictive-maintenance-using-lstm/"></url>
+    </record>
+    <record index="43">
+      <ability>Generate</ability>
+      <data>Text</data>
+      <description>Generating Representative Headlines for News Stories</description>
+      <mlmodel>NHHNet</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/nhnet"></url>
+    </record>
+    <record index="44">
+      <ability>Generate</ability>
+      <data>Images</data>
+      <description>Deep Convolutional Generative Adversarial Networks which is a stabilize Generative Adversarial Networks</description>
+      <mlmodel>DCGAN-tensorflow</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/carpedm20/DCGAN-tensorflow"></url>
+    </record>
+    <record index="45">
+      <ability>Generate</ability>
+      <data>Images/ Text</data>
+      <description>Text-to-Face generation</description>
+      <mlmodel>T2F</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/akanimax/T2F"></url>
+    </record>
+    <record index="46">
+      <ability>Generate</ability>
+      <data>Audio</data>
+      <description>A Flow-based Generative Network for Speech Synthesis</description>
+      <mlmodel>Waveglow</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/NVIDIA/waveglow"></url>
+    </record>
+    <record index="47">
+      <ability>Generate</ability>
+      <data>Text</data>
+      <description>Generate lyrics, short stories, and more</description>
+      <mlmodel>Text generation</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/model-collection/text-generation"></url>
+    </record>
+    <record index="48">
+      <ability>Generate</ability>
+      <data>Image/ Video</data>
+      <description>Generate images and videos of portraits</description>
+      <mlmodel>Portraits</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/Portraits"></url>
+    </record>
+    <record index="49">
+      <ability>Generate</ability>
+      <data>Image/ Video</data>
+      <description>Generate images and videos of landscapes</description>
+      <mlmodel>Landscapes</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/Landscapes"></url>
+    </record>
+    <record index="50">
+      <ability>Generate</ability>
+      <data>Image</data>
+      <description>Text to image generation with AttnGAN</description>
+      <mlmodel>AttnGAN</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/AttnGAN"></url>
+    </record>
+    <record index="51">
+      <ability>Generate</ability>
+      <data>Image</data>
+      <description>Generate realistic images from sketches and doodles</description>
+      <mlmodel>SPADE COCO</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/SPADE-COCO"></url>
+    </record>
+    <record index="52">
+      <ability>Generate</ability>
+      <data>Text</data>
+      <description>Create captions for images</description>
+      <mlmodel>im2txt</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/im2txt"></url>
+    </record>
+    <record index="53">
+      <ability>Generate</ability>
+      <data>Image</data>
+      <description>Swap faces between two images</description>
+      <mlmodel>Few shot face translation</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://app.runwayml.com/models/runway/Few-Shot-Face-Translation-GAN"></url>
+    </record>
+    <record index="54">
+      <ability>Identify</ability>
+      <data>Audio</data>
+      <description>Neural building blocks for speaker diarization: speech activity detection, speaker change detection, overlapped speech detection, speaker embedding</description>
+      <mlmodel>Pyannote-audio</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="http://pyannote.github.io/"></url>
+    </record>
+    <record index="55">
+      <ability>Recommend</ability>
+      <data>Tabular</data>
+      <description>Deep Learning Recommendation Model for Personalization and Recommendation Systems</description>
+      <mlmodel>DLRM</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
+    </record>
+    <record index="56">
+      <ability>Recommend</ability>
+      <data>Tabular</data>
+      <description>Improved Deep &amp; Cross Network and Practical Lessons for Web-scale Learning to Rank Systems</description>
+      <mlmodel>DCN v2</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation/ranking"></url>
+    </record>
+    <record index="57">
+      <ability>Recommend</ability>
+      <data>Tabular</data>
+      <description>Neural Collaborative Filtering</description>
+      <mlmodel>NCF</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/recommendation"></url>
+    </record>
+    <record index="58">
+      <ability>Recommend</ability>
+      <data>Tabular</data>
+      <description>Recommend movies based on a selection of movies you liked</description>
+      <mlmodel>Movie recommendation</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://www.tensorflow.org/lite/examples/recommendation/overview"></url>
+    </record>
+    <record index="59">
+      <ability>Translate</ability>
+      <data>Video/ Images</data>
+      <description>Unpaired and paired image-to-image translation</description>
+      <mlmodel>CycleGAN and pix2pix</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://modelzoo.co/model/pytorch-cyclegan-and-pix2pix"></url>
+    </record>
+    <record index="60">
+      <ability>Translate</ability>
+      <data>Images</data>
+      <description>UNsupervised Image-to-image Translation Networks</description>
+      <mlmodel>UNIT</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/mingyuliutw/UNIT"></url>
+    </record>
+    <record index="61">
+      <ability>Translate</ability>
+      <data>Audio</data>
+      <description>End-to-end speech processing toolkit</description>
+      <mlmodel>ESPnet</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/espnet/espnet"></url>
+    </record>
+    <record index="62">
+      <ability>Translate</ability>
+      <data>Text</data>
+      <description>Phrase-Based &amp; Neural Unsupervised Machine Translation</description>
+      <mlmodel>UnsupervisedMT</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/facebookresearch/UnsupervisedMT"></url>
+    </record>
+    <record index="63">
+      <ability>Translate</ability>
+      <data>Text</data>
+      <description>Multilingual Unsupervised and Supervised Embeddings</description>
+      <mlmodel>MUSE</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/facebookresearch/MUSE"></url>
+    </record>
+    <record index="64">
+      <ability>Understand</ability>
+      <data>Audio</data>
+      <description>Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages</description>
+      <mlmodel>silero-stt</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/silero/collections/silero-stt/1"></url>
+    </record>
+    <record index="65">
+      <ability>Understand</ability>
+      <data>Audio</data>
+      <description>Pre-trained speech model (without any head) from Facebook for Automatic Speech Recognition</description>
+      <mlmodel>wav2vec2</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://tfhub.dev/vasudevgupta7/wav2vec2/1"></url>
+    </record>
+    <record index="66">
+      <ability>Understand</ability>
+      <data>Text</data>
+      <description>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</description>
+      <mlmodel>AlBERT (A Lite BERT)</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
+    </record>
+    <record index="67">
+      <ability>Understand</ability>
+      <data>Text</data>
+      <description>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</description>
+      <mlmodel>BERT</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorflow/models/tree/master/official/nlp/albert"></url>
+    </record>
+    <record index="68">
+      <ability>Understand</ability>
+      <data>Audio</data>
+      <description>End-to-end speech processing toolkit</description>
+      <mlmodel>ESPnet</mlmodel>
+      <supervised>0</supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/espnet/espnet"></url>
+    </record>
+    <record index="69">
+      <ability>Optimize</ability>
+      <data></data>
+      <description>Through trial and error, a robot taught itself how to walk and move in a simulated world</description>
+      <mlmodel>Robot Cassie learns to walk</mlmodel>
+      <supervised></supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://singularityhub.com/2021/04/11/this-robot-taught-itself-to-walk-in-a-simulation-then-went-for-a-stroll-in-berkeley/"></url>
+    </record>
+    <record index="70">
+      <ability>Optimize</ability>
+      <data></data>
+      <description>An RL system predicts how different combinations of actions will influence the energy consumption. Based on this, choices are made to ensure standard and safety criteria while also minimizing the energy consumption. This led to a 40% reduction in energy use.</description>
+      <mlmodel>Cooling Google's data centers </mlmodel>
+      <supervised></supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://deepmind.com/blog/article/safety-first-ai-autonomous-data-centre-cooling-and-industrial-control"></url>
+    </record>
+    <record index="71">
+      <ability>Optimize</ability>
+      <data></data>
+      <description>The system learned to play Go, one of the most challenging classical games due to its complexity, from scratch. It learned first from amateurs games and later it played many sessions against itself while learning from its mistakes. Finally, it was even able to defeat the Go world champions. </description>
+      <mlmodel>AlphaGo</mlmodel>
+      <supervised></supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://deepmind.com/research/case-studies/alphago-the-story-so-far"></url>
+    </record>
+    <record index="72">
+      <ability>Optimize</ability>
+      <data></data>
+      <description>Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network</description>
+      <mlmodel>SRGAN</mlmodel>
+      <supervised></supervised>
+      <url xlink:type="simple" xlink:show="new" xlink:href="https://github.com/tensorlayer/srgan"></url>
     </record>
   </records>
 </abilities>

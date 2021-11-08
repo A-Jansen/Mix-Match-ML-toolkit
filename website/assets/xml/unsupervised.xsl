@@ -19,7 +19,7 @@
                 <xsl:attribute name="src"><xsl:value-of select="abilities/unsupervised"/>
                 </xsl:attribute>
               </img>
-              <p class='overlaptextBig'><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
+              <p class='overlaptextBig' style="transform: translate(-10%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
               <p class='overlaptextability'>Unsupervised learning</p>
 
 
