@@ -31,12 +31,26 @@
 		<ul>
 			<li><a href="#">Data</a>
 				<ul>
-					<li><a href=# onclick="openDatabyClick(236)">Image</a></li>
-					<li><a href=# value='224' onClick="openDatabyClick(224)">Text</a></li>
-					<li><a href=# value=94 onclick="openDatabyClick(94)">Audio</a></li>
-					<li><a href=# value=138 onclick="openDatabyClick(138)">Video</a></li>
-					<li><a href=# value=59 onclick="openDatabyClick(59)">Time series</a></li>
-					<li><a href=# value=98 onclick="openDatabyClick(98)">Tabular</a></li>
+					<li><a href="#">Labeled data</a>
+						<ul>
+							<li><a href=# value=98 onclick="openDatabyClick(98)">Table</a></li>
+							<li><a href=# value=59 onclick="openDatabyClick(59)">Time series</a></li>
+							<li><a href=# onclick="openDatabyClick(236)">Image</a></li>
+							<li><a href=# value='224' onClick="openDatabyClick(224)">Text</a></li>
+							<li><a href=# value=94 onclick="openDatabyClick(94)">Audio</a></li>
+							<li><a href=# value=138 onclick="openDatabyClick(138)">Video</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Unlabeled data</a>
+						<ul>
+							<li><a href=# value=67 onclick="openDatabyClick(67)">Table</a></li>
+							<li><a href=# value=20 onclick="openDatabyClick(20)">Time series</a></li>
+							<li><a href=# onclick="openDatabyClick(227)">Image</a></li>
+							<li><a href=# value='242' onClick="openDatabyClick(242)">Text</a></li>
+							<li><a href=# value=20 onclick="openDatabyClick(20)">Audio</a></li>
+							<li><a href=# value=12 onclick="openDatabyClick(12)">Video</a></li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 			<li><a href="#">Abilities</a>
@@ -63,65 +77,58 @@
 			</li>
 			<li><a href="#">Combinations</a>
 				<ul>
+					<li><a href=# value=98 onclick="openDatabyClick(98)">Table</a>
+						<ul>
+							<li><a href=# onclick="openCombibyClick(98, 140)">Categorize</a></li>
+							<li><a href=# onclick="openCombibyClick(98, 22)">Foresee</a></li>
+							<li><a href=# onclick="openCombibyClick(67, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(67, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(67, 24)">Generate</a></li>
+						</ul>
+					</li>
+					<li><a href=# value=59 onclick="openDatabyClick(59)">Time series</a>
+						<ul>
+							<li><a href=# onclick="openCombibyClick(59, 140)">Categorize</a></li>
+							<li><a href=# onclick="openCombibyClick(59, 22)">Foresee</a></li>
+							<li><a href=# onclick="openCombibyClick(10, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(10, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(10, 24)">Generate</a></li>
+						</ul>
+					</li>
 					<li><a href=#>Image</a>
 						<ul>
 							<li><a href=# onclick="openCombibyClick(236, 140)">Categorize</a></li>
 							<li><a href=# onclick="openCombibyClick(236, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(236, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(236, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(236, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(236, 60)">Optimize</a></li>
+							<li><a href=# onclick="openCombibyClick(227, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(227, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(227, 24)">Generate</a></li>
 						</ul>
 					</li>
 					<li><a href=# value='224' onClick="openDatabyClick(224)">Text</a>
 						<ul>
 							<li><a href=# onclick="openCombibyClick(224, 140)">Categorize</a></li>
 							<li><a href=# onclick="openCombibyClick(224, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(224, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(224, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(224, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(224, 60)">Optimize</a></li>
+							<li><a href=# onclick="openCombibyClick(242, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(242, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(242, 24)">Generate</a></li>
 						</ul>
 					</li>
 					<li><a href=# value=94 onclick="openDatabyClick(94)">Audio</a>
 						<ul>
 							<li><a href=# onclick="openCombibyClick(94, 140)">Categorize</a></li>
-							<li><a href=# onclick="openCombibyClick(94, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(94, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(94, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(94, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(94, 60)">Optimize</a></li>
+							<li><a href=# onclick="openCombibyClick(94, 22)" style="color:darkred;">Foresee</a></li>
+							<li><a href=# onclick="openCombibyClick(20, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(20, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(20, 24)">Generate</a></li>
 						</ul>
 					</li>
 					<li><a href=# value=138 onclick="openDatabyClick(138)">Video</a>
 						<ul>
 							<li><a href=# onclick="openCombibyClick(138, 140)">Categorize</a></li>
 							<li><a href=# onclick="openCombibyClick(138, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(138, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(138, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(138, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(138, 60)">Optimize</a></li>
-						</ul>
-					</li>
-					<li><a href=# value=59 onclick="openDatabyClick(59)">Time series</a>
-
-						<ul>
-							<li><a href=# onclick="openCombibyClick(59, 140)">Categorize</a></li>
-							<li><a href=# onclick="openCombibyClick(59, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(59, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(59, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(59, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(59, 60)">Optimize</a></li>
-						</ul>
-					</li>
-					<li><a href=# value=98 onclick="openDatabyClick(98)">Tabular</a>
-						<ul>
-							<li><a href=# onclick="openCombibyClick(98, 140)">Categorize</a></li>
-							<li><a href=# onclick="openCombibyClick(98, 22)">Foresee</a></li>
-							<li><a href=# onclick="openCombibyClick(98, 124)">Cluster</a></li>
-							<li><a href=# onclick="openCombibyClick(98, 17)">Recommend</a></li>
-							<li><a href=# onclick="openCombibyClick(98, 24)">Generate</a></li>
-							<li><a href=# onclick="openCombibyClick(98, 60)">Optimize</a></li>
+							<li><a href=# onclick="openCombibyClick(12, 124)">Cluster</a></li>
+							<li><a href=# onclick="openCombibyClick(12, 17)">Recommend</a></li>
+							<li><a href=# onclick="openCombibyClick(12, 24)">Generate</a></li>
 						</ul>
 					</li>
 				</ul>

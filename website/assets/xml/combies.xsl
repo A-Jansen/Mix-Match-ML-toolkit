@@ -21,10 +21,43 @@
 
           <xsl:when test="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]/@exist = 'no'">
             <header>
-              <h2>Sorry!</h2>
-              <p class='centerText' style="text-transform:none; ">This is not a common combination and no examples currently exist on this website</p>
+              <div class="headerData">
+
+                <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]">
+                  <div class='leftheader'>
+                    <div class='leftdiv'>
+
+                      <img>
+
+                        <xsl:attribute name="class">datacombiimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value=$label]"/>
+                        </xsl:attribute>
+                      </img>
+                      <h3 class='datatoken token'><xsl:value-of select="datatype"/></h3>
+                    </div>
+                    <div class='rightdiv'>
+
+                      <img>
+
+                        <xsl:attribute name="class">abilitycombiimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value=$learning]"/>
+                        </xsl:attribute>
+                      </img>
+                      <h3 class='abilitytoken token'><xsl:value-of select="ability"/></h3>
+
+                    </div>
+                  </div>
+                  <div class="rightheader">
+                    <h3 class='type combi'>Sorry!</h3>
+                    <p class='description'>This is not a common combination and no examples currently exist on this website</p>
+                  </div>
+                </xsl:for-each>
+              </div>
             </header>
-            <!-- <div class="centerBlock"> <p> <span class='bold'>Datatype: </span><xsl:value-of select="datatype"/> data</p> <p> <span class='bold'>Ability: </span><xsl:value-of select="ability"/></p> </div> -->
           </xsl:when>
 
           <xsl:otherwise>
@@ -83,7 +116,7 @@
             <div class='example'>
 
               <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]/examples/ex">
-                <h3 class='exampleHeader'><xsl:value-of select="exname"/></h3>
+
                 <div class='exImg'>
                   <img>
 
@@ -91,11 +124,12 @@
                       <xsl:value-of select="eximage"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="width">220px
+                    <xsl:attribute name="class">exampleImage
                     </xsl:attribute>
                   </img>
                 </div>
                 <div class='exText'>
+                  <h3 class='exampleHeader'><xsl:value-of select="exname"/></h3>
                   <p>
                     <span class='bold'>Description:
                     </span><xsl:value-of select="exdescription"/></p>

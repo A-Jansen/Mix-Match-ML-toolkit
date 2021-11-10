@@ -565,7 +565,7 @@
     <ability>Generate</ability>
     <datatoken>94</datatoken>
     <abilitytoken>24</abilitytoken>
-    <description>Create new sounds, e.g. music,voices, etc., from scratch</description>
+    <description>Create new sounds from scratch. For example voices or music.</description>
     <capabilities>
       <c1 value=""></c1>
       <c2 value=""></c2>
@@ -589,7 +589,7 @@
   </combi>
   <combi>
     <name>Predictions</name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Foresee</ability>
     <datatoken>98</datatoken>
     <abilitytoken>22</abilitytoken>
@@ -617,7 +617,7 @@
   </combi>
   <combi>
     <name>Categorize tabular data</name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Categorize</ability>
     <datatoken>98</datatoken>
     <abilitytoken>140</abilitytoken>
@@ -645,7 +645,7 @@
   </combi>
   <combi>
     <name>Clustering tabular data</name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Cluster</ability>
     <datatoken>98</datatoken>
     <abilitytoken>124</abilitytoken>
@@ -673,7 +673,7 @@
   </combi>
   <combi exist='no'>
     <name></name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Communicate</ability>
     <datatoken>98</datatoken>
     <abilitytoken></abilitytoken>
@@ -701,7 +701,7 @@
   </combi>
   <combi>
     <name>Synthetic tabular data</name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Generate</ability>
     <datatoken>98</datatoken>
     <abilitytoken>24</abilitytoken>
@@ -846,7 +846,7 @@
     <ability>Generate</ability>
     <datatoken>138</datatoken>
     <abilitytoken>24</abilitytoken>
-    <description>Create videos either from scratch or based on already existinv videos</description>
+    <description>Create videos either from scratch or based on already existing videos</description>
     <capabilities>
       <c1 value=""></c1>
       <c2 value=""></c2>
@@ -899,7 +899,7 @@
   </combi>
   <combi>
     <name>Recommender system</name>
-    <datatype>Tabular</datatype>
+    <datatype>Table</datatype>
     <ability>Recommend</ability>
     <datatoken>98</datatoken>
     <abilitytoken>17</abilitytoken>
@@ -1015,7 +1015,7 @@
     <ability>Recommend</ability>
     <datatoken>59</datatoken>
     <abilitytoken>17</abilitytoken>
-    <description>Take time into account when making recommendations, when to predict something</description>
+    <description>Takes time into account when making recommendations: when to predict something (e.g. at what time of the day)</description>
     <capabilities>
       <c1 value=""></c1>
       <c2 value=""></c2>

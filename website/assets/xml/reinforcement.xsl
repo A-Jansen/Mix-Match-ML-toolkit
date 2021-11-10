@@ -34,7 +34,7 @@
                   <p>
                     <span class='bold reinforcement'>Technical terms:
                     </span>
-                    <span><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/techterm"/></span>
+                    <span><xsl:value-of select="techterm"/></span>
                   </p>
                 <div class='leftdiv'>
                 <p>
@@ -99,7 +99,7 @@
                     <xsl:value-of select="mlmodel"/></a>
                 </td>
                 <td><xsl:value-of select="description"/></td>
-              
+
 
               </tr>
 

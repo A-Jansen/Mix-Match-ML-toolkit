@@ -111,8 +111,11 @@
 		};
 
 		function openDatabyClick(tag) {
-			openDataPage(transform('datatypes.xml', 'labeleddata.xsl', tag));
-
+			if (labeledDataTokens.includes(tag)) {
+				openDataPage(transform('datatypes.xml', 'labeleddata.xsl', tag));
+			} else {
+				openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', tag));
+			}
 		}
 
 		function openAbilitybyClick(tagID) {
@@ -129,7 +132,7 @@
 		}
 
 		function openCombibyClick(tag1, tag2) {
-			openCombinationPage(transform2('combies.xml', 'combies.xsl',tag1, tag2));
+			openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
 
 		}
 
