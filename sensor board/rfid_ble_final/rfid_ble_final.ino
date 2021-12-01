@@ -1,99 +1,40 @@
 /**
-   --------------------------------------------------------------------------------------------------------------------
-   Example sketch/program showing how to read data from more than one PICC to serial.
-   --------------------------------------------------------------------------------------------------------------------
-   This is a MFRC522 library example; for further details and other examples see: https://github.com/miguelbalboa/rfid
+   Code for the LilyGO TTGO T-Energy ESP32-WROVER used in the sensor board to read the tag ID's from two RFID readers and communicate these via BLE.
+   A button with internal LED is used to put the ESP in deepsleep to save energy when not being used (altnerative is the switch on the ESP itself to completely shut it off).
 
-   Example sketch/program showing how to read data from more than one PICC (that is: a RFID Tag or Card) using a
-   MFRC522 based RFID Reader on the Arduino SPI interface.
+   The following libraries and examples are used:
+   ReadUidMultiReader.ino from the MFRC522 library by Miguel Balboa, see: https://github.com/miguelbalboa/rfid
+   Used for reading multiple RFID readers
 
-   Warning: This may not work! Multiple devices at one SPI are difficult and cause many trouble!! Engineering skill
-            and knowledge are required!
-
-   @license Released into the public domain.
-
-   Typical pin layout used:
-   -----------------------------------------------------------------------------------------
-               MFRC522      Arduino       Arduino   Arduino    Arduino          Arduino
-               Reader/PCD   Uno/101       Mega      Nano v3    Leonardo/Micro   Pro Micro
-   Signal      Pin          Pin           Pin       Pin        Pin              Pin
-   -----------------------------------------------------------------------------------------
-   RST/Reset   RST          9             5         D9         RESET/ICSP-5     RST
-   SPI SS 1    SDA(SS)      ** custom, take a unused pin, only HIGH/LOW required *
-   SPI SS 2    SDA(SS)      ** custom, take a unused pin, only HIGH/LOW required *
-   SPI MOSI    MOSI         11 / ICSP-4   51        D11        ICSP-4           16
-   SPI MISO    MISO         12 / ICSP-1   50        D12        ICSP-1           14
-   SPI SCK     SCK          13 / ICSP-3   52        D13        ICSP-3           15
-
-   More pin layouts for other boards can be found here: https://github.com/miguelbalboa/rfid#pin-layout
-
+   Example code for notifications via BLE:
     Video: https://www.youtube.com/watch?v=oCMOYS71NIU
     Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleNotify.cpp
     Ported to Arduino ESP32 by Evandro Copercini
     updated by chegewara
 
-   Create a BLE server that, once we receive a connection, will send periodic notifications.
-   The service advertises itself as: 4fafc201-1fb5-459e-8fcc-c5c9c331914b
-   And has a characteristic of: beb5483e-36e1-4688-b7f5-ea07361b26a8
-
-   The design of creating the BLE server is:
-   1. Create a BLE Server
-   2. Create a BLE Service
-   3. Create a BLE Characteristic on the Service
-   4. Create a BLE Descriptor on the characteristic
-   5. Start the service.
-   6. Start advertising.
-
-   A connect hander associated with the server starts a background task that performs notification
-   every couple of seconds.
-
-
-  Deep Sleep with External Wake Up
-  =====================================
-  This code displays how to use deep sleep with
-  an external trigger as a wake up source and how
-  to store data in RTC memory to use it over reboots
-
-  This code is under Public Domain License.
-
-  Hardware Connections
-  ======================
-  Push Button to GPIO 33 pulled down with a 10K Ohm
-  resistor
-
-  NOTE:
-  ======
-  Only RTC IO can be used as a source for external wake
-  source. They are pins: 0,2,4,12-15,25-27,32-39.
-
-  Author:
-  Pranav Cherukupalli <cherukupallip@gmail.com>
-
+  Example code for putting the ESP in deep sleep with external wake up from  Pranav Cherukupalli <cherukupallip@gmail.com>
 */
+
+
 //Setup for RFID readers
 #include <SPI.h>
 #include <MFRC522.h>
 
-#define RST_PIN         34          // Configurable, see typical pin layout above
+//Pins are specific for each board, see for more pin layouts: https://github.com/miguelbalboa/rfid#pin-layout
+#define RST_PIN         34
 #define SS_1_PIN        21         // the SS pins should be an SDA or SCO pin on the ESP wrover, these are pins 21,5,15
-#define SS_2_PIN        15
-#define SS_3_PIN        5
+#define SS_2_PIN        15         // the SS pins should be an SDA or SCO pin on the ESP wrover, these are pins 21,5,15
 
 #define NR_OF_READERS   2
 
-byte ssPins[] = {SS_1_PIN, SS_2_PIN, SS_3_PIN};
-
-RTC_DATA_ATTR int bootCount = 0;
-int button = GPIO_NUM_32; //button to turn esp in deepsleep
-int onoff;
+byte ssPins[] = {SS_1_PIN, SS_2_PIN};
 
 // Init array that will store new NUID from all three readers
 int reader1[4];
 int reader2[4];
-int reader3[4];
 
-int combinedReader[3]; // combine all readings, take either only one value or increase to 12 to use all values
-bool checkEmpty[3] = {false, false, false};
+int combinedReader[2]; // combine all readings, take either only one value or increase to 12 to use all values
+bool checkEmpty[2] = {false, false};
 byte result = 0;
 
 #define READ_RATE 5
@@ -128,6 +69,12 @@ class MyServerCallbacks: public BLEServerCallbacks {
       deviceConnected = false;
     }
 };
+
+
+//Setup for the wake/sleep button
+RTC_DATA_ATTR int bootCount = 0;
+int button = GPIO_NUM_32; //button to turn esp in deepsleep, needs to be a GPIO pin
+int onoff;
 
 void print_wakeup_reason() {
   esp_sleep_wakeup_cause_t wakeup_reason;
@@ -217,11 +164,9 @@ void setup() {
 */
 void loop() {
   onoff = digitalRead(button);
-  //   Serial.println(onoff);
   delay(50);
   if (onoff == 0) {
     //Go to sleep now
-//    BLEDevice::SoftPowerDown();
     sendIdentifier(254);//send 254 to tell the website to break the connection
     delay(10);
     Serial.println("Going to sleep now");
@@ -253,47 +198,21 @@ void RFIDreaders() {
         combinedReader[reader] = -1;
         checkEmpty[reader] = true;
       }
-      for (int i = 0; i < 3; i++) {
-        sendIdentifier(i);
-        sendValues(combinedReader[i]);
+      //Loop through all the reading and send the identifier (0,1) and the tag id, also print them in the serial monitor for debugging
+      for (int i = 0; i < 2; i++) {
+        sendValues(i);  //send the identifier
+        sendValues(combinedReader[i]); //send the tag ID
         Serial.print(combinedReader[i]);
         Serial.print(',');
       }
       Serial.println();
-
     }
-
   }
 }
 
-void sendIdentifier(int i) {
-  if (deviceConnected) {
-
-    //char start = 'a';
-    pCharacteristic->setValue((uint8_t*)&i, 4);//std::string identifier
-    //pCharacteristic->setValue((uint8_t*)&value, 4);
-    pCharacteristic->notify();
-    //  value++;
-    delay(50); // bluetooth stack will go into congestion, if too many packets are sent, in 6 hours test i was able to go as low as 3ms
-  }
-  // disconnecting
-  if (!deviceConnected && oldDeviceConnected) {
-    delay(500); // give the bluetooth stack the chance to get things ready
-    pServer->startAdvertising(); // restart advertising
-    Serial.println("start advertising");
-    oldDeviceConnected = deviceConnected;
-  }
-  // connecting
-  if (deviceConnected && !oldDeviceConnected) {
-    // do stuff here on connecting
-    oldDeviceConnected = deviceConnected;
-  }
-
-}
-
+//send the identifier or tag ID via BLE
 void sendValues(int value) {
   if (deviceConnected) {
-
     pCharacteristic->setValue((uint8_t*)&value, 4);
     pCharacteristic->notify();
     //  value++;
@@ -324,8 +243,8 @@ void dump_byte_array(byte *buffer, byte bufferSize) {
   }
 }
 
+//Function that can be used for debugging and to see all NUID values of the tags.
 void printInd(uint8_t reader) {
-
   switch (reader) {
     case 0:
       Serial.print("Reader1: ");
