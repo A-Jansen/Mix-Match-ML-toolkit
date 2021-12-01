@@ -3,12 +3,15 @@ This github repository contains the relevant codes, schematics and files used in
 
 ![alt text](https://github.com/A-Jansen/M21/blob/main/system%20overview.jpg)
 ## Website 
-The code for the website can be found in the folder "website". <br>
+The code for the website can be found in the folder [website](https://github.com/A-Jansen/M21/tree/main/website). <br>
 The website uses XML files to store all the information about all the tokens and combinations. XSLT and CSS is used to format this information and each time a token is placed or removed the site is updated using AJAX. This is done to keep the sensor board connected via BLE. 
 In order to find the sensor board, the serviceUUID should be the same in the BLEconnect.js file and the Arduino code uploaded to the microcontroller. 
+<br>
+When creating your own version, you need to change the arrays containing the token IDs [here](https://github.com/A-Jansen/M21/blob/main/website/index.html#L68). The Arduino code sends the second value via BLE (e.g. NUID is 00,138, 149,74 then 138 will be send). Check the NUID using for example this code: https://github.com/miguelbalboa/rfid/tree/master/examples/ReadNUID
+
 
 ## Sensor board
-The necessary code and files for making the sensor board can be found in the folder "sensor board". This includes the Arduino code used, the Illustrator files for lasercutting the box (and tokens) and the schematic of the electronics.
+The necessary code and files for making the sensor board can be found in the folder [sensor board](https://github.com/A-Jansen/M21/tree/main/sensor%20board). This includes the Arduino code used, the Illustrator files for lasercutting the box (and tokens) and the schematic of the electronics.
 
 ### Materials
 <ul>
@@ -27,7 +30,7 @@ Solder all components to perfboard, soldering is prefered over using a breadboar
 Take the placement of the RFID readers into account, they should be placed directly under thecut out rounded rectangle in which the tokens will be placed. Best to attach them to the top for reliable readings.
 
 ## Tokens
-The tokens are made of two layers (4 mm and 2mm) mdf and 3mm synthetic felt with Mifare classic 1K tags as stickers attached at the bottom. 
+The tokens are made of two layers (4 mm and 2mm) mdf and 3mm synthetic felt with Mifare classic 1K tags as stickers attached at the bottom. The files for lasercutting can be found [here](https://github.com/A-Jansen/M21/tree/main/sensor%20board/Files%20for%20lasercutting).
 
 ### Materials
 <ul>
