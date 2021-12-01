@@ -1,12 +1,14 @@
 # M21 Project Anniek Jansen
-This github repository contains the relevant codes, schematics and files to recreate the sensor board and the website.
+This github repository contains the relevant codes, schematics and files used in the research project of Anniek Jansen.
+
 ![alt text](https://github.com/A-Jansen/M21/blob/main/system%20overview.jpg)
 ## Website 
-The code for the website can be found in the folder "website". 
-
+The code for the website can be found in the folder "website". <br>
+The website uses XML files to store all the information about all the tokens and combinations. XSLT and CSS is used to format this information and each time a token is placed or removed the site is updated using AJAX. This is done to keep the sensor board connected via BLE. 
+In order to find the sensor board, the serviceUUID should be the same in the BLEconnect.js file and the Arduino code uploaded to the microcontroller. 
 
 ## Sensor board
-The necessary code and files for making the sensor board can be found in the folder "sensor board". This includes the Arduino code used, the Illustrator files for laser cutting the box and the schematic of the electronics.
+The necessary code and files for making the sensor board can be found in the folder "sensor board". This includes the Arduino code used, the Illustrator files for lasercutting the box (and tokens) and the schematic of the electronics.
 
 ### Materials
 <ul>
@@ -20,10 +22,9 @@ The necessary code and files for making the sensor board can be found in the fol
 </ul>
 
 ### Assembly
-Glue the box togehter, one side, and the top is made out of 2 layers 2mm mdf. Do not attach the the top so you can still access the electronics.
-Solder all components to a perfboard, soldering is prefered over using a breadboard since this works less well with the SPI communication of the RFID readers.
-Take the placement of the RFID readers into account, they should be placed directly under thecut out rounded rectangle in which the tokens will be placed. Best to attach them to the top for a reliable reading.
-
+Glue the box togehter: one side, and the top is made out of 2 layers 2mm mdf glue these first together. Next attach the sides to the bottom, do not attach the the top so you can still access the electronics.
+Solder all components to perfboard, soldering is prefered over using a breadboard since this works better/more reliable with the SPI communication of the RFID readers.
+Take the placement of the RFID readers into account, they should be placed directly under thecut out rounded rectangle in which the tokens will be placed. Best to attach them to the top for reliable readings.
 
 ## Tokens
 The tokens are made of two layers (4 mm and 2mm) mdf and 3mm synthetic felt with Mifare classic 1K tags as stickers attached at the bottom. 
