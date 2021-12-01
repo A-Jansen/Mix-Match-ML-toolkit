@@ -38,7 +38,7 @@ The tokens are made of two layers (4 mm and 2mm) mdf and 3mm synthetic felt with
 </ul>
 
 ### Assembly
-Assemble the tokens by having them glued in the following order (top down): felt, 2mm mdf, 4mm mdf.<br>
-See the image for which shapes to combine
+Assemble the tokens by glueing them together, with the 4mm MDF at the bottom next the 2mm MDF and as top layer the felt. 
+See the image for which shapes to combine. 
 
 ![alt text](https://github.com/A-Jansen/M21/blob/main/sensor%20board/assembling%20tokens.jpg)
