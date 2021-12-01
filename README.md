@@ -7,7 +7,7 @@ The code for the website can be found in the folder [website](https://github.com
 The website uses XML files to store all the information about all the tokens and combinations. XSLT and CSS is used to format this information and each time a token is placed or removed the site is updated using AJAX. This is done to keep the sensor board connected via BLE. 
 In order to find the sensor board, the serviceUUID should be the same in the BLEconnect.js file and the Arduino code uploaded to the microcontroller. 
 <br>
-When creating your own version, you need to change the arrays containing the token IDs [here](https://github.com/A-Jansen/M21/blob/main/website/index.html#L68). The Arduino code sends the second value via BLE (e.g. NUID is 00,138, 149,74 then 138 will be send). Check the NUID using for example this code: https://github.com/miguelbalboa/rfid/tree/master/examples/ReadNUID
+When creating your own version, you need to change the arrays containing the token IDs [here](https://github.com/A-Jansen/M21/blob/main/website/index.html#L68-L73). The Arduino code sends the second value via BLE (e.g. NUID is 00,138, 149,74 then 138 will be send). Check the NUID using for example this code: https://github.com/miguelbalboa/rfid/tree/master/examples/ReadNUID
 
 
 ## Sensor board
