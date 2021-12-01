@@ -1,6 +1,6 @@
 # M21 Project Anniek Jansen
 This github repository contains the relevant codes, schematics and files to recreate the sensor board and the website.
-
+![alt text](https://github.com/A-Jansen/M21/blob/main/system%20overview.jpg)
 ## Website 
 The code for the website can be found in the folder "website". 
 
