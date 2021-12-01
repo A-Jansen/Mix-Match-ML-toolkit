@@ -21,7 +21,16 @@
               </img>
               <p class='overlaptextBig' style="top: 50px;   transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p>
               <p class='overlaptextability' style="top: 130px;   transform: translate(-45%);">Reinforcement learning</p>
+              <img>
 
+                <xsl:attribute name="class">illustrationAbility
+                </xsl:attribute>
+                <xsl:attribute name="style">transform: translate(-5%);     max-width: 220px;
+                </xsl:attribute>
+
+                <xsl:attribute name="src"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/image"/>
+                </xsl:attribute>
+              </img>
 
             </div>
 
@@ -36,6 +45,7 @@
                     </span>
                     <span><xsl:value-of select="techterm"/></span>
                   </p>
+                  <div class='fullspan'>
                 <div class='leftdiv'>
                 <p>
                   <span class='bold reinforcement'>Abilities:
@@ -45,7 +55,7 @@
                     <xsl:for-each select="capabilities/*">
                       <li><xsl:value-of select="@value"/></li>
                     </xsl:for-each>
-                    <li>And much more...</li>
+                    <!-- <li>And much more...</li> -->
                   </ul>
                 </p>
               </div>
@@ -63,6 +73,19 @@
                   </ul>
                 </p>
               </div>
+            </div>
+            <div>
+              <p>
+                <span class='bold reinforcement'>Examples:
+                </span>
+                <ul>
+
+                  <xsl:for-each select="examples/*">
+                    <li><xsl:value-of select="@value"/></li>
+                  </xsl:for-each>
+                </ul>
+              </p>
+            </div>
               </xsl:for-each>
             </div>
 
@@ -84,7 +107,7 @@
         <div>
 
           <table>
-            <tr style="background-color:#78C8A5">
+            <tr style="background-color:#82BE14">
               <th>Example</th>
               <th>Description</th>
               <!-- <th>Link</th> -->
@@ -96,6 +119,8 @@
               <tr>
                 <td>
                   <a href="{url/@xlink:href}" target="_blank">
+                    <xsl:attribute name="onclick">sendlinkOOCSI("modellink","<xsl:value-of select="mlmodel"/>")
+                    </xsl:attribute>
                     <xsl:value-of select="mlmodel"/></a>
                 </td>
                 <td><xsl:value-of select="description"/></td>

@@ -1,4 +1,3 @@
-<?html Header("Cache-Control: max-age=300, must-revalidate"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -51,7 +50,6 @@
 			<p class='bold'>Enter your group/ participant number: </p>
 			<input type="number" name="IDnumber" id='ID'><br>
 			<div>
-				<!-- <h3>Connect to board</h3> -->
 				<br>
 				<br>
 				<a id=connectBLE href="#">Connect to sensor board</a><span id='connected'>Succesfully connected to board</span>
@@ -78,17 +76,35 @@
 		OOCSI.connect('wss://oocsi.id.tue.nl/ws');
 		console.log("Connected to oocsi");
 
-		function sendOOCSI(action, tag) {
+		function sendOOCSI(action, tag1, tag2) {
 
 			let output = {
 				'timestamp': Date.now(),
 				'id': IDnumber,
 				'action': action,
-				'tagID': tag
+				'tag1': tag1,
+				'tag2': tag2
 			}
 			//console.log(output);
 			OOCSI.send("M21_Anniek", output);
 		}
+
+		function sendlinkOOCSI(action, link) {
+
+			let output = {
+				'timestamp': Date.now(),
+				'id': IDnumber,
+				'action': action,
+				'link': link
+			}
+			console.log(output);
+			OOCSI.send("M21_Anniek", output);
+		}
+
+		// //only show the menu button when you have not connected to the sensorboard
+		// function showmenu(){
+		// 	document.getElementsByClassName('dropdown').style.visibility='visible';
+		// }
 
 		var IDnumber; //for logging each session to oocsi so it can be identified for analyses
 		let ready = false; //use to not skip the setup page by pressing key or placing tokens
@@ -110,83 +126,87 @@
 			xhttp.send();
 		};
 
+//Functions for opening the pages via the menu instead of with a token
 		function openDatabyClick(tag) {
 			if (labeledDataTokens.includes(tag)) {
 				openDataPage(transform('datatypes.xml', 'labeleddata.xsl', tag));
+				sendOOCSI('labeleddatapage', tag,0);
 			} else {
 				openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', tag));
+				sendOOCSI('unlabeleddatapage', tag, 0);
 			}
 		}
 
 		function openAbilitybyClick(tagID) {
 			if (supTokens.includes(tagID)) {
 				openAbilityPage(transform('abilities.xml', 'supervised.xsl', tagID));
-				sendOOCSI('supervised', tagID);
+				sendOOCSI('supervised', tagID,0);
 			} else if (unsupTokens.includes(tagID)) {
 				openAbilityPage(transform('abilities.xml', 'unsupervised.xsl', tagID));
-				sendOOCSI('unsupervised', tagID);
+				sendOOCSI('unsupervised', tagID,0);
 			} else if (reinTokens.includes(tagID)) {
 				openAbilityPage(transform('abilities.xml', 'reinforcement.xsl', tagID));
-
+				sendOOCSI('reinforcement', tagID,0);
 			}
 		}
 
 		function openCombibyClick(tag1, tag2) {
 			openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
-
+			sendOOCSI('combination', tag1, tag2);
 		}
 
+//Control the pages with a key, replaced by menu
 		//Control the pages for now with keys, replace once tokens work
-		var key = function(e) {
-			e = e || window.event;
-			var k = e.keyCode || e.which;
-			// console.log(k);
-			if (ready) {
-				switch (k) {
-					case 68: //68=d=data
-						console.log('data page');
-						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 224));
-						break;
-					case 69: //69=e=unlabeleddata
-						console.log('data page');
-						//send the .xml, .xsl and datatoken to the transform function and open the data page
-						openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', 227));
-						break;
-					case 83: //83=s=supervised
-						console.log('model ability page');
-						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
-						openAbilityPage(transform('abilities.xml', 'supervised.xsl', 140)); //140= categorize
-						sendOOCSI('abilitypage', 140);
-						break;
-					case 85: //85=u=unsupervised
-						console.log('model ability page');
-						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
-						openAbilityPage(transform('abilities.xml', 'unsupervised.xsl', 124)); //124= cluster
-						sendOOCSI('abilitypage', 140);
-						break;
-					case 82: //82=r=reinforcement
-						console.log('model ability page');
-						//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
-						openAbilityPage(transform('abilities.xml', 'reinforcement.xsl', 60)); //60=optimize
-						sendOOCSI('abilitypage', 140);
-						break;
-					case 67: //67=c=combinationPage
-						console.log('combination page');
-						//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
+		// var key = function(e) {
+		// 	e = e || window.event;
+		// 	var k = e.keyCode || e.which;
+		// 	// console.log(k);
+		// 	if (ready) {
+		// 		switch (k) {
+		// 			case 68: //68=d=data
+		// 				console.log('data page');
+		// 				//send the .xml, .xsl and datatoken to the transform function and open the data page
+		// 				openDataPage(transform('datatypes.xml', 'labeleddata.xsl', 224));
+		// 				break;
+		// 			case 69: //69=e=unlabeleddata
+		// 				console.log('data page');
+		// 				//send the .xml, .xsl and datatoken to the transform function and open the data page
+		// 				openDataPage(transform('datatypes.xml', 'unlabeleddata.xsl', 227));
+		// 				break;
+		// 			case 83: //83=s=supervised
+		// 				console.log('model ability page');
+		// 				//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+		// 				openAbilityPage(transform('abilities.xml', 'supervised.xsl', 140)); //140= categorize
+		// 				sendOOCSI('abilitypage', 140);
+		// 				break;
+		// 			case 85: //85=u=unsupervised
+		// 				console.log('model ability page');
+		// 				//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+		// 				openAbilityPage(transform('abilities.xml', 'unsupervised.xsl', 124)); //124= cluster
+		// 				sendOOCSI('abilitypage', 140);
+		// 				break;
+		// 			case 82: //82=r=reinforcement
+		// 				console.log('model ability page');
+		// 				//send the .xml, .xsl and abilitytoken to the transform function and open the ability page
+		// 				openAbilityPage(transform('abilities.xml', 'reinforcement.xsl', 60)); //60=optimize
+		// 				sendOOCSI('abilitypage', 140);
+		// 				break;
+		// 			case 67: //67=c=combinationPage
+		// 				console.log('combination page');
+		// 				//send the .xml, .xsl and datatoken and abilitytoken to the transform2 function and open the combination page
+		//
+		// 				openCombinationPage(transform2('combies.xml', 'combies.xsl', 224, 140)); //236, 140image recognition
+		// 				break;
+		// 				//in case of any other key, go back to the infopage (equal to removing the token)
+		// 			default:
+		// 				console.log('back to infopage');
+		// 				openInfo();
+		// 		}
+		// 	}
+		// };
+		// document.onkeydown = key;
 
-						openCombinationPage(transform2('combies.xml', 'combies.xsl', 224, 140)); //236, 140image recognition
-						break;
-						//in case of any other key, go back to the infopage (equal to removing the token)
-					default:
-						console.log('back to infopage');
-						openInfo();
-				}
-			}
-		};
-		document.onkeydown = key;
-
-		//open the datapage when pressed on 'd or when a data token is placed
+		//open the datapage
 		function openDataPage() {
 			console.log("open data page");
 			var xhttpData = new XMLHttpRequest();
@@ -201,7 +221,7 @@
 		};
 
 
-		//open the ML ability page when 'a' is pressed or when a ML ability token is placed
+		//open the ML ability page
 		function openAbilityPage() {
 			console.log("open ability page");
 			var xhttpAbility = new XMLHttpRequest();
@@ -229,7 +249,7 @@
 		};
 
 		//Load and style the information for the data or ability pages
-		//https://stackoverflow.com/questions/31459664/uncaught-typeerror-failed-to-execute-importstylesheet-on-xsltprocessor-par
+		//Source code from: https://stackoverflow.com/questions/31459664/uncaught-typeerror-failed-to-execute-importstylesheet-on-xsltprocessor-par
 		function load(url, callback) {
 			var req = new XMLHttpRequest();
 			req.open('GET', "/assets/xml/" + url);
