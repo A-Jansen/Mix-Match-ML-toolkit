@@ -39,4 +39,6 @@ The tokens are made of two layers (4 mm and 2mm) mdf and 3mm synthetic felt with
 
 ### Assembly
 Assemble the tokens by having them glued in the following order (top down): felt, 2mm mdf, 4mm mdf.<br>
-The tokens for unlabeled data, supervised learning and reinforcement learning use thrice the same shape. The tokens for labeled data have a larger 4mm base (with the word labels engraved) and smaller 2mm MDF and felt layers. The unsupervised learning tokens have the same 4mm base as the supervised learning tokens, but have a 2mm MDF and felt layer that cover the cut out triangle. 
+See the image for which shapes to combine
+
+![alt text]https://github.com/A-Jansen/M21/blob/main/sensor%20board/assembling%20tokens.jpg
