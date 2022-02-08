@@ -54,9 +54,8 @@
   color: white;
   z-index: 3;
   position: absolute;
-  transform: translate(10%);
-  height: inherit;
-  top: 33%;
+  top: 36%;
+  transform: translate(10%, 0%);
 
   font-family: 'Roboto', sans-serif;
   font-weight: 500;

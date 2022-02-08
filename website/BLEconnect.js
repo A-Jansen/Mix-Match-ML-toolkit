@@ -20,6 +20,7 @@ var tag2; //the tagID of tag2
 var tagRemoved = false;
 
 
+
 function setup() {
   // Create a p5ble class
   myBLE = new p5ble();
@@ -51,6 +52,7 @@ function onDisconnected() {
   isConnected = false;
 }
 
+
 // A function that will be called once got characteristics
 function gotCharacteristics(error, characteristics) {
   // Add a event handler when the device is disconnected
@@ -58,6 +60,9 @@ function gotCharacteristics(error, characteristics) {
   if (error) console.log('error: ', error);
   console.log('characteristics: ', characteristics);
   myCharacteristic = characteristics[0];
+  deviceName= characteristics[0].service.device.name;
+  // var name = instanceOfBluetoothDevice.name
+  console.log(deviceName);
   // Start notifications on the first characteristic by passing the characteristic
   // And a callback function to handle notifications
   myBLE.startNotifications(myCharacteristic, handleNotifications);
@@ -205,6 +210,7 @@ function openCombiPage(tag1, tag2) {
   } else {
     openInfo();
     alert('This is not a correct/possible combination ');
+    //tagsPresent=1;
   }
 
 }

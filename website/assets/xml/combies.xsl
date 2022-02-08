@@ -66,6 +66,7 @@
 
                 <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]">
                   <div class='leftheader'>
+
                     <div class='leftdiv'>
 
                       <img>
@@ -78,6 +79,7 @@
                       </img>
                       <h3 class='datatoken token'><xsl:value-of select="datatype"/></h3>
                       <!-- <p> <xsl:value-of select = "$label" /></p> <p> <xsl:value-of select = "../images/im[@value=$label]" /></p> -->
+
                     </div>
                     <div class='rightdiv'>
 
@@ -91,12 +93,18 @@
                       </img>
                       <h3 class='abilitytoken token'><xsl:value-of select="ability"/></h3>
                       <!-- <p> <xsl:value-of select = "$learning" /></p> <p> <xsl:value-of select = "../images/im[@value=$learning]" /></p> -->
-                    </div>
+                  </div>
 
                     <!-- <p class='overlaptextBig' style="top: 50px; transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p> <p class='overlaptextability' style="top: 130px; transform:
                     translate(-30%);">Reinforcement learning</p> -->
-
+                    <!-- <div class="outputheader"> -->
+                    <p class='output '>
+                      <span class="">Output:</span>
+                      <span><xsl:value-of select="output" disable-output-escaping="yes"/></span>
+                    </p>
+                  <!-- </div> -->
                   </div>
+
 
                   <div class='rightheader'>
                     <h3 class='type combi'><xsl:value-of select="name"/></h3>
@@ -107,6 +115,7 @@
                       </span>
                       <span><xsl:value-of select="techterm"/></span>
                     </p>
+
 
                   </div>
                 </xsl:for-each>

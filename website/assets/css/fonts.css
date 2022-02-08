@@ -74,6 +74,13 @@ pre {
   color: #1E475E;
 }
 
+.output{
+  font-family: 'Courier New', serif;
+  font-weight: normal;
+  color: #3A3B3C;
+
+}
+
 a{
   font-family: 'Lato', sans-serif;
 }

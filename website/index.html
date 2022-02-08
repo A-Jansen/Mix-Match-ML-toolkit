@@ -80,25 +80,27 @@
 
 			let output = {
 				'timestamp': Date.now(),
-				'id': IDnumber,
+				'idDevice': deviceName,
 				'action': action,
 				'tag1': tag1,
 				'tag2': tag2
 			}
 			//console.log(output);
-			OOCSI.send("M21_Anniek", output);
+		//	OOCSI.send("M21_Anniek", output);
+			OOCSI.send("MLToolkit", output);
 		}
 
 		function sendlinkOOCSI(action, link) {
 
 			let output = {
 				'timestamp': Date.now(),
-				'id': IDnumber,
+				'idDevice': deviceName,
 				'action': action,
 				'link': link
 			}
 			console.log(output);
-			OOCSI.send("M21_Anniek", output);
+		//	OOCSI.send("M21_Anniek", output);
+			OOCSI.send("MLToolkit", output);
 		}
 
 		// //only show the menu button when you have not connected to the sensorboard
@@ -108,13 +110,15 @@
 
 		var IDnumber; //for logging each session to oocsi so it can be identified for analyses
 		let ready = false; //use to not skip the setup page by pressing key or placing tokens
+		var deviceName;
 
 		//When you click continue, the body will be replaced with the page from infopage.html, but you stay at the same page so the BLE connection does not get broken
 		function openInfo() {
 			if (!ready) {
 				ready = true;
 				IDnumber = document.getElementById('ID').value;
-				console.log("ID number: " + IDnumber);
+			//	console.log("ID number: " + IDnumber);
+			console.log("Device name:" + deviceName);
 			}
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {

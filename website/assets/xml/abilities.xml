@@ -124,7 +124,7 @@
     <ability>Understand</ability>
     <token>118</token>
     <description>Comprehend topics, themes, or sentiments; interpret language</description>
-    <type>Unsupervised learning</type>
+    <type>Supervised learning</type>
       <image>assets/photos/</image>
     <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
     <capabilities>
@@ -147,7 +147,7 @@
     <ability>Communicate</ability>
     <token>113</token>
     <description>Convey messages/content in understandable languages</description>
-    <type>Unsupervised learning</type>
+    <type>Supervised learning</type>
       <image>assets/photos/</image>
     <techterm>Text to speech synthesis/ analysis</techterm>
     <capabilities>
@@ -170,7 +170,7 @@
     <ability>Translate</ability>
     <token>117</token>
     <description>Transform contents from one domain to another</description>
-    <type>Unsupervised learning</type>
+    <type>Supervised learning</type>
     <techterm>Neural Machine Translation, neural style transfer
     </techterm>
       <image>assets/photos/</image>

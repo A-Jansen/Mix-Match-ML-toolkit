@@ -136,10 +136,19 @@ visibility: visible;
   float: right;
 }
 
+.outputheader{
+  width: 100%;
+  float: left;
+  position: relative;
+  /* padding-left: 100px; */
+}
+
 .leftdiv {
   width: 50%;
   float: left;
   padding-right: 10px;
+  position: relative;
+  text-align: center;
 
 }
 
@@ -147,6 +156,8 @@ visibility: visible;
   width: 50%;
   float: right;
   padding-right: 10px;
+  position: relative;
+text-align: center;
 
 }
 .fullspan{
