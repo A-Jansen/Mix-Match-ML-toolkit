@@ -97,24 +97,39 @@
 
                     <!-- <p class='overlaptextBig' style="top: 50px; transform: translate(-30%);"><xsl:value-of select="abilities/abilitytoken[token=$tokenselected]/ability"/></p> <p class='overlaptextability' style="top: 130px; transform:
                     translate(-30%);">Reinforcement learning</p> -->
-                    <!-- <div class="outputheader"> -->
-                    <p class='output '>
+
+                    <!-- <p class='output '>
                       <span class="">Output:</span>
                       <span><xsl:value-of select="output" disable-output-escaping="yes"/></span>
-                    </p>
-                  <!-- </div> -->
+                    </p> -->
+
                   </div>
 
 
-                  <div class='rightheader'>
-                    <h3 class='type combi'><xsl:value-of select="name"/></h3>
-                    <p class='description'>
+                  <div class='rightheader' >
+                        <h3 class='type combi'><xsl:value-of select="name"/></h3>
+                        <div class='rightdivcombi'>
+                          <p class='output '>
+                            <span class="">Output:</span>
+                            <span><xsl:value-of select="output" disable-output-escaping="yes"/></span>
+                          </p>
+                        </div>
+                    <div class="leftdivcombi">
+
+                    <p class='descriptioncombi'>
                       <xsl:value-of select="description"/></p>
-                    <p>
-                      <span class='bold combi'>Technical terms:
-                      </span>
-                      <span><xsl:value-of select="techterm"/></span>
-                    </p>
+                      <p>
+                        <span class='bold combi'>Technical terms:
+                        </span>
+                        <span><xsl:value-of select="techterm"/></span>
+                      </p>
+                  </div>
+
+
+
+
+
+
 
 
                   </div>

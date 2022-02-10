@@ -83,25 +83,6 @@
     </examples>
   </combi>
   <combi>
-    <name>Image to text/speech</name>
-    <datatype>Image</datatype>
-    <ability>Communicate</ability>
-    <datatoken>98</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description></description>
-    <output> <![CDATA[Written text or speech]]></output>
-    <techterm>Image recognition, speech/ text synthesis, optical character recognition</techterm>
-    <examples>
-      <ex>
-        <exname>Alternative text</exname>
-        <exdescription>Describes the content of an image placed in Word or another Microsoft appliaction</exdescription>
-        <eximage>assets/photos/</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://blogs.microsoft.com/ai/azure-image-captioning/"></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/swlh/automatic-image-captioning-using-deep-learning-5e899c127387"></diylink>
-      </ex>
-    </examples>
-  </combi>
-  <combi>
     <name>Image recommendation</name>
     <datatype>Image</datatype>
     <ability>Recommend</ability>
@@ -327,56 +308,6 @@
         <eximage>assets/photos/googlenews.JPG</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://news.google.com/"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/making-sense-of-text-clustering-ca649c190b20"></diylink>
-      </ex>
-    </examples>
-  </combi>
-  <combi>
-    <name>Text understanding</name>
-    <datatype>Text</datatype>
-    <ability>Understand</ability>
-    <datatoken>100</datatoken>
-    <abilitytoken>118</abilitytoken>
-    <description>Can recognize text from e.g. sheets of papers, credit cards, receipts and convert it to digital text</description>
-    <capabilities>Can recognize text in real-time</capabilities>
-    <limitations>The scan/image should be of good enough quality</limitations>
-    <output> <![CDATA[Text]]></output>
-    <techterm>Optical character recognition, NLP</techterm>
-    <examples>
-      <ex>
-        <exname>OneNote</exname>
-        <exdescription>Copy text from a picture into your notes</exdescription>
-        <eximage>assets/photos/onenote.png</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://support.microsoft.com/en-us/office/copy-text-from-pictures-and-file-printouts-using-ocr-in-onenote-93a70a2f-ebcd-42dc-9f0b-19b09fd775b4">Link to example</exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://developers.google.com/ml-kit/vision/text-recognition">Link to diy site</diylink>
-      </ex>
-    </examples>
-  </combi>
-  <combi>
-    <name>Written communication</name>
-    <datatype>Text</datatype>
-    <ability>Communicate</ability>
-    <datatoken>100</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description>Craft messages in understandable written language</description>
-    <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
-    </capabilities>
-    <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
-    </limitations>
-    <output> <![CDATA[New texts or messages]]></output>
-    <techterm>Natural Language Processing (NLP)</techterm>
-    <examples>
-      <ex>
-        <exname>Duolingo chatbot</exname>
-        <exdescription>Helps you practice real conversations in French, German or Spanish</exdescription>
-        <eximage>assets/photos/duolingo.jpg</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.tristatetechnology.com/blog/best-language-learning-chatbot-apps/"></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/how-to-create-a-chatbot-with-python-deep-learning-in-less-than-an-hour-56a063bdfc44"></diylink>
       </ex>
     </examples>
   </combi>
@@ -617,9 +548,9 @@
     </examples>
   </combi>
   <combi exist='no'>
-    <name>Time series categorization</name>
+    <name>Time series identify</name>
     <datatype>Time series</datatype>
-    <ability>Categorize</ability>
+    <ability>Identify</ability>
     <datatoken>101</datatoken>
     <abilitytoken>111</abilitytoken>
     <description>For time series categorization (or classification) you will need to have labeled time series data. Often time series data will be first pre processed and afterwards labeled, e.g. taking the means of every second of sensor data and assign that to one category. Next the model will learn how to match the time series with the categories (or classes) and make its prediction.</description>
@@ -674,36 +605,7 @@
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
-    <name></name>
-    <datatype>Time series</datatype>
-    <ability>Communicate</ability>
-    <datatoken>101</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description></description>
-    <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
-    </capabilities>
-    <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
-    </limitations>
-    <output> <![CDATA[Written text or speech]]></output>
-    <techterm></techterm>
-    <examples exist="no">
-      <ex>
-        <exname></exname>
-        <exdescription></exdescription>
-        <eximage>assets/photos/</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
-      </ex>
-    </examples>
-  </combi>
-  <combi>
+    <combi>
     <name>Time series recommendation</name>
     <datatype>Time series</datatype>
     <ability>Recommend</ability>
@@ -825,7 +727,7 @@
     <datatype>Time series</datatype>
     <ability>Understand</ability>
     <datatoken>101</datatoken>
-    <abilitytoken>114</abilitytoken>
+    <abilitytoken>118</abilitytoken>
     <description>Time series are data where the time, and hence the sequence, is an important feature. Examples are periodic measurements over time, sensor data and much more. To understand what is captured in the time series you can use time series categorization, as this will allow you to recognize the category to which the data belongs, and you can use that label to 'understand' it.</description>
     <capabilities>
       <c1 value=""></c1>
@@ -938,6 +840,36 @@
     </examples>
   </combi>
   <combi>
+    <name></name>
+    <datatype>Audio</datatype>
+    <ability>Identification</ability>
+    <datatoken>97</datatoken>
+    <abilitytoken>111</abilitytoken>
+    <description>Audio identification resembles audio categorization, but instead of matching the audio to a general category, you know link it to an individual. For example, recognizing who is speaking or which song is playing. With audio identification you are not able to understand what is being said, for this you will need for example audio understanding. </description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+    <output> <![CDATA[<br> Label 5 (86%), Label 3 (14%) <br/> OR a predicted value (e.g. 453)]]></output>
+    <techterm>Audio classification, NLP</techterm>
+    <examples>
+      <ex>
+        <exname>Voice match</exname>
+        <exdescription>You can teach Google Assistant to recognize your voice with Voice Match. It will differentiate your voice from other speakers, so it can address you personally and give personal results. For example, when asking for your next meeting it will look at your personal calendar.</exdescription>
+        <eximage>assets/photos/voicematch.jpg</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://support.google.com/chromecast/answer/9071681"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://github.com/jurgenarias/Portfolio/tree/master/Voice%20Classification"></diylink>
+      </ex>
+    </examples>
+  </combi>
+
+  <combi>
     <name>Audio clustering</name>
     <datatype>Audio</datatype>
     <ability>Cluster</ability>
@@ -966,36 +898,7 @@
       </ex>
     </examples>
   </combi>
-  <combi>
-    <name>Spoken word/speech communication
-    </name>
-    <datatype>Audio</datatype>
-    <ability>Communicate</ability>
-    <datatoken>97</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description>Create understandable messages that are being spoken</description>
-    <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
-    </capabilities>
-    <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
-    </limitations>
-        <output> <![CDATA[Written text or speech]]></output>
-    <techterm>NLP, text to speech, speech synthesis</techterm>
-    <examples>
-      <ex>
-        <exname>Smart assistants</exname>
-        <exdescription>Smart assistents (such as Siri and Alexa) respond to your questions using understandable spoken language</exdescription>
-        <eximage>assets/photos/smartassistants.jpg</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://en.wikipedia.org/wiki/Amazon_Alexa"></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/how-to-build-your-own-ai-personal-assistant-using-python-f57247b4494b"></diylink>
-      </ex>
-    </examples>
-  </combi>
+
   <combi>
     <name>Audio recommendation</name>
     <datatype>Audio</datatype>
@@ -1051,6 +954,124 @@
         <eximage>assets/photos/aiva.png</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.aiva.ai/"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/neuronio/audio-generation-with-gans-428bc2de5a89"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Distinguish audio</name>
+    <datatype>Audio</datatype>
+    <ability>Distinguish</ability>
+    <datatoken>97</datatoken>
+    <abilitytoken>114</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+    <output> <![CDATA[<br> Possible outlier 1 <br> Possible outlier 2]]></output>
+    <techterm>Audio anomaly detection</techterm>
+    <examples>
+      <ex>
+        <exname>AIVA</exname>
+        <exdescription>AIVA is a service that creates new music for different kind of purposes. You can select a genre for the new music piece or upload a track of music to with which it should match.</exdescription>
+        <eximage>assets/photos/aiva.png</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.aiva.ai/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/neuronio/audio-generation-with-gans-428bc2de5a89"></diylink>
+      </ex>
+    </examples>
+  </combi>
+
+  <combi>
+    <name>Speech/ audio communication</name>
+    <datatype>Audio</datatype>
+    <ability>Communicate</ability>
+    <datatoken>97</datatoken>
+    <abilitytoken>113</abilitytoken>
+    <description>Besides communicating via written language, it is also possible to communicate through speech with e.g. your laptop, smart assistant or mobile phone. In the majority of cases they will first need to understand what you are asking (e.g. using audio or text understanding) and next they will reply to you via speech.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Speech]]></output>
+    <techterm>NLP, text to speech</techterm>
+    <examples>
+      <ex>
+        <exname>Digital humans</exname>
+        <exdescription>A digital human can be seen as the upgraded function of a chatbot. Instead of communicating only via text, you will talk to a human face which shows expressions and which will talk back to you. For this it will of course needs to understand what you are saying (audio understanding), decide how to respond, and respond in understandable spoken human language. The digital human can - and are - used for, for example, customer support.</exdescription>
+        <eximage>assets/photos/digitalhuman.png</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://digitalhumans.com/what-are-digital-humans/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://github.com/human2b"></diylink>
+      </ex>
+    </examples>
+  </combi>
+
+  <combi>
+    <name>Audio understanding</name>
+    <datatype>Audio</datatype>
+    <ability>Understand</ability>
+    <datatoken>97</datatoken>
+    <abilitytoken>118</abilitytoken>
+    <description>Audio data are sound waves and with several techniques you can convert these audio waves into written text. For this, the audio is often first transformed from the time to frequency domain. Next, a model will listen to the sounds that are made and try to predict which sounds these are. These sounds are then translated into words. Finally, using an extra model which has knowledge of general human language, the sentences are build from these words. This extra model will help to create understandable sentences.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Text or actions]]></output>
+    <techterm>Classification, NLP, Automatic Speech Recognition (ASR)</techterm>
+    <examples>
+      <ex>
+        <exname>Smart assistants</exname>
+        <exdescription> Smart assistants use this function to understand the commands you are giving and the questions you are asking. Based on this, it will often make an extra step to interpret what is being said and either execute that action (e.g. "Turn off the lights") or to respond (this will be covered by Audio communication).</exdescription>
+        <eximage>assets/photos/smartassistant.jpg</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://en.wikipedia.org/wiki/Amazon_Alexa"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/how-to-build-your-own-ai-personal-assistant-using-python-f57247b4494b"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Audio translation</name>
+    <datatype>Audio</datatype>
+    <ability>Translate</ability>
+    <datatoken>97</datatoken>
+    <abilitytoken>117</abilitytoken>
+    <description>Audio translation first uses audio understanding to convert the sound waves of your speech to text. Next, this text can be translated using text translation. To see more details, look at those combinations.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Translated text or speech]]></output>
+    <techterm>NLP, Speech to text, machine translation</techterm>
+    <examples>
+      <ex>
+        <exname>Live translate</exname>
+        <exdescription>The live translate function from Microsoft makes it possible to speak in your own language and have it directly translated into different languages. This is done by first capturing what you are saying, converting that to words, translating those words and displaying this text to the other participants.</exdescription>
+        <eximage>assets/photos/livetranslate.jpg</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://translator.microsoft.com/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://www.geeksforgeeks.org/create-a-real-time-voice-translator-using-python/"></diylink>
       </ex>
     </examples>
   </combi>
@@ -1111,6 +1132,35 @@
       </ex>
     </examples>
   </combi>
+  <combi exist='no'>
+    <name></name>
+    <datatype>Table</datatype>
+    <ability>Identify</ability>
+    <datatoken>99</datatoken>
+    <abilitytoken>111</abilitytoken>
+    <description>Each row of the table contains attributes that belong to one instance (the label which is also written down in one column of the table). When categorizing this data, the model will use all the attributes from the table (all the columns) to predict for each instance to with category it belongs.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+    <output> <![CDATA[<br> Label 5 (60%) <br/> Label 3 (23%) <br/> Label 2 (17%)]]></output>
+    <techterm>Classification</techterm>
+    <examples>
+      <ex>
+        <exname>Spotify</exname>
+        <exdescription>Spotify for example could store the information about all the songs in a tabular format. The columns could be instruments, artist, length, etc. and one column contains the labels which in this case are the genres. The ML model will try to match each row to the correct genre based on the information in the other columns.</exdescription>
+        <eximage>assets/photos/spotify.png</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.spotify.com/nl/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://data-flair.training/blogs/python-project-music-genre-classification/"></diylink>
+      </ex>
+    </examples>
+  </combi>
   <combi>
     <name>Clustering tabular data</name>
     <datatype>Table</datatype>
@@ -1140,35 +1190,7 @@
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
-    <name></name>
-    <datatype>Table</datatype>
-    <ability>Communicate</ability>
-    <datatoken>99</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description></description>
-    <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
-    </capabilities>
-    <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
-    </limitations>
-        <output> <![CDATA[Written text or speech]]></output>
-    <techterm></techterm>
-    <examples>
-      <ex>
-        <exname></exname>
-        <exdescription></exdescription>
-        <eximage>assets/photos/</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
-      </ex>
-    </examples>
-  </combi>
+
   <combi>
     <name>Recommender system</name>
     <datatype>Table</datatype>
@@ -1224,6 +1246,122 @@
         <eximage>assets/photos/tonic.png</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.tonic.ai/"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/analytics-vidhya/a-step-by-step-guide-to-generate-tabular-synthetic-dataset-with-gans-d55fc373c8db"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Distinguish tabular data</name>
+    <datatype>Table</datatype>
+    <ability>Distinguish</ability>
+    <datatoken>99</datatoken>
+    <abilitytoken>114</abilitytoken>
+    <description>In tabular data, instances are stored as rows and features as columns. By analyzing the overall patterns and trends in the data, you can find instances which seem to be different . These might be outliers, due to for example a broken sensor, or other anomalies that you want to detect.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+    <output> <![CDATA[<br> Possible outlier 1 <br> Possible outlier 2]]></output>
+    <techterm>Anomaly detection</techterm>
+    <examples>
+      <ex>
+        <exname>Amazon monitron</exname>
+        <exdescription>Amazon Monitron use this capability to monitor industrial equipment so that it is possible to detect abnormal conditions and enable predictive maintenance. For example, the temperature might suddenly be higher than the average, indicating a possible problem.</exdescription>
+        <eximage>assets/photos/amazonmonitron.png</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://aws.amazon.com/monitron/"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/anomaly-detection-in-manufacturing-part-1-an-introduction-8c29f70fc68b"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi exist='no'>
+    <name></name>
+    <datatype>Table</datatype>
+    <ability>Communicate</ability>
+    <datatoken>99</datatoken>
+    <abilitytoken>113</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text or speech]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname></exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi exist='no'>
+    <name></name>
+    <datatype>Table</datatype>
+    <ability>Understand</ability>
+    <datatoken>99</datatoken>
+    <abilitytoken>118</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text or speech]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname></exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi exist='no'>
+    <name></name>
+    <datatype>Table</datatype>
+    <ability>Translate</ability>
+    <datatoken>99</datatoken>
+    <abilitytoken>117</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text or speech]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname></exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
       </ex>
     </examples>
   </combi>
@@ -1314,35 +1452,7 @@
       </ex>
     </examples>
   </combi>
-  <combi>
-    <name></name>
-    <datatype>Video</datatype>
-    <ability>Communicate</ability>
-    <datatoken>102</datatoken>
-    <abilitytoken>113</abilitytoken>
-    <description></description>
-    <capabilities>
-      <c1 value=""></c1>
-      <c2 value=""></c2>
-      <c3 value=""></c3>
-    </capabilities>
-    <limitations>
-      <l1 value=""></l1>
-      <l2 value=""></l2>
-      <l3 value=""></l3>
-    </limitations>
-        <output> <![CDATA[Written text or speech]]></output>
-    <techterm></techterm>
-    <examples>
-      <ex>
-        <exname></exname>
-        <exdescription></exdescription>
-        <eximage>assets/photos/</eximage>
-        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
-        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
-      </ex>
-    </examples>
-  </combi>
+
   <combi>
     <name>Video recommendation</name>
     <datatype>Video</datatype>
@@ -1398,6 +1508,152 @@
         <eximage>assets/photos/deepfake.jpg</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://edition.cnn.com/interactive/2019/01/business/pentagons-race-against-deepfakes/"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://github.com/xaliceli/video-GAN"></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Video identification</name>
+    <datatype>Video</datatype>
+    <ability>Identify</ability>
+    <datatoken>102</datatoken>
+    <abilitytoken>111</abilitytoken>
+    <description>Videos can be seen as a series of images, and some similar techniques can be used. For example, it is possible to recognize individuals or individual objects in the frames of the video. In this case the frames are seen as images and the same type of ML model can be used.
+Next to that, videos can also contain audio and for this you can audio identification to identify who is speaking.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+  <output> <![CDATA[<br> Label 5 (60%) <br/> Label 3 (23%) <br/> Label 2 (17%)]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname>Video classification</exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Distinguish based on video</name>
+    <datatype>Video</datatype>
+    <ability>Distinguish</ability>
+    <datatoken>102</datatoken>
+    <abilitytoken>114</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text or speech]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname></exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi exist='no'>
+    <name></name>
+    <datatype>Video</datatype>
+    <ability>Communicate</ability>
+    <datatoken>102</datatoken>
+    <abilitytoken>113</abilitytoken>
+    <description></description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text or speech]]></output>
+    <techterm></techterm>
+    <examples>
+      <ex>
+        <exname></exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Video understanding</name>
+    <datatype>Video</datatype>
+    <ability>Understand</ability>
+    <datatoken>102</datatoken>
+    <abilitytoken>118</abilitytoken>
+    <description>To understanding what is seen and heard in a video, you can combine image and audio understanding. The first will look at what can be seen in the video and convert this to text. Next to that, you can also create automatic captions by converting the audio to text.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+        <output> <![CDATA[Written text]]></output>
+    <techterm>NLP, speech to text, image to text</techterm>
+    <examples>
+      <ex>
+        <exname>AUTOMATIC CAPTIONING</exname>
+        <exdescription></exdescription>
+        <eximage>assets/photos/</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href=""></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href=""></diylink>
+      </ex>
+    </examples>
+  </combi>
+  <combi>
+    <name>Video translation</name>
+    <datatype>Video</datatype>
+    <ability>Translate</ability>
+    <datatoken>102</datatoken>
+    <abilitytoken>117</abilitytoken>
+    <description>Videos can be seen as a time series of images with audio. If you look at this way, some of the possible models for images can also be used for video by applying it to every frame in the video. This is also possible for transferring the style from one image or video to another video.</description>
+    <capabilities>
+      <c1 value=""></c1>
+      <c2 value=""></c2>
+      <c3 value=""></c3>
+    </capabilities>
+    <limitations>
+      <l1 value=""></l1>
+      <l2 value=""></l2>
+      <l3 value=""></l3>
+    </limitations>
+    <output> <![CDATA[Video in a different style]]></output>
+    <techterm>Neural style transfer</techterm>
+    <examples>
+      <ex>
+        <exname>Video style transfer</exname>
+        <exdescription>With video style transfer you can give your video for example an animated look. You select a reference style and next this style will be transferred to your video frame for frame. To make sure that the frames still match, this is done sequentially so that the new frame can be connected to the previous frame,</exdescription>
+        <eximage>assets/photos/videostyletransfer.png</eximage>
+        <exlink xlink:type="simple" xlink:show="new" xlink:href="https://rcorin.medium.com/video-style-transfer-with-art-app-d0d73abe7963"></exlink>
+        <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/neural-style-transfer-on-real-time-video-with-full-implementable-code-ac2dbc0e9822"></diylink>
       </ex>
     </examples>
   </combi>

@@ -81,7 +81,7 @@ visibility: visible;
   /* transform: translate(-10%); */
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
@@ -148,7 +148,7 @@ visibility: visible;
   float: left;
   padding-right: 10px;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
 
 }
 
@@ -157,7 +157,7 @@ visibility: visible;
   float: right;
   padding-right: 10px;
   position: relative;
-text-align: center;
+/* text-align: center; */
 
 }
 .fullspan{
