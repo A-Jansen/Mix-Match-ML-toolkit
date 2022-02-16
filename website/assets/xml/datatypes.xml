@@ -45,13 +45,13 @@
     <ultoken>106</ultoken>
     <structure>Unstructured</structure>
     <description>Text data are unstructured data. Text data will need to be preprocessed before being used in an ML model. For example, sentences will be split into words, stop words are removed and words are reduced to their root (e.g. words to word and
-      writing to write). Based on these reduced texts, features are extracted that can be used in ML models (for example how often does this word occur or which words are used in the same contexts).</description>
+      writing to write). Based on these reduced texts, features are extracted that can be used in ML models (for example how often does this word occur or which words are used in the same contexts). The next words of a sentence can also be seen as labels in some circumstances. </description>
     <format>.doc, .pdf, .txt, .csv (with labels)</format>
     <image>assets/photos/text.png</image>
     <image2>assets/photos/image_text.png</image2>
     <source>https://valohai.com/blog/production-machine-learning-pipeline-text-classification-fasttext/</source>
-    <ulimage>assets/photos/ul_text.png</ulimage>
-    <ulsource>https://www.analyticsvidhya.com/blog/2020/04/beginners-guide-exploratory-data-analysis-text-data/</ulsource>
+    <ulimage>assets/photos/ul_text.jpg</ulimage>
+    <ulsource>Photo by Glen Carrie on Unsplash</ulsource>
     <collection>Reviews, books, social media</collection>
   </datatoken>
   <datatoken>

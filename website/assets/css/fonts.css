@@ -28,6 +28,17 @@ h3 {
   line-height: 15.4px;
 }
 
+h4{
+  /* text-align: center; */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #2B5F6E;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
 p,li {
   font-family: Lato;
   font-size: 16px;
@@ -74,12 +85,7 @@ pre {
   color: #1E475E;
 }
 
-.output{
-  font-family: 'Courier New', serif;
-  font-weight: normal;
-  color: #3A3B3C;
 
-}
 
 a{
   font-family: 'Lato', sans-serif;

@@ -55,7 +55,7 @@
     <token>114</token>
     <description>Differentiate certain items from a group or average (find outliers, anomalies, etc.)</description>
     <type>Unsupervised learning</type>
-        <image>assets/photos/</image>
+        <image>assets/photos/mlabilities_icon_distinguish.png</image>
     <techterm>Anomaly detection</techterm>
     <capabilities>
       <c1 value="Can automatically monitor data and alert if their is something suspicious"></c1>
@@ -102,17 +102,18 @@
     <token>111</token>
     <description>Categorize the identity of a specific individual/item from a trait</description>
     <type>Supervised learning</type>
-      <image>assets/photos/</image>
+      <image>assets/photos/mlabilities_icon_identify.png</image>
     <techterm>Classification</techterm>
     <capabilities>
       <c1 value="Possible to recognize individuals, for example for unlocking your phone with your face"></c1>
       <c2 value="Can differentiate between many individuals or items based on, e.g. facial features"></c2>
-      <c3 value=""></c3>
+      <!-- <c3 value=""></c3> -->
     </capabilities>
     <limitations>
-      <l1 value="Requires labeled data"></l1>
+      <l1 value="The data should be different enough between individuals in order to be distinguishable"></l1>
       <l2 value="The model often first needs to be trained to recognize a specific individual, e.g. when setting up facial recognition"></l2>
       <l3 value="Recognizing an individual (item) is more difficult than recognizing a general category, and the performances may be lower"></l3>
+
     </limitations>
     <examples>
       <e1 value="Identify individuals using facial recognition or finger scans to unlock, for example your mobile phone"></e1>
@@ -124,7 +125,7 @@
     <token>118</token>
     <description>Comprehend topics, themes, or sentiments; interpret language</description>
     <type>Supervised learning</type>
-      <image>assets/photos/</image>
+      <image>assets/photos/mlabilities_icon_understand.png</image>
     <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
     <capabilities>
       <c1 value="Understand the sentiment of a word/sentence/text"></c1>
@@ -148,7 +149,7 @@
     <token>113</token>
     <description>Convey messages/content in understandable languages</description>
     <type>Supervised learning</type>
-      <image>assets/photos/</image>
+      <image>assets/photos/mlabilities_icon_communicate.png</image>
     <techterm>Text to speech synthesis/ analysis</techterm>
     <capabilities>
       <c1 value="Communicate through text or speech in an understandable language. For example, by replying in written sentences or reacting through speech"></c1>
@@ -173,7 +174,7 @@
     <type>Supervised learning</type>
     <techterm>Neural Machine Translation, neural style transfer
     </techterm>
-      <image>assets/photos/</image>
+      <image>assets/photos/mlabilities_icon_translate.png</image>
     <capabilities>
       <c1 value="Translate text from and to different languages"></c1>
       <c2 value="Use the style from a painting to transform an image to that style"></c2>
@@ -244,7 +245,7 @@
     <token>119</token>
     <description>Steer autonomously through a physical or virtual environment</description>
     <type>Reinforcement learning</type>
-      <image>assets/photos/</image>
+      <image>assets/photos/icon_optimize.png</image>
     <techterm>Navigation algorithms, reinforcement learning</techterm>
     <capabilities>
       <c1 value="Can learn from each new prediction and the model will improve over time"></c1>
