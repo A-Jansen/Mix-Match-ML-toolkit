@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>M2.1</title>
+	<title>Mix & Match ML toolkit</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
 	<script src="https://unpkg.com/p5ble@0.0.4/dist/p5.ble.js"></script>
@@ -44,21 +44,23 @@
 
 	</header>
 	<div class=centerBlock>
-		<div>
-			<p>Before you can start, you need to enter your participant/group information
-				and connect your laptop to the sensor board. Follow the next steps to get ready. </p>
-			<p class='bold'>Enter your group/ participant number: </p>
-			<input type="number" name="IDnumber" id='ID'><br>
+		<!-- <div> -->
+			<!-- <p>Before you can start, you need to enter your participant/group information
+				and connect your laptop to the sensor board. Follow the next steps to get ready. </p> -->
+			<!-- <p class='bold'>Enter your group/ participant number: </p>
+			<input type="number" name="IDnumber" id='ID'><br> -->
+			<img class="instructiongif" src="assets/photos/instruction.gif"/ style=" ">
 			<div>
-				<br>
+				<!-- <br> -->
 				<br>
 				<a id=connectBLE href="#">Connect to sensor board</a><span id='connected'>Succesfully connected to board</span>
-			</div>
+				<a href="#" id='continue' onClick="openInfo()">Skip connection</a>
+			<!-- </div> -->
 		</div>
 		<div>
 			<!-- Will only be shown once connected (change in.continue in css to hidden) -->
 			<br>
-			<a href="#" id='continue' onClick="openInfo()">Skip connection</a>
+
 		</div>
 		<p id='demo'></p>
 	</div>
