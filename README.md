@@ -3,7 +3,7 @@ This github repository contains the relevant codes, schematics and files used in
 
 ![alt text](https://github.com/A-Jansen/M21/blob/main/system%20overview.jpg)
 ## Website 
-The code for the website can be found in the folder [website](https://github.com/A-Jansen/M21/tree/main/website). <br>
+The go to the website click [here](https://a-jansen.github.io/) <br>
 The website uses XML files to store all the information about all the tokens and combinations. XSLT and CSS is used to format this information and each time a token is placed or removed the site is updated using AJAX. This is done to keep the sensor board connected via BLE. 
 In order to find the sensor board, the serviceUUID should be the same in the BLEconnect.js file and the Arduino code uploaded to the microcontroller. 
 <br>
