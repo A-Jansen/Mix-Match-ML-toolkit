@@ -7,7 +7,7 @@ The code for the website can be found in the folder [website](https://github.com
 The website uses XML files to store all the information about all the tokens and combinations. XSLT and CSS is used to format this information and each time a token is placed or removed the site is updated using AJAX. This is done to keep the sensor board connected via BLE. 
 In order to find the sensor board, the serviceUUID should be the same in the BLEconnect.js file and the Arduino code uploaded to the microcontroller. 
 <br>
-When creating your own version, you first need to initialize all the tokens by giving writing the correct ID numbers to them. The assigned numbers can be found [here] (https://github.com/A-Jansen/Mix-Match-ML-toolkit/blob/main/Token%20id's.xlsx). To write he numbers you can use [this] (https://github.com/miguelbalboa/rfid/tree/master/examples/rfid_write_personal_data) example code. 
+When creating your own version, you first need to initialize all the tokens by giving writing the correct ID numbers to them. The assigned numbers can be found [here](https://github.com/A-Jansen/Mix-Match-ML-toolkit/blob/main/Token%20id's.xlsx). To write he numbers you can use [this](https://github.com/miguelbalboa/rfid/tree/master/examples/rfid_write_personal_data) example code. 
 
 
 ## Sensor board
