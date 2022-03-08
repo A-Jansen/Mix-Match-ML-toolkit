@@ -20,7 +20,7 @@ The necessary code and files for making the sensor board can be found in the fol
   <li>LilyGO TTGO T-Energy ESP32-WROVER</li>
   <li>18650  battery</li>
   <li>2x MFRC522 RFID readers</li>
-  <li>Optional: [on and off button (with internal LED)](https://www.tinytronics.nl/shop/nl/schakelaars/manuele-schakelaars/drukknoppen-en-schakelaars/metalen-drukknop-16mm-aan-uit-met-3v-groene-led-verlichting)</li>
+  <li>Optional: on and off button (with internal LED) (https://www.tinytronics.nl/shop/nl/schakelaars/manuele-schakelaars/drukknoppen-en-schakelaars/metalen-drukknop-16mm-aan-uit-met-3v-groene-led-verlichting)</li>
   <li>Optional: extension cable from male micro usb to female mirco usb</li>
 </ul>
 
