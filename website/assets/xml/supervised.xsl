@@ -47,11 +47,29 @@
                   <span><xsl:value-of select="techterm"/></span>
                 </p>
                 <div class='fullspan'>
-                  <div class='leftdiv'>
+                  <div>
                     <p>
-                      <span class='bold supervised'>Capabilities:
+                      <span class='bold supervised'>Examples:
                       </span>
                       <ul>
+
+                        <xsl:for-each select="examples/*">
+                          <li><xsl:value-of select="@value"/></li>
+                        </xsl:for-each>
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+                <p class='bold supervised pointer' onclick="showhideLeft()">
+                  <i class="fa fa-info-circle fa-lg supervised">&#160;
+                  </i>
+                  <span id="openCapLim" >Show capabilities and limitations </span></p>
+                <div id='fullspanCompareLeft' class='fullspan'>
+                  <div class='leftdiv' >
+                    <p>
+                      <span class='bold supervised' >Capabilities:
+                      </span>
+                      <ul >
 
                         <xsl:for-each select="capabilities/*">
                           <li><xsl:value-of select="@value"/></li>
@@ -62,7 +80,7 @@
                   </div>
                   <div class='rightdiv'>
                     <p>
-                      <span class='bold supervised'>Limitations:
+                      <span class='bold supervised' >Limitations:
                       </span>
                       <ul>
 
@@ -75,27 +93,7 @@
                     </p>
                   </div>
                 </div>
-                <div>
-                  <p>
-                    <span class='bold supervised'>Examples:
-                    </span>
-                    <ul>
 
-                      <xsl:for-each select="examples/*">
-                        <li><xsl:value-of select="@value"/></li>
-                      </xsl:for-each>
-                    </ul>
-                  </p>
-                </div>
-            <!-- <a href="#" class="scroll-down" address="true"></a> -->
-
-
-                <!-- https://codepen.io/postor/pen/mskxI -->
-                <!-- <svg class="arrows">
-							<path class="a1 supervised" d="M0 0 L30 32 L60 0"></path>
-							<path class="a2 supervised" d="M0 20 L30 52 L60 20"></path>
-							<path class="a3 supervised" d="M0 40 L30 72 L60 40"></path>
-						</svg> -->
               </xsl:for-each>
             </div>
 

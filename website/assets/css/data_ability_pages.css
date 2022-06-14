@@ -116,12 +116,12 @@ visibility: visible;
 }
 
 .headerData {
-
   margin: auto;
   width: 1200px;
   height: inherit;
   padding-bottom: 30px;
   overflow: auto;
+  justify-content: center;
 }
 
 .leftheader {
@@ -195,7 +195,16 @@ visibility: visible;
 .descriptionAbility {
   font-size: 20px;
   margin-top: -5px;
+
 }
+
+.descriptionData {
+  font-size: 20px;
+  margin-top: -5px;
+  width: 80%;
+    /* color: #2D7F83 !important; */
+}
+
 
 .type {
   font-family: 'Roboto', sans-serif;
@@ -217,5 +226,18 @@ h4{
 
 .source{
   font-size: 10px;
+  max-width: 90%;
   font-family: "Lato", sans-serif;
+}
+
+#descHidden{
+  display: none;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.pointer:hover{
+    opacity: 70%;
 }

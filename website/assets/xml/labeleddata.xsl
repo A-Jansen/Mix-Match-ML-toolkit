@@ -38,24 +38,40 @@
               <xsl:for-each select="data/datatoken[ltoken=$tokenselected]">
                 <h3 class='type labeled'><xsl:value-of select="dataname"/>
                   data</h3>
-                <h4 class='labeled'><xsl:value-of select="structure"/>
-                  data</h4>
-                <p class='description'>
-                  <xsl:value-of select="description"/></p>
+                  <p class="descriptionData"><xsl:value-of select="highlightLabeled  "/></p>
+                <!-- <h4 class='labeled'><xsl:value-of select="structure"/>
+                  data</h4> -->
+                  <img>
+
+                    <xsl:attribute name="class">illustration
+                    </xsl:attribute>
+
+                    <xsl:attribute name="src"><xsl:value-of select="imageL"/>
+                    </xsl:attribute>
+                  </img>
+                  <!-- <p class='source'>Image source: <xsl:value-of select="source"/></p> -->
+
+                  <div  class='pointer' onclick="showhideInfo()">
+                    <p>
+                  <i class="fa fa-info-circle fa-lg labeled">&#160;
+                  </i>
+                  <span class='bold labeled' >More information
+                  </span>
+                </p>
+                </div>
+                  <p class='description'>
+                  <span id="descHidden">
+                  <xsl:value-of select="descriptionLabeled"/>
+                </span>
+                </p>
                 <p>
+                  <i class="fa fa-file fa-lg labeled">&#160;
+                  </i>
                   <span class='bold labeled'>Possible formats:
                   </span>
                   <span><xsl:value-of select="format"/></span>
                 </p>
-                <img>
 
-                  <xsl:attribute name="class">illustration
-                  </xsl:attribute>
-
-                  <xsl:attribute name="src"><xsl:value-of select="image2"/>
-                  </xsl:attribute>
-                </img>
-                <p class='source'>Image source: <xsl:value-of select="source"/></p>
               </xsl:for-each>
             </div>
 

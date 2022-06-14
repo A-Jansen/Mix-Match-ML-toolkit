@@ -47,7 +47,24 @@
                   </span>
                   <span><xsl:value-of select="techterm"/></span>
                 </p>
-                <div class="fullspan">
+                <div>
+                  <p>
+                    <span class='bold unsupervised'>Examples:
+                    </span>
+                    <ul>
+
+                      <xsl:for-each select="examples/*">
+                        <li><xsl:value-of select="@value"/></li>
+                      </xsl:for-each>
+                    </ul>
+                  </p>
+                </div>
+
+              <p class='bold unsupervised pointer' onclick="showhideLeft()">
+                <i class="fa fa-info-circle fa-lg unsupervised">&#160;
+                </i>
+                <span id="openCapLim" >Show capabilities and limitations</span></p>
+              <div id='fullspanCompareLeft' class='fullspan'>
                   <div class='leftdiv'>
                     <p>
                       <span class='bold unsupervised'>Capabilities:
@@ -76,18 +93,7 @@
                     </p>
                   </div>
                 </div>
-                <div>
-                  <p>
-                    <span class='bold unsupervised'>Examples:
-                    </span>
-                    <ul>
 
-                      <xsl:for-each select="examples/*">
-                        <li><xsl:value-of select="@value"/></li>
-                      </xsl:for-each>
-                    </ul>
-                  </p>
-                </div>
               </xsl:for-each>
             </div>
 

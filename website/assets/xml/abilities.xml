@@ -8,7 +8,8 @@
     <token>110</token>
     <description>Predict an action, event, state, behavior, intention, etc.</description>
     <type>Supervised learning</type>
-    <image>assets/photos/icon_foresee.png</image>
+    <image>assets/photos/mlabilities_icon_regression.png</image>
+    <imageHorizontal>assets/photos/mlabilities_horizontal_icon_regression.png</imageHorizontal>
     <techterm>Classification, regression</techterm>
     <capabilities>
       <c1 value="Predict what the next steps are likely to be and already make preselections or skip steps to reduce the workload of the user (e.g. adaptive interfaces)"></c1>
@@ -30,7 +31,8 @@
     <token>116</token>
     <description>Provide suggestions or guidance; propose contents, activities, etc.</description>
     <type>Unsupervised learning</type>
-    <image>assets/photos/icon_recommend.png</image>
+    <image>assets/photos/mlabilities_icon_recommend.png</image>
+    <imageHorizontal>assets/photos/mlabilities_horizontal_icon_recommend.png</imageHorizontal>
     <source>Image source https://towardsdatascience.com/prototyping-a-recommender-system-step-by-step-part-1-knn-item-based-collaborative-filtering-637969614ea</source>
     <techterm>Recommender systems (collaborative filtering/ content based)</techterm>
     <capabilities>
@@ -56,6 +58,7 @@
     <description>Differentiate certain items from a group or average (find outliers, anomalies, etc.)</description>
     <type>Unsupervised learning</type>
         <image>assets/photos/mlabilities_icon_distinguish.png</image>
+        <imageHorizontal>assets/photos/mlabilities_horizontal_icon_distinguish.png</imageHorizontal>
     <techterm>Anomaly detection</techterm>
     <capabilities>
       <c1 value="Can automatically monitor data and alert if their is something suspicious"></c1>
@@ -78,7 +81,8 @@
     <token>109</token>
     <description>Match an item with a category</description>
     <type>Unsupervised learning</type>
-    <image>assets/photos/icon_categorize.png</image>
+    <image>assets/photos/mlabilities_icon_categorize.png</image>
+    <imageHorizontal>assets/photos/mlabilities_horizontal_icon_categorize.png</imageHorizontal>
     <techterm>Classificaton</techterm>
     <capabilities>
       <c1 value="Can recognize objects by finding patterns in the data, including abstract data that is not easily interpretable for humans (e.g. large spreadsheets with sensor values)"></c1>
@@ -103,6 +107,7 @@
     <description>Categorize the identity of a specific individual/item from a trait</description>
     <type>Supervised learning</type>
       <image>assets/photos/mlabilities_icon_identify.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_identify.png</imageHorizontal>
     <techterm>Classification</techterm>
     <capabilities>
       <c1 value="Possible to recognize individuals, for example for unlocking your phone with your face"></c1>
@@ -126,6 +131,7 @@
     <description>Comprehend topics, themes, or sentiments; interpret language</description>
     <type>Supervised learning</type>
       <image>assets/photos/mlabilities_icon_understand.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_understand.png</imageHorizontal>
     <techterm>NLP, semantic analysis, Part-of-Speech tagging, topic analysis</techterm>
     <capabilities>
       <c1 value="Understand the sentiment of a word/sentence/text"></c1>
@@ -150,6 +156,7 @@
     <description>Convey messages/content in understandable languages</description>
     <type>Supervised learning</type>
       <image>assets/photos/mlabilities_icon_communicate.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_communicate.png</imageHorizontal>
     <techterm>Text to speech synthesis/ analysis</techterm>
     <capabilities>
       <c1 value="Communicate through text or speech in an understandable language. For example, by replying in written sentences or reacting through speech"></c1>
@@ -175,6 +182,7 @@
     <techterm>Neural Machine Translation, neural style transfer
     </techterm>
       <image>assets/photos/mlabilities_icon_translate.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_translate.png</imageHorizontal>
     <capabilities>
       <c1 value="Translate text from and to different languages"></c1>
       <c2 value="Use the style from a painting to transform an image to that style"></c2>
@@ -197,7 +205,8 @@
     <token>115</token>
     <description>Create content (e.g. videos, images, music, text) from scratch</description>
     <type>Unsupervised learning</type>
-      <image>assets/photos/icon_generate.png</image>
+      <image>assets/photos/mlabilities_icon_generate.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_generate.png</imageHorizontal>
     <techterm>Generative Adversarial Networks (GAN), speech synthesis, deep fakes</techterm>
     <capabilities>
       <c1 value="Can help ideating by creating a lot of various outputs as inspiration (e.g. images of different designs)"></c1>
@@ -222,7 +231,8 @@
     <token>120</token>
     <description>Improve or perfect a certain task/route/process</description>
     <type>Reinforcement learning</type>
-    <image>assets/photos/icon_optimize.png</image>
+    <image>assets/photos/mlabilities_icon_optimize.png</image>
+    <imageHorizontal>assets/photos/mlabilities_horizontal_icon_optimize.png</imageHorizontal>
     <techterm>Optimization algorithms, reinforcement learning</techterm>
     <capabilities>
       <c1 value="Can learn from each new prediction and the model will improve over time"></c1>
@@ -245,7 +255,8 @@
     <token>66</token>
     <description>Steer autonomously through a physical or virtual environment</description>
     <type>Reinforcement learning</type>
-      <image>assets/photos/icon_optimize.png</image>
+      <image>assets/photos/mlabilities_icon_optimize.png</image>
+      <imageHorizontal>assets/photos/mlabilities_horizontal_icon_optimize.png</imageHorizontal>
     <techterm>Navigation algorithms, reinforcement learning</techterm>
     <capabilities>
       <c1 value="Can learn from each new prediction and the model will improve over time"></c1>
@@ -258,7 +269,7 @@
       <l3 value="It is not possible to train and evaluate it beforehand"></l3>
     </limitations>
     <examples>
-      <e1 value="A robot learning to navigate through a space with obstacl"></e1>
+      <e1 value="A robot learning to navigate through a space with obstacles"></e1>
       <e2 value="Finding the shortest path to a point"></e2>
       <!-- <e3 value=""></e3> -->
     </examples>
@@ -268,7 +279,8 @@
     <token>112</token>
     <description>Group items based on their similarities</description>
     <type>Unsupervised learning</type>
-    <image>assets/photos/icon_cluster.png</image>
+    <image>assets/photos/mlabilities_icon_cluster.png</image>
+    <imageHorizontal>assets/photos/mlabilities_horizontal_icon_cluster.png</imageHorizontal>
     <techterm>Clustering</techterm>
     <capabilities>
       <c1 value="Find groups in large datasets without the need of labelling data"></c1>

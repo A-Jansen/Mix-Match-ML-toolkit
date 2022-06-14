@@ -54,6 +54,9 @@
                   <div class="rightheader">
                     <h3 class='type combi'>Sorry!</h3>
                     <p class='description'>This is not a common combination and no examples currently exist on this website</p>
+                    <xsl:if test="@NLP= 'yes'">
+                      <p class= 'description'>The ML capability <span class='highlight combi'><xsl:value-of select="ability"/></span> works (only) with human language. So try combining it with audio or text!</p>
+                    </xsl:if>
                   </div>
                 </xsl:for-each>
               </div>
@@ -67,7 +70,7 @@
                 <xsl:for-each select="combinations/combi[datatoken=$tokenselected1 and abilitytoken=$tokenselected2]">
                   <div class='leftheadercombi'>
 
-                    <div class='leftdiv'>
+                    <div class='leftdivcombi'>
 
                       <img>
 
@@ -81,7 +84,7 @@
                       <!-- <p> <xsl:value-of select = "$label" /></p> <p> <xsl:value-of select = "../images/im[@value=$label]" /></p> -->
 
                     </div>
-                    <div class='rightdiv'>
+                    <div class='middivcombi'>
 
                       <img>
 
@@ -93,7 +96,19 @@
                       </img>
                       <h3 class='abilitytoken token'><xsl:value-of select="ability"/></h3>
                       <!-- <p> <xsl:value-of select = "$learning" /></p> <p> <xsl:value-of select = "../images/im[@value=$learning]" /></p> -->
+
                     </div>
+                    <!-- <div class='rightdivcombi'>
+                      <img>
+
+                        <xsl:attribute name="class">outputcombiimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value='combi']"/>
+                        </xsl:attribute>
+                      </img>
+                      <h3 class='outputtoken token'><xsl:value-of select="outputtoken"/></h3>
+                    </div> -->
 
                   </div>
 
@@ -111,11 +126,22 @@
                     </p>
 
                     <div class='techterms'>
+
                       <i class="fa-solid fa-print fa-lg" style="color: #1E475E;">&#160;</i>
                       <span class='bold'>Output:&#160;
                       </span>
+                      <img>
+
+                        <xsl:attribute name="class">smalloutputimage
+                        </xsl:attribute>
+
+                        <xsl:attribute name="src"><xsl:value-of select="../images/im[@value='output']"/>
+                        </xsl:attribute>
+                      </img>
                       <span class="output"><xsl:value-of select="output" disable-output-escaping="yes"/></span>
+
                     </div>
+
                   </div>
                 </xsl:for-each>
               </div>

@@ -19,7 +19,10 @@ var tag1; //the tagID of tag1
 var tag2; //the tagID of tag2
 var tagRemoved = false;
 
+var modeValue = 78; //start with normal mode
+var oldModeValue = 78;
 
+var emptyBefore=false;//use this to only load the info page once instead of constantly
 
 function setup() {
   // Create a p5ble class
@@ -34,6 +37,7 @@ function setup() {
 function connectToBle() {
   // Connect to a device by passing the service UUID
   myBLE.connect(serviceUuid, gotCharacteristics);
+  document.getElementById("connecting").style.visibility = "visible";
 }
 
 function disconnectToBle() {
@@ -75,6 +79,7 @@ function gotCharacteristics(error, characteristics) {
   if (isConnected) {
     document.getElementById("continue").style.visibility = "visible";
     document.getElementById("connected").style.visibility = "visible";
+    document.getElementById("connecting").style.visibility = "hidden";
   }
 
 }
@@ -82,31 +87,63 @@ function gotCharacteristics(error, characteristics) {
 // A function that will be called once got characteristics
 function handleNotifications(data) {
   myValue = data;
-  if (myValue == 0 | myValue == 1 | myValue == 2) {
+  //console.log(myValue);
+  if (myValue == 0 | myValue == 1) {
     identifier = myValue;
-  } else if (myValue == 254) {
+  } else if (myValue == 67 | myValue == 78) {
+    //mode myValue
+    //  console.log(myValue);
+    checkMode2(myValue);
+    } else if (myValue == 254) {
     disconnectToBle();
   } else {
     incomingValues[identifier] = myValue;
   }
-  //console.log(identifier, incomingValues[identifier]);
   readValues();
 
 }
 
+function checkMode2(modeVal) {
+  if (modeVal != oldModeValue) {
+    //update mode
+    if (modeVal == 67) {
+      //  console.log("Compare modus");
+      mode2 = 'compare';
+      resetReading();
+    } else if (modeVal == 78) {
+      //  console.log('normal');
+      mode2 = "normal";
+      resetReading();
+    }
+  }
+  oldModeValue = modeVal;
+}
+
+function resetReading() {
+  tags = [255, 255];
+  tagsPresent = 0;
+  tagRemoved = false;
+}
+
 function readValues() {
+//  console.log(incomingValues);
   //in case someone continues using the board without closing the alert, this code will make sure it will only opens the combination page instead of both the ability and combination page underneath each other
   //it checks if three or more things are shown and if this is the case, only shows the combination page
-  if(document.getElementsByClassName("headerData").length>2){
+  if (document.getElementsByClassName("headerData").length > 2) {
     numPages(2);
   }
-    //check if there is at least one token available
+  //check if there is at least one token available
   if (arrayEquals(incomingValues, emptyArray)) {
-    //if not: open information page (0)
+    //if not: open information page (0) but only when it is the first time reading it as empty (emptyBefore=false)
+    if(!emptyBefore){
     open1Page(0);
+  } else {
+
+  }
   }
   if (!arrayEquals(incomingValues, tags)) { //if something changed after the previous situation, check if tokens are removed and update page
-    // console.log(incomingValues, tags);
+    console.log(incomingValues, tags);
+    emptyBefore=false;//set back to false
     removeTags();
     // updateTags();
   }
@@ -123,13 +160,13 @@ function removeTags() {
       tags[i] = 255;
       loc[i] = 0; // 1: tag is present, 0: no tag present
       // updateTags();
-    }//if
-  }//for
-   updateTags();
+    } //if
+  } //for
+  updateTags();
 }
 
 function updateTags() {
-  console.log(tagRemoved);
+  //console.log(tagRemoved);
   if (!arrayEquals(incomingValues, emptyArray)) {
     //loop over the incomingValues to detect how many tags are present, their location and their ID.
     for (let i = 0; i < incomingValues.length; i++) {
@@ -152,7 +189,7 @@ function updateTags() {
         // }
       } //if
     } //for
-    // console.log(tagsPresent);
+    //console.log(tagsPresent);
     numPages(tagsPresent);
   } else {
     tagRemoved = false;
@@ -160,10 +197,14 @@ function updateTags() {
 }
 
 function numPages(numTags) {
-  console.log("tagspresent: " + numTags);
-    switch (numTags) {
+  //  console.log("tagspresent: " + numTags);
+  switch (numTags) {
+    case 3: //3 tags not possible so set back to 0
+      console.log("Reset reading");
+      resetReading();
+      break;
     case 2: //2 tags present
-      // console.log("2 tags present");
+     console.log("2 tags present");
       tag1 = tags[0];
       tag2 = tags[1];
       openCombiPage(tag1, tag2);
@@ -171,7 +212,7 @@ function numPages(numTags) {
     case 1: //1 tag present if loc[0]: data, loc[1]: label, loc[2]: ability
       //show data or ability page depending on token
       // console.log("1 tag present");
-      tag1=tags[tags.findIndex(findTag)];
+      tag1 = tags[tags.findIndex(findTag)];
       // console.log("tag1: "+tag1);
       open1Page(tag1);
       break;
@@ -183,7 +224,14 @@ function numPages(numTags) {
 //Check which of the arrays contain the token ID and open the corresponding page
 function open1Page(tagID) {
   if (tagID == 0) {
-    openInfo();
+    if (mode === 'none') {
+      openModeSelect();
+    } else {
+      emptyBefore=true;
+      openInfo();
+      console.log('empty');
+    }
+
   } else if (labeledDataTokens.includes(tagID)) {
     //  openDataPage(transform('datatypes.xml', 'datatokens.xsl', 'Text'));
     openDataPage(transform('datatypes.xml', 'labeleddata.xsl', tagID));
@@ -203,7 +251,7 @@ function open1Page(tagID) {
   } else {
     openInfo();
 
-    alert('Token not recognized');
+    //alert('Token not recognized');
     // tagsPresent=0;
     // readValues();
 
@@ -213,20 +261,60 @@ function open1Page(tagID) {
 //In case two tokens are present, check if it is valid combination. If yes, then open the correct combination page and otherwise give an alert and return to info page
 function openCombiPage(tag1, tag2) {
   // console.log(tag1);
-  if (labeledDataTokens.includes(tag1) && (supTokens.includes(tag2) || unsupTokens.includes(tag2))) {
-    openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
-    sendOOCSI('combination', tag1, tag2);
-  } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
-    // console.log(tag1);
-    // let i = unlabeledDataTokens.indexOf(tag1);
-    openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
-    sendOOCSI('combination', tag1, tag2);
-  } else {
-    openInfo();
-    console.log("incorrect combination");
-    alert('This is not a correct/possible combination ');
+  console.log(mode2);
+  if (mode2 === "normal") {
+    console.log(tag1, tag2);
+    if (labeledDataTokens.includes(tag1) && (supTokens.includes(tag2) || unsupTokens.includes(tag2))) {
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
+      sendOOCSI('combination', tag1, tag2);
+    } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
+      // console.log(tag1);
+      // let i = unlabeledDataTokens.indexOf(tag1);
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
+      sendOOCSI('combination', tag1, tag2);
+    } //if tokens are reversed still work
+    else if (labeledDataTokens.includes(tag2) && (supTokens.includes(tag1) || unsupTokens.includes(tag1))) {
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag2, tag1));
+      sendOOCSI('combination', tag2, tag1);
+    } else if (unlabeledDataTokens.includes(tag2) && unsupTokens.includes(tag1)) {
+      // console.log(tag1);
+      // let i = unlabeledDataTokens.indexOf(tag1);
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag2, tag1));
+      sendOOCSI('combination', tag2, tag1);
+    } else {
+      openNoCombi();
+      console.log("incorrect combination");
+    }
 
+  } else if (mode2 === "compare") {
+    console.log("Compare mode");
+    if ((labeledDataTokens.includes(tag1) || unlabeledDataTokens.includes(tag1)) && (labeledDataTokens.includes(tag2) || unlabeledDataTokens.includes(tag2))) {
+      openComparePage(transformCompare('datatypes.xml', 'comparedata.xsl', tag2, tag1));
+    } else if (abilityTokens.includes(tag1) && abilityTokens.includes(tag2)) {
+      openComparePage(transformCompare('abilities.xml', 'compareabilities.xsl', tag2, tag1));
+    } else if (labeledDataTokens.includes(tag1) && (supTokens.includes(tag2) || unsupTokens.includes(tag2))) {
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
+      sendOOCSI('combination', tag1, tag2);
+    } else if (unlabeledDataTokens.includes(tag1) && unsupTokens.includes(tag2)) {
+      // console.log(tag1);
+      // let i = unlabeledDataTokens.indexOf(tag1);
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag1, tag2));
+      sendOOCSI('combination', tag1, tag2);
+
+    }
+
+    //if tokens are reverse still work
+    else if (labeledDataTokens.includes(tag2) && (supTokens.includes(tag1) || unsupTokens.includes(tag1))) {
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag2, tag1));
+      sendOOCSI('combination', tag2, tag1);
+    } else if (unlabeledDataTokens.includes(tag2) && unsupTokens.includes(tag1)) {
+      // console.log(tag1);
+      // let i = unlabeledDataTokens.indexOf(tag1);
+      openCombinationPage(transform2('combies.xml', 'combies.xsl', tag2, tag1));
+      sendOOCSI('combination', tag2, tag1);
+    }
   }
+
 
 }
 
@@ -240,4 +328,118 @@ function arrayEquals(a, b) {
 
 function findTag(tag) {
   return tag != 255;
+}
+
+function showhideInfo() {
+  var x = document.getElementById("descHidden");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function showhideLeft() {
+  var x = document.getElementById("fullspanCompareLeft");
+
+  if (x.style.display === "block") {
+    document.getElementById("openCapLim").innerHTML = "Show capabilities and limitations";
+    x.style.display = "none";
+  } else {
+    document.getElementById("openCapLim").innerHTML = "Close capabilities and limitations";
+    x.style.display = "block";
+  }
+}
+
+function showhideRight() {
+  var x = document.getElementById("fullspanCompareRight");
+  if (x.style.display === "block") {
+    document.getElementById("openCapLimR").innerHTML = "Show capabilities and limitations";
+    x.style.display = "none";
+  } else {
+    document.getElementById("openCapLimR").innerHTML = "Close capabilities and limitations";
+    x.style.display = "block";
+  }
+}
+
+function showhideDataLeft() {
+  var x = document.getElementById("descHiddenLeft");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function showhideDataRight() {
+  var x = document.getElementById("descHiddenRight");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function changeMode() {
+  //console.log("check");
+  educationMode = document.getElementById("switchMode").checked;
+  console.log("Education mode: " + educationMode);
+  console.log(typePage);
+  changeDisplay();
+}
+
+function selectMode(modeSelected) {
+  if (modeSelected === 'education') {
+    educationMode = true;
+    mode = 'education';
+  } else {
+    educationMode = false;
+    mode = 'normal';
+  }
+
+  console.log("Education mode: " + educationMode);
+}
+
+
+function changeDisplay() {
+  if (typePage === "data") {
+    var id = 'descHidden';
+    if (educationMode) {
+      document.getElementById(id).style.display = 'block';
+    } else {
+      document.getElementById(id).style.display = 'none';
+    }
+  } else if (typePage === "capability") {
+    var id = "fullspanCompareLeft";
+
+    if (educationMode) {
+      document.getElementById("openCapLim").innerHTML = "Close capabilities and limitations";
+      document.getElementById(id).style.display = 'block';
+    } else {
+      document.getElementById("openCapLim").innerHTML = "Show capabilities and limitations";
+      document.getElementById(id).style.display = 'none';
+    }
+  } else if (typePage === 'compareabilities') {
+    if (educationMode) {
+      document.getElementById("fullspanCompareLeft").style.display = 'block';
+      document.getElementById("fullspanCompareRight").style.display = 'block';
+      document.getElementById("openCapLim").innerHTML = "Close capabilities and limitations";
+      document.getElementById("openCapLimR").innerHTML = "Close capabilities and limitations";
+    } else {
+      document.getElementById("fullspanCompareLeft").style.display = 'none';
+      document.getElementById("fullspanCompareRight").style.display = 'none';
+      document.getElementById("openCapLim").innerHTML = "Show capabilities and limitations";
+      document.getElementById("openCapLimR").innerHTML = "Show capabilities and limitations";
+    }
+  } else if (typePage === 'comparedata') {
+    if (educationMode) {
+      document.getElementById("descHiddenLeft").style.display = 'block';
+      document.getElementById("descHiddenRight").style.display = 'block';
+    } else {
+      document.getElementById("descHiddenLeft").style.display = 'none';
+      document.getElementById("descHiddenRight").style.display = 'none';
+    }
+
+  }
+
 }

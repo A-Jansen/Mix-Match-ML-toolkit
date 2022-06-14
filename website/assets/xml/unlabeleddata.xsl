@@ -36,14 +36,8 @@
             <div class='rightheader'>
               <xsl:for-each select="data/datatoken[ultoken=$tokenselected]">
                 <h3 class='type unlabeled' ><xsl:value-of select="dataname"/> data</h3>
-                <h4 class='unlabeled'><xsl:value-of select="structure"/> data</h4>
-                <p class='description'>
-                <xsl:value-of select="description"/></p>
-                <p>
-                  <span class='bold unlabeled'>Possible formats:
-                  </span>
-                  <span><xsl:value-of select="format"/></span>
-                </p>
+                <!-- <h4 class='unlabeled'><xsl:value-of select="structure"/> data</h4> -->
+                <p class="descriptionData"><xsl:value-of select="highlightUnlabeled  "/></p>
                 <img>
 
                   <xsl:attribute name="class">illustration
@@ -52,7 +46,28 @@
                   <xsl:attribute name="src"><xsl:value-of select="ulimage"/>
                   </xsl:attribute>
                 </img>
-                <p class='source'>Image source: <xsl:value-of select="ulsource"/></p>
+                <!-- <p class='source'>Image source: <xsl:value-of select="ulsource"/></p> -->
+                <div  class='pointer' onclick="showhideInfo()">
+                  <p>
+                <i class="fa fa-info-circle fa-lg unlabeled">&#160;
+                </i>
+                <span class='bold unlabeled' >More information
+                </span>
+              </p>
+              </div>
+                <p class='description'>
+                <span id="descHidden">
+                <xsl:value-of select="descriptionUnlabeled"/>
+              </span>
+              </p>
+                <p>
+                  <i class="fa fa-file fa-lg unlabeled">&#160;
+                  </i>
+                  <span class='bold unlabeled'>Possible formats:
+                  </span>
+                  <span><xsl:value-of select="format"/></span>
+                </p>
+
               </xsl:for-each>
             </div>
 

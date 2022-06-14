@@ -9,15 +9,20 @@
     <ltoken>98</ltoken>
     <ultoken>104</ultoken>
     <structure>Unstructured</structure>
-    <description>Images are unstructured forms of data. These could be photos of people, objects, the environment, medical scans, photos of writings and more. Labeled image data can exist in two forms, one where the entire image is given one class or
-      where the different objects in an image are surrounded by a bounding box and each bounding box has a label. For good results, the photos should be taken with much variety, e.g. different backgrounds, lighting and angles. Image data requires several
-      steps of preprocessing, for example resizing to a smaller format.
-    </description>
+    <highlightLabeled>Image data can be photos, scans, photos of writing etc. The label tells you what is visible in the image or to what category it belongs.</highlightLabeled>
+    <highlightUnlabeled>Image data can be photos, scans, photos of writing etc.</highlightUnlabeled>
+    <descriptionLabeled>Images are unstructured forms of data. These could be photos of people, objects, the environment, medical scans, photos of writings, and more. Labeled image data can exist in two forms, one where the entire image belongs to one category (class) or where the different objects in an image are surrounded by a bounding box and each bounding box has a label to indicate to which category (class) it belongs.
+For good results, the photos should be taken with much variety, e.g. different backgrounds, lighting, and angles. Image data requires several steps of preprocessing, for example resizing to a smaller format.
+    </descriptionLabeled>
+    <descriptionUnlabeled>
+      Images are unstructured forms of data. These could be photos of people, objects, the environment, medical scans, photos of writings, and more.
+For good results, the photos should be taken with much variety, e.g. different backgrounds, lighting, and angles. Image data requires several steps of preprocessing, for example resizing to a smaller format.
+    </descriptionUnlabeled>
     <format>.jpg, .png, .tiff</format>
     <image>assets/photos/image.png</image>
-    <image2>assets/photos/image_image.png</image2>
+    <imageL>assets/photos/data_imageL.png</imageL>
     <source>https://webkid.io/blog/datasets-for-machine-learning/</source>
-    <ulimage>assets/photos/ul_image.png</ulimage>
+    <ulimage>assets/photos/data_imageUN.png</ulimage>
     <ulsource>https://neurohive.io/en/datasets/tencent-dataset/</ulsource>
     <collection>Camera</collection>
   </datatoken>
@@ -27,14 +32,18 @@
     <ltoken>102</ltoken>
     <ultoken>108</ultoken>
     <structure>Unstructured</structure>
-    <description>Videos are unstructured forms of data that can be seen as time series of images with audio. This makes it sometimes possible to apply models for images on video data as well, as it will look at each frame as an individual image. Video
-      data can be used at the frame level, e.g. predict the next frame or categorize the objects in a frame but it can also categorize the video as a whole, e.g. this is a sport or cooking video. Video data often requires preprocessing.
-    </description>
+    <highlightLabeled>Video data are a lot of frames (images) with audio. The label can be for the whole video or a single frame.</highlightLabeled>
+    <highlightUnlabeled>Video data are a lot of frames (images) with audio.</highlightUnlabeled>
+    <descriptionLabeled>Videos are unstructured forms of data that can be seen as time series of images with audio. This makes it sometimes possible to apply models for images on video data as well, as it will look at each frame as an individual image. Video data can be used at the frame level, e.g. predict the next frame or categorize the objects in a frame but it can also categorize the video as a whole, e.g. this is a sport or cooking video. In the case of the first, a label will need to be present for each frame and for the latter only for the video in its entirety. Video data often requires preprocessing.
+      </descriptionLabeled>
+    <descriptionUnlabeled>
+      Videos are unstructured forms of data that can be seen as time series of images with audio. This makes it sometimes possible to apply models for images on video data as well, as it will look at each frame as an individual image. Video data can be used at the frame level or as a whole. Video data often requires preprocessing.
+        </descriptionUnlabeled>
     <format>.mp4, .mov, .avi, .mpeg</format>
     <image>assets/photos/video.png</image>
-    <image2>assets/photos/image_video.png</image2>
+    <imageL>assets/photos/data_videoL.svg</imageL>
     <source>https://kili-technology.com/annotation-tool/video-annotation-tool/</source>
-    <ulimage>assets/photos/ul_video.png</ulimage>
+    <ulimage>assets/photos/data_videoUN.svg</ulimage>
     <ulsource>https://medium.com/syncedreview/epic-kitchens-largest-egocentric-video-dataset-gets-new-baselines-5632ce9992bc</ulsource>
     <collection>Video camera</collection>
   </datatoken>
@@ -44,13 +53,18 @@
     <ltoken>100</ltoken>
     <ultoken>106</ultoken>
     <structure>Unstructured</structure>
-    <description>Text data are unstructured data. Text data will need to be preprocessed before being used in an ML model. For example, sentences will be split into words, stop words are removed and words are reduced to their root (e.g. words to word and
-      writing to write). Based on these reduced texts, features are extracted that can be used in ML models (for example how often does this word occur or which words are used in the same contexts). The next words of a sentence can also be seen as labels in some circumstances. </description>
+    <highlightLabeled>Text data can range from individual words to whole books with the label indicating the category (they can also be embedded).</highlightLabeled>
+    <highlightUnlabeled>Text data can range from individual words to whole books.</highlightUnlabeled>
+    <descriptionLabeled>Text data are often unstructured data. Text data will often need to be preprocessed before being used in an ML model. For example, sentences will be split into words, stop words are removed and words are reduced to their root (e.g. words to word and writing to write). Labels can be present to indicate the category to which a text/ sentence/ word belongs, for example, if the sentence expresses a positive or negative sentiment. Other options for labeled data are the question to answer or even the next word in a sentence.
+     </descriptionLabeled>
+      <descriptionUnlabeled>
+        Text data are often unstructured data. Text data will often need to be preprocessed before being used in an ML model. For example, sentences will be split into words, stop words are removed and words are reduced to their root (e.g. words to word and writing to write). Based on these reduced texts, features are extracted that can be used in ML models (for example how often does this word occur or which words are used in the same contexts).
+      </descriptionUnlabeled>
     <format>.doc, .pdf, .txt, .csv (with labels)</format>
     <image>assets/photos/text.png</image>
-    <image2>assets/photos/image_text.png</image2>
+    <imageL>assets/photos/data_textL.svg</imageL>
     <source>https://valohai.com/blog/production-machine-learning-pipeline-text-classification-fasttext/</source>
-    <ulimage>assets/photos/ul_text.jpg</ulimage>
+    <ulimage>assets/photos/data_textUN.svg</ulimage>
     <ulsource>Photo by Glen Carrie on Unsplash</ulsource>
     <collection>Reviews, books, social media</collection>
   </datatoken>
@@ -60,14 +74,18 @@
     <ltoken>97</ltoken>
     <ultoken>103</ultoken>
     <structure>Unstructured</structure>
-    <description>Audio data are unstructured data and are a special kind of time series data as they are audio waves (the amplitude) measured over time. Audio data can be voice recordings, music, animal sounds, sounds of machinery and more. Audio data
-      requires preprocessing and several methods exist, a well-known method is using Fourier Transform to get the frequencies.
-    </description>
+    <highlightLabeled>Audio data measures audio waves over time, e.g. music or voices. The label tells what is heard in the audio or to which category it belongs. </highlightLabeled>
+    <highlightUnlabeled>Audio data measures audio waves over time, e.g. music or voices.</highlightUnlabeled>
+    <descriptionLabeled>Audio data are unstructured data and are a special kind of time series data as they are audio waves (the amplitude) measured over time. Audio data can be voice recordings, music, animal sounds, sounds of machinery, and more. A label will be attached to each recording or segment to indicate to which category (class) it belongs. Audio data requires preprocessing and several methods exist, a well-known method is using Fourier Transform to get the frequencies.
+    </descriptionLabeled>
+    <descriptionUnlabeled>
+      Audio data are unstructured data and are a special kind of time series data as they are audio waves (the amplitude) measured over time. Audio data can be voice recordings, music, animal sounds, sounds of machinery, and more. Audio data requires preprocessing and several methods exist, a well-known method is using Fourier Transform to get the frequencies.
+    </descriptionUnlabeled>
     <format>.mp3, .wav, .m4a</format>
     <image>assets/photos/audio.png</image>
-    <image2>assets/photos/image_audio.png</image2>
+    <imageL>assets/photos/data_audioL.svg</imageL>
     <source>https://nl.mathworks.com/help/audio/ref/audiolabeler-app.html</source>
-    <ulimage>assets/photos/ul_audio.png</ulimage>
+    <ulimage>assets/photos/data_audioUN.svg</ulimage>
     <ulsource>https://www.analyticsvidhya.com/blog/2017/08/audio-voice-processing-deep-learning/</ulsource>
     <collection>Microphone</collection>
   </datatoken>
@@ -77,15 +95,19 @@
     <ltoken>101</ltoken>
     <ultoken>107</ultoken>
     <structure>Unstructured</structure>
-    <description>Time series are unstructured data that contain repeated observations from e.g. a sensor or prices over time. Time series are often recorded in a tabular format where the time is saved in one column and the other columns contain other
-      features such as the X,Y,Z acceleration from a sensor. If a label is available, these will be placed in an extra column. Time series are unstructured data, since an extra step of preprocessing is often needed before it can be used as input for a
-      machine learning model. Audio is a special subset of time series. Time series often need to be preprocessed, for example standardizing the data.
-    </description>
+    <highlightLabeled>Data inherently linked to time, recorded as a timeline or table where the label is in an extra column.</highlightLabeled>
+    <highlightUnlabeled>Data inherently linked to time, recorded as a timeline or table.</highlightUnlabeled>
+    <descriptionLabeled>Time series are unstructured data that contain repeated observations from e.g. a sensor or prices over time. Time series are often recorded in a tabular format where the time is saved in one column and the other columns contain other features such as the X, Y, Z acceleration from a sensor. If a label is available, these will be placed in an extra column. This label indicates the category (class) to which that data instance belongs.
+Time series are unstructured data since an extra step of preprocessing is often needed before it can be used as input for a machine learning model. Audio is a special subset of time series. Time series often need to be preprocessed, for example standardizing the data.
+  </descriptionLabeled>
+    <descriptionUnlabeled>
+      Time series are unstructured data that contain repeated observations from e.g. a sensor or prices over time. Time series are often recorded in a tabular format where the time is saved in one column and the other columns contain other features such as the X, Y, Z acceleration from a sensor. Time series are unstructured data since an extra step of preprocessing is often needed before it can be used as input for a machine learning model. Audio is a special subset of time series. Time series often need to be preprocessed, for example standardizing the data.
+    </descriptionUnlabeled>
     <format>.csv, .tsd, .arff</format>
     <image>assets/photos/timeseries.png</image>
-    <image2>assets/photos/image_timeseries.png</image2>
+    <imageL>assets/photos/data_timeseriesL.svg</imageL>
     <source>https://towardsdatascience.com/labelling-time-series-data-in-python-af62325e8f60</source>
-    <ulimage>assets/photos/ul_timeseries.png</ulimage>
+    <ulimage>assets/photos/data_timeseriesUL.svg</ulimage>
     <ulsource>https://www.aptech.com/blog/introduction-to-the-fundamentals-of-time-series-data-and-analysis/</ulsource>
     <collection>Accelerometer</collection>
   </datatoken>
@@ -95,13 +117,18 @@
     <ltoken>99</ltoken>
     <ultoken>105</ultoken>
     <structure>Structured</structure>
-    <description>Tabular data is structured data and are organized in rows and columns, where each row (or column) represents one item. In case labels are available, they will form one column and all the remaining data are the features that are used to
-      predict the label. For example, the label could be the rating of a movie and the features are the genre, the director, the release year, overview of the movie and its number of votes. Tabular data can be directly used in ML models.</description>
+    <highlightLabeled>Data organized in a table with instances on rows and the features and label as columns.</highlightLabeled>
+    <highlightUnlabeled>Data organized in a table with instances on rows and features as columns.</highlightUnlabeled>
+    <descriptionLabeled>Tabular data is structured data and are organized in rows and columns, where each row (or column) represents one item. Labels are present as one column of the data and indicate to which category (class) that row of data belongs. The other columns are the features that are used to predict the label. For example, the label could be the rating of a movie and the features are the genre, the director, the release year, an overview of the movie, and its number of votes. Tabular data can be directly used in ML models.
+    </descriptionLabeled>
+      <descriptionUnlabeled>
+        Tabular data is structured data and are organized in rows and columns, where each row (or column) represents one item. In the case of unlabeled data, the columns contain only features that might be used e.g. to cluster based on similarity. Tabular data can be directly used in ML models.
+      </descriptionUnlabeled>
     <format>.csv, .xls, .json</format>
     <image>assets/photos/table.png</image>
-    <image2>assets/photos/image_table.png</image2>
+    <imageL>assets/photos/data_tableL.svg</imageL>
     <source>https://bishwamittra.github.io/imli.html</source>
-    <ulimage>assets/photos/ul_table.png</ulimage>
+    <ulimage>assets/photos/data_tableUL.svg</ulimage>
     <ulsource>https://www.myonlinetraininghub.com/excel-tabular-data-format</ulsource>
     <collection>Excel</collection>
   </datatoken>

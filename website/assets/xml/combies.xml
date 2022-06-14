@@ -5,6 +5,10 @@
   <im value='unlabeled'>assets/photos/ud.png</im>
   <im value='supervised'>assets/photos/sl.png</im>
   <im value='unsupervised'>assets/photos/us.png</im>
+  <im value='output'>assets/photos/icons_v2-11.png</im>
+  <im value='output_l'>assets/photos/output_l.png</im>
+  <im value='combi'>assets/photos/icons_combi.svg</im>
+  <im value='humanintheloop'>assets/photos/hitl.png</im>
 </images>
   <combi>
     <name>Predictions based on images</name>
@@ -14,6 +18,7 @@
     <abilitytoken>110</abilitytoken>
     <description>Images could also be used as input for making predictions about for example next actions, states e.g. emotional states (overlap with categorizing images, in this case will it predict your future emotion) and values (on e.g. a continuous scale). For this, the model will learn to recognize certain features in the images and link these with the provided ground truth.  </description>
     <output> <![CDATA[ Label 5 (82%), Label 3 (18%) <br/> OR a predicted value (e.g. 23)]]></output>
+    <outputtoken>text</outputtoken>
     <techterm>Classification, regression</techterm>
     <examples>
       <ex>
@@ -34,6 +39,7 @@
     <description>Images are easy to recognize for people, but can be very hard for computers as there will always be slight variations between photos of the same class, e.g. the angle or the lighting.
 You  might for example want to recognize different animals in a photo or handwritten numbers. However not all cats look alike and everyone's handwritten 2 looks different. ML models for this ability will learn to recognize what is shown in the images. Some models can recognize only one object in each image and others can detect multiple objects, as well as their location. In the case of the latter, the images will not only need a label but also a bounding box around the different objects in the image with a label for what is in each bounding box.</description>
     <output> <![CDATA[ Label 5 (60%) <br/> Label 3 (23%) <br/> Label 2 (17%)]]></output>
+    <outputtoken>text</outputtoken>
     <techterm>Image classification</techterm>
     <examples>
       <ex >
@@ -53,6 +59,7 @@ You  might for example want to recognize different animals in a photo or handwri
     <abilitytoken>111</abilitytoken>
     <description>Image identification is a specific subset of image recognition. Image recognition (categorize) places an image in one of the possible categories, but these categories are general "buckets" and do not identify individuals or individual objects. If you do want to be able to specifically identify an individual (e.g. to attach a name to an image) or an individual object (e.g. to recognize the name of a building), you can use image identification.</description>
     <output> <![CDATA[ Label 5 (60%) <br/> Label 3 (23%) <br/> Label 2 (17%)]]></output>
+    <outputtoken>text</outputtoken>
     <techterm>Image classification</techterm>
     <examples>
       <ex >
@@ -72,6 +79,7 @@ You  might for example want to recognize different animals in a photo or handwri
     <abilitytoken>112</abilitytoken>
     <description>When the images are not labeled, but you still want to find images that might belong to the same category or you might want to find similar images for other purposes, you can use image clustering. The model will look for similarities between the images and group those together. It could for example cluster based on color or on the object visible in the image. However, since it is unsupervised learning, it will not be able to give labels to the clusters. </description>
     <output> <![CDATA[ Coordinates of the centroids <br> Which points belong to which cluster]]></output>
+    <outputtoken>table</outputtoken>
     <techterm>Image clustering</techterm>
     <examples>
       <ex>
@@ -436,7 +444,7 @@ For both concepts, the text will need to be preprocessed to make it understandab
   <combi>
     <name>Text understanding</name>
     <datatype>Text</datatype>
-    <ability>Understanding</ability>
+    <ability>Understand</ability>
     <datatoken>100</datatoken>
     <abilitytoken>122</abilitytoken>
     <description>For some interactions, it is needed that what you are typing is not only written down, but also that it is understood. For example, when typing an email it is not always necessary that the program knows what you are writing or reading, but if it does, it can e.g. suggest possible responses or remind you that you might have forgotten the attachment. This is still quite a superficial understanding, but when using chatbots, the program really should understand what you are typing as it will need to create a fitting response.</description>
@@ -456,7 +464,7 @@ For both concepts, the text will need to be preprocessed to make it understandab
       <ex>
         <exname>Code oracle</exname>
         <exdescription>Code is one very specific form of text and can be quite hard to understand, especially when using an unfamiliar language. Code Oracle allows you to highlight a snippet of your code to see in "normal" language what it is doing.</exdescription>
-        <eximage>assets/photos/codeexplainer.jpg</eximage>
+        <eximage>assets/photos/codexplainer.jpg</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://gpt3demo.com/apps/repl-it">"</exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://medium.com/analytics-vidhya/ai-generates-code-using-python-and-openais-gpt-3-2ddc95047cba"></diylink>
       </ex>
@@ -661,7 +669,7 @@ makes it possible to predict what could happen by making e.g. a regression plot 
       <ex>
         <exname>Synthetic time series data</exname>
         <exdescription>Creating extra time series data based on some starting data. More data can help to train a better model.</exdescription>
-        <eximage>assets/photos/synthetictime series.jpg</eximage>
+        <eximage>assets/photos/synthetictimeseries.jpg</eximage>
         <exlink xlink:type="simple" xlink:show="new" xlink:href="https://www.osti.gov/servlets/purl/1607585"></exlink>
         <diylink xlink:type="simple" xlink:show="new" xlink:href="https://towardsdatascience.com/creating-synthetic-time-series-data-67223ff08e34"></diylink>
       </ex>
@@ -696,7 +704,7 @@ makes it possible to predict what could happen by making e.g. a regression plot 
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Time series</datatype>
     <ability>Communicate</ability>
@@ -755,7 +763,7 @@ makes it possible to predict what could happen by making e.g. a regression plot 
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Time series</datatype>
     <ability>Translate</ability>
@@ -784,7 +792,7 @@ makes it possible to predict what could happen by making e.g. a regression plot 
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Audio</datatype>
     <ability>Foresee</ability>
@@ -1283,7 +1291,7 @@ Based on all columns, except the one with the labels, the model will try to pred
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Table</datatype>
     <ability>Communicate</ability>
@@ -1312,7 +1320,7 @@ Based on all columns, except the one with the labels, the model will try to pred
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Table</datatype>
     <ability>Understand</ability>
@@ -1341,7 +1349,7 @@ Based on all columns, except the one with the labels, the model will try to pred
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Table</datatype>
     <ability>Translate</ability>
@@ -1576,7 +1584,7 @@ Next to that, videos can also contain audio and for this you can audio identific
       </ex>
     </examples>
   </combi>
-  <combi exist='no'>
+  <combi exist='no' NLP='yes'>
     <name></name>
     <datatype>Video</datatype>
     <ability>Communicate</ability>
